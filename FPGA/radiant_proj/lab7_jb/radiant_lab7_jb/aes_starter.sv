@@ -79,11 +79,12 @@ module aes_core(input  logic         clk,
                 output logic         done, 
                 output logic [127:0] cyphertext);
 // typedefs ///////////////////////////////////
-	typedef logic [0:3][0:3] [7:0] aes_state_t;
+	//typedef logic [0:3][0:3] [7:0] aes_state_t;
 ///////////////////////////////////////////////
 
 // internal logic //////////////
-	logic aes_state_t aes_state;
+	
+	//logic [0:3][0:3] [7:0] aes_state;
 	logic [127:0] cypher_intermediate;
 	logic [127:0] round_key_done;
 	//logic [127:0] shift_rows_done;
@@ -93,9 +94,9 @@ module aes_core(input  logic         clk,
 // sub-module instantiation
 	//key_schedule();
 	add_round_key ARK(plaintext, cypher_intermediate, current_round, current_round_key, round_key_done);
-	sub_bytes SB(round_key_done, aes_state);
+	//sub_bytes SB(round_key_done, aes_state);
 	//shift_rows SR(sub_bytes_done, shift_rows_done);
-	mix_cols MC(shift_rows_done, mix_cols_done);
+	//mix_cols MC(shift_rows_done, mix_cols_done);
     
 endmodule
 

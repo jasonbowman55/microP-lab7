@@ -14,6 +14,7 @@ module add_round_key (
 		case(current_round)
 			4'd1: round_key_done = plaintext ^ current_round_key;
 			4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: round_key_done = cypher_intermediate ^ current_round_key;
+			default: round_key_done = 128'd0;
 		endcase
 	end
 

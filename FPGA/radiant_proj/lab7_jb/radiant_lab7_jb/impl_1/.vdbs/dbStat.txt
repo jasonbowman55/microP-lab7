@@ -1,1 +1,1 @@
-radiant_lab7_jb_impl_1_rtl_rtl.vdb
+testbench_aes_core_rtl.vdb
