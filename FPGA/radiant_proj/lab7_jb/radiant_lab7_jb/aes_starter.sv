@@ -78,12 +78,22 @@ module aes_core(input  logic         clk,
                 input  logic [127:0] plaintext, 
                 output logic         done, 
                 output logic [127:0] cyphertext);
+// typedefs ///////////////////////////////////
+	typedef logic [0:3][0:3] [7:0] aes_state_t;
+///////////////////////////////////////////////
+
+// internal logic //////////////
+	logic aes_state_t aes_state;
+	logic [127:0] cypher_intermediate;
+	logic [127:0] round_key_done;
+	//logic [127:0] shift_rows_done;
+////////////////////////////////
 
 
 // sub-module instantiation
 	//key_schedule();
 	add_round_key ARK(plaintext, cypher_intermediate, current_round, current_round_key, round_key_done);
-	sub_bytes SB(round_key_done, sub_bytes_done);
+	sub_bytes SB(round_key_done, aes_state);
 	//shift_rows SR(sub_bytes_done, shift_rows_done);
 	mix_cols MC(shift_rows_done, mix_cols_done);
     
@@ -96,7 +106,41 @@ endmodule
 //   Section 5.1.1, Figure 7
 /////////////////////////////////////////////
 
-// THIS IS WHERE SBOX USED TO BE //////////////////////////////////////////////
+//********************************** Sbox
+module sbox(input  logic [7:0] a,
+            output logic [7:0] y);
+            
+  // sbox implemented as a ROM
+  // This module is combinational and will be inferred using LUTs (logic cells)
+  logic [7:0] sbox[0:255];
+
+  initial   $readmemh("sbox.txt", sbox);
+  assign y = sbox[a];
+endmodule
+
+/////////////////////////////////////////////
+// sbox
+//   Infamous AES byte substitutions with magic numbers
+//   Synchronous version which is mapped to embedded block RAMs (EBR)
+//   Section 5.1.1, Figure 7
+/////////////////////////////////////////////
+module sbox_sync(
+	input logic [7:0] a,
+	input logic clk,
+	output logic [7:0] y);
+            
+  // sbox implemented as a ROM
+  // This module is synchronous and will be inferred using BRAMs (Block RAMs)
+  logic [7:0] sbox [0:255];
+
+  initial   $readmemh("sbox.txt", sbox);
+	
+	// Synchronous version
+	always_ff @(posedge clk) begin
+		y <= sbox[a];
+	end
+endmodule
+//**********************************
 
 /////////////////////////////////////////////
 // mixcolumns
