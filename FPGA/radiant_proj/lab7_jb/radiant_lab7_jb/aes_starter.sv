@@ -108,6 +108,7 @@ endmodule
 ////////////////////////////////////////////////////////
 module key_schedule(
 	input logic [127:0] key,
+    input logic [127:0] new_key,
 	output logic [127:0] current_round_key
 	);
 	
@@ -125,7 +126,12 @@ module key_schedule(
 
     always_comb begin
         case(state)
-            
+            S1:
+                current_round_key = key;
+            S2: 
+                prev_round_key = current_round_key;
+                current_round_key = new_key;
+
 
 endmodule
 
