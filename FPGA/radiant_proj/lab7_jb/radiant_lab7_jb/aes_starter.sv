@@ -80,11 +80,11 @@ module aes_core(input  logic         clk,
                 output logic [127:0] cyphertext);
 // typedefs ///////////////////////////////////
 	//typedef logic [0:3][0:3] [7:0] aes_state_t;
-///////////////////////////////////////////////
+////////////////////////////////////////////////
 
 // internal logic //////////////
 	
-	//logic [0:3][0:3] [7:0] aes_state;
+	logic [0:3][0:3][7:0] aes_state;
 	logic [127:0] cypher_intermediate;
 	logic [127:0] round_key_done;
 	//logic [127:0] shift_rows_done;
@@ -98,6 +98,55 @@ module aes_core(input  logic         clk,
 	//shift_rows SR(sub_bytes_done, shift_rows_done);
 	//mix_cols MC(shift_rows_done, mix_cols_done);
     
+endmodule
+
+// sub bytes ///////////////////////////////
+// this creates the S matrix (4x4 bytes) col major array
+////////////////////////////////////////////
+module sub_bytes(
+	input logic [127:0] round_key_done,
+	output logic [0:3][0:3][7:0] aes_state
+	);
+	
+    assign aes_state[0][0] = round_key_done[127:120]; // S00
+    assign aes_state[1][0] = round_key_done[119:112]; // S01
+    assign aes_state[2][0] = round_key_done[111:104]; // S02
+    assign aes_state[3][0] = round_key_done[103:96];  // S03
+
+    assign aes_state[0][1] = round_key_done[95:88];   // S10
+    assign aes_state[1][1] = round_key_done[87:80];   // S11
+    assign aes_state[2][1] = round_key_done[79:72];   // S12
+    assign aes_state[3][1] = round_key_done[71:64];   // S13
+
+    assign aes_state[0][2] = round_key_done[63:56];   // S20
+    assign aes_state[1][2] = round_key_done[55:48];   // S21
+    assign aes_state[2][2] = round_key_done[47:40];   // S22
+    assign aes_state[3][2] = round_key_done[39:32];   // S23
+
+    assign aes_state[0][3] = round_key_done[31:24];   // S30
+    assign aes_state[1][3] = round_key_done[23:16];   // S31
+    assign aes_state[2][3] = round_key_done[15:8];    // S32
+    assign aes_state[3][3] = round_key_done[7:0];     // S33
+endmodule
+
+// add round key ////////////////////////////
+// this uses an XOR with the current state of the data for each round given a different round key
+////////////////////////////////////////////
+module add_round_key (
+	input logic [127:0] plaintext,
+	input logic [127:0] cypher_intermediate,
+	input logic [3:0] current_round,
+	input logic [127:0] current_round_key,
+	output logic [127:0] round_key_done);
+	
+	always_comb begin
+		case(current_round)
+			4'd1: round_key_done = plaintext ^ current_round_key;
+			4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: round_key_done = cypher_intermediate ^ current_round_key;
+			default: round_key_done = 128'd0;
+		endcase
+	end
+
 endmodule
 
 /////////////////////////////////////////////
