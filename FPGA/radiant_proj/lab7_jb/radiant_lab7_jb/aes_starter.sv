@@ -82,15 +82,13 @@ module aes_core(input  logic         clk,
 
 ////////////////////////////////////////////////
 
-
-
 // internal logic //////////////
 	logic [0:3][0:3][7:0] aes_state;
 	logic [127:0] cypher_intermediate;
 	logic [127:0] round_key_done;
 	logic [3:0] current_round;
 	logic [127:0] current_round_key;
-	
+
 	//logic [127:0] shift_rows_done;
 ////////////////////////////////
 
@@ -113,15 +111,22 @@ module key_schedule(
 	output logic [127:0] current_round_key
 	);
 	
-	//make words accessible
+    // internal logic //////////
+    logic [3:0][3:0][7:0] current_round_key;
+    logic [3:0][3:0][7:0] prev_round_key;
+    ////////////////////////////
+
+	// make words accessible ///////////
 	assign word[0] = key[127:96]; //col4
 	assign word[1] = key[95:64];  //col3
 	assign word[2] = key[63:32];  //col2
 	assign word[3] = key[31:0];   //col1
-	
-	
-	
-	
+	////////////////////////////////////
+
+    always_comb begin
+        case(state)
+            
+
 endmodule
 
 module rot_word(
