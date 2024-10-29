@@ -1,1 +1,1 @@
-testbench_aes_core_rtl.vdb
+aes_core_rtl.vdb
