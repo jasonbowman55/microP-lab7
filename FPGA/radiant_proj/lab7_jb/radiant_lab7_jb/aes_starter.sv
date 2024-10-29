@@ -95,12 +95,41 @@ module aes_core(input  logic         clk,
 
 
 // sub-module instantiation
-	//key_schedule();
+	FSM();
+	key_schedule();
 	add_round_key ARK(plaintext, cypher_intermediate, current_round, current_round_key, round_key_done);
 	sub_bytes SB(round_key_done, aes_state);
 	//shift_rows SR(sub_bytes_done, shift_rows_done);
 	//mix_cols MC(shift_rows_done, mix_cols_done);
     
+endmodule
+
+// key schedule ////////////////////////////////////////
+// this generates the round key for all rounds based on the original key
+////////////////////////////////////////////////////////
+module key_schedule(
+	input logic [127:0] key,
+	output logic [127:0] current_round_key
+	);
+	
+	//make words accessible
+	assign word[0] = key[127:96]; //col4
+	assign word[1] = key[95:64];  //col3
+	assign word[2] = key[63:32];  //col2
+	assign word[3] = key[31:0];   //col1
+	
+	
+	
+	
+endmodule
+
+module rot_word(
+	input logic [31:0] key [3:0],
+	output logic [127:0] rotated
+	);
+	
+	rotated = key
+
 endmodule
 
 // sub bytes ///////////////////////////////
@@ -111,6 +140,7 @@ module sub_bytes(
 	output logic [0:3][0:3][7:0] aes_state
 	);
 	
+	// assigning all bytes in the data to the byte array
     assign aes_state[0][0] = round_key_done[127:120]; // S00
     assign aes_state[1][0] = round_key_done[119:112]; // S01
     assign aes_state[2][0] = round_key_done[111:104]; // S02
