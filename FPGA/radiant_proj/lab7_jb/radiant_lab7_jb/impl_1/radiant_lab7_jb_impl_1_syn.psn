@@ -1,11 +1,11 @@
-POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2024.1.0.34.2
-Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o radiant_lab7_jb_impl_1_syn.udb -ldc C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/impl_1/radiant_lab7_jb_impl_1.ldc -gui -msgset C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/promote.xml radiant_lab7_jb_impl_1.vm 
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2024.1.1.259.1
+Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o radiant_lab7_jb_impl_1_syn.udb -ldc C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/impl_1/radiant_lab7_jb_impl_1.ldc -gui -msgset C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/promote.xml radiant_lab7_jb_impl_1.vm 
    Architecture:     iCE40UP
    Device:           iCE40UP5K
    Package:          SG48
    Performance:      High-Performance_1.2V
 Reading input file 'radiant_lab7_jb_impl_1.vm' ...
-Reading constraint file 'C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/impl_1/radiant_lab7_jb_impl_1.ldc' ...
+Reading constraint file 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/impl_1/radiant_lab7_jb_impl_1.ldc' ...
 Removing unused logic ...
 Starting design annotation....
  
@@ -17,5 +17,5 @@ Writing output file 'radiant_lab7_jb_impl_1_syn.udb'.
 POSTSYN finished successfully.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 41 MB
-Checksum -- postsyn: b7e317de7b2283378b07da3cf114bf2a265e21b
+Peak Memory Usage: 40 MB
+Checksum -- postsyn: a605eaa4683fb892fc5e98663c6642918b4581

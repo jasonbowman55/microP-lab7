@@ -79,6 +79,7 @@ module aes_core(input  logic         clk,
                 output logic         done, 
                 output logic [127:0] cyphertext);
 // init vals ///////////////////////////////////
+
 ////////////////////////////////////////////////
 
 
@@ -95,7 +96,7 @@ module aes_core(input  logic         clk,
 
 
 // sub-module instantiation
-	FSM();
+	//FSM();
 	key_schedule();
 	add_round_key ARK(plaintext, cypher_intermediate, current_round, current_round_key, round_key_done);
 	sub_bytes SB(round_key_done, aes_state);
@@ -128,7 +129,7 @@ module rot_word(
 	output logic [127:0] rotated
 	);
 	
-	rotated = key
+	rotated = key[1] key[2] key[3] key[0];
 
 endmodule
 
