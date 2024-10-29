@@ -1,5 +1,8 @@
 ----------------------------------------------------------------------
-Report for cell testbench_aes_core.TECH
+Report for cell aes_core.TECH
 Register bits:  0 of 5280 (0.000%)
-I/O cells:      0
-                              TOTAL         0
+I/O cells:      129
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                 OB       129          100.0
+                              TOTAL       129

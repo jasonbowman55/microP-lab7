@@ -1,4 +1,4 @@
-<top name = "testbench_aes_core"  library = "work"  arch = ""  entry = "Verilog">
+<top name = "aes_core"  library = "work"  arch = ""  entry = "Verilog">
 
 <clocks>
 </clocks>
