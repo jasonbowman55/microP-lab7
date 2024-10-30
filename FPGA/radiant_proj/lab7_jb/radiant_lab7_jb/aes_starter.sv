@@ -82,24 +82,34 @@ module aes_core(input  logic         clk,
 
 ////////////////////////////////////////////////
 
-// internal logic //////////////
-	logic [0:3][0:3][7:0] aes_state;
-	logic [127:0] cypher_intermediate;
-	logic [127:0] round_key_done;
-	logic [3:0] current_round;
-	logic [127:0] current_round_key;
+// internal logic ////////////////////////////////////////////////
+    //key expansion
+	logic [127:0] rot_w_done; //output from rot_word in key expansion
+    logic [127:0] sb_rk_done; //output from sub_bytes in key expansion
+    logic [127:0] rcon_done;  //output from Rcon module in key expansion
+    logic [127:0] round_key;  //output from fill_round_key in key expansion, full round key
 
-	//logic [127:0] shift_rows_done;
-////////////////////////////////
+    //main cypher
+    logic [127:0] round_key_done;           //output from add round key in main cypher
+    logic [127:0] sb_cypher_done;           //output from sub bytes in main cypher
+    logic [127:0] shift_rows_done;          //output from shift rows in main cypher 
+    logic [127:0] mix_cols_done;            //output from the mix cols in main cypher
+    logic [127:0] cyphertext_intermediate;  //output from 
 
+    //MUXs
+    logic rk_select, cypher_select; //selects round key origin, selects cyphertext origin
+
+    //Register enables
+    logic rk_en, cypher_en; //enables the registers that holdround key and cypher text between rounds
+//////////////////////////////////////////////////////////////////
 
 // sub-module instantiation
-	//FSM();
-	key_schedule();
-	add_round_key ARK(plaintext, cypher_intermediate, current_round, current_round_key, round_key_done);
-	sub_bytes SB(round_key_done, aes_state);
-	//shift_rows SR(sub_bytes_done, shift_rows_done);
-	//mix_cols MC(shift_rows_done, mix_cols_done);
+	fsm FSM1();
+    rot_word key_start();
+    fill_round_key key_end();
+    add_round_key cypher_start();
+    mix_cols cypher_end();
+
     
 endmodule
 
