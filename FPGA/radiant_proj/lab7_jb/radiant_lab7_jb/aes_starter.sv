@@ -96,54 +96,83 @@ module aes_core(input  logic         clk,
     logic [127:0] mix_cols_done;            //output from the mix cols in main cypher
     logic [127:0] cyphertext_intermediate;  //output from 
 
-    //MUXs
-    logic rk_select, cypher_select; //selects round key origin, selects cyphertext origin
-
     //Register enables
-    logic rk_en, cypher_en; //enables the registers that holdround key and cypher text between rounds
+    logic rk_en;           //enables and chooses current round key
+    logic [1:0] cypher_en; //enables current cyphertext and alters input based on state
+
+    //other control signals
+    logic [3:0] round;     //currenct rounf of the AES cypher algorithm
+    logic [3:0] state;     //current state of the FSM
+
 //////////////////////////////////////////////////////////////////
 
-// sub-module instantiation
-	fsm FSM1();
+// sub-module instantiation /////////////////
+	fsm FSM1(clk, reset, round, state);
     rot_word key_start();
     fill_round_key key_end();
     add_round_key cypher_start();
     mix_cols cypher_end();
-
-    
+/////////////////////////////////////////////
 endmodule
 
-// key schedule ////////////////////////////////////////
-// this generates the round key for all rounds based on the original key
+// FSM /////////////////////////////////////////////////
+// this is the finite state machine for this code
 ////////////////////////////////////////////////////////
-module key_schedule(
-	input logic [127:0] key,
-    input logic [127:0] new_key,
-	output logic [127:0] current_round_key
-	);
-	
-    // internal logic //////////
-    logic [3:0][3:0][7:0] current_round_key;
-    logic [3:0][3:0][7:0] prev_round_key;
-    ////////////////////////////
+module fsm(
+    input logic clk, reset,
+    input logic [3:0] round,
+    output logic [3:0] state
+);
 
-	// make words accessible ///////////
-	assign word[0] = key[127:96]; //col4
-	assign word[1] = key[95:64];  //col3
-	assign word[2] = key[63:32];  //col2
-	assign word[3] = key[31:0];   //col1
-	////////////////////////////////////
+    //instantiation of states for the FSM
+    parameter S0 = 5'b000; //initial state
+	parameter KS1 = 5'b001; //rot_word -> STARTsub_bytes
+	parameter KS2 = 5'b010; //ENDsub_bytes -> Rcon -> fill_round_key
+	parameter CYPH1 = 5'b011; //ass_round_key -> STARTsub_bytes
+	parameter CYPH2 = 5'b100; //ENDsub_bytes -> shift_rows -> mix_cols
+    /////////////////////////////////////
 
+    //next state logic (key schedule)/////////
+    always_ff @(posedge clk)
+		if (!reset) 
+			state_KS <= S0;
+		else 	
+			state_KS <= nextstate_KS;
+
+    //next state logic (cypher)//////////////
+     always_ff @(posedge clk)
+		if (!reset) 
+			state_CYPH <= S0;
+		else 	
+			state_CYPH <= nextstate_CYPH;
+    /////////////////////////////////////////
+
+    //FSM machines for (key schedule)///////////
     always_comb begin
-        case(state)
-            S1:
-                current_round_key = key;
-            S2: 
-                prev_round_key = current_round_key;
-                current_round_key = new_key;
-
+        case(state_KS)
+            KS1:
+                nextstate_KS = KS2;
+            KS2:
+                nextstate_KS = KS1;
+        endcase
+    end
+    //FSM machines for (key cypher)/////////////
+    always_comb begin
+        case(state_CYPH)
+            KS1:
+                nextstate_CYPH = CYPH2;
+            KS2:
+                nextstate_CYPH = CYPH1;
+        endcase
+    end
 
 endmodule
+
+
+
+
+
+
 
 module rot_word(
 	input logic [31:0] key [3:0],
