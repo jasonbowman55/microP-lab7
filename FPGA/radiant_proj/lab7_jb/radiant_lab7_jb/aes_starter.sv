@@ -84,14 +84,14 @@ module aes_core(input  logic         clk,
 
 // internal variables ////////////////////////////////////////////
     //key expansion
-	logic [31:0] rot_w_done; 			//output modified word from rot_word in key expansion
-    logic [31:0] sub_bytes_done; 		//output modified word from sub_bytes in key expansion
+	logic [31:0] rot_word_done; 		//output modified word from rot_word in key expansion
+    logic [31:0] sub_bytes_KS_done; 	//output modified word from sub_bytes in key expansion
     logic [31:0] rcon_done;  			//output modified word from rcon module in key expansion
     logic [127:0] fill_round_key_done;  //output from fill_round_key in key expansion, full round key
 
     //main cypher
     logic [127:0] round_key_done;           //output from add round key in main cypher
-    logic [127:0] sb_cypher_done;           //output from sub bytes in main cypher
+    logic [127:0] sub_bytes_cypher_done;    //output from sub bytes in main cypher
     logic [127:0] shift_rows_done;          //output from shift rows in main cypher 
     logic [127:0] mix_cols_done;            //output from the mix cols in main cypher
     logic [127:0] cyphertext_intermediate;  //output from cypher register
@@ -134,14 +134,18 @@ module aes_core(input  logic         clk,
 //*****************************************************
 	
 // sub-module instantiation /////////////////
+	//Key Schdule and expansion modules
 	fsm FSM1(clk, reset, load, round, rk_en, init_cyph_en, prev_rk_en, cyph_en);
-    rot_word KS1(clk, current_round_key, prev_rk_en, prev_round_key, rot_w_done);
-	//sub_bytes KS2();
-	rcon kS3(prev_round_key, sub_bytes_done, round, rcon_done);
+    rot_word KS1(clk, current_round_key, prev_rk_en, prev_round_key, rot_word_done);
+	rcon kS3(prev_round_key, sub_bytes_KS_done, round, rcon_done);
+	
+	//sub bytes is used in both cypher and key schedule logic
+	sub_bytes KS2_CYPH2(clk, rot_word_done, round_key_done, sub_bytes_KS_done, sub_bytes_cypher_done);
+	
+	//cypher stuff
     fill_round_key KS4(rcon_done, prev_round_key, fill_round_key_done);
-
-    //add_round_key cypher_start();
-    //mix_cols cypher_end();
+    add_round_key CYPH1(clk, cyphertext_intermediate, current_round_key, init_cyph_en, round_key_zero, round_key_done);
+    mix_cols cypher_end(shift_rows_done, mix_cols_done);
 /////////////////////////////////////////////
 endmodule
 
@@ -285,8 +289,14 @@ module fsm(
 						cyph_en = 2'b11;											 //feed intermediate_cypher from round 0 back into add_round_key
 						init_cyph_en = 1'b0;										 //disable init_cyph register effectively holding initial cyphertext in that register
 						end
-					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: cyph_en = 2'b01; //rounds 2-9 feed calculated intermediate_cypher
-					4'd10: cyph_en = 2'b10;											 //final round hold final cyphertext on output pin awaiting "done" assertion
+					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: begin
+						cyph_en = 2'b01; 											 //rounds 2-9 feed calculated intermediate_cypher
+						init_cyph_en = 1'b0;										 //disable init_cyph register effectively holding initial cyphertext in that register
+						end
+					4'd10: begin
+						cyph_en = 2'b10;											 //final round hold final cyphertext on output pin awaiting "done" assertion
+						init_cyph_en = 1'b0;										 //disable init_cyph register effectively holding initial cyphertext in that register
+					end
 					default: begin
 						cyph_en = 2'b00;
 						init_cyph_en = 1'b0;
@@ -347,32 +357,17 @@ endmodule
 // sub bytes ///////////////////////////////
 // this creates the S matrix (4x4 bytes) col major array
 ////////////////////////////////////////////
-//module sub_bytes(
-	//input logic [127:0] round_key_done,
-	//output logic [0:3][0:3][7:0] aes_state
-	//);
+module sub_bytes( //DO I NEED CLK AND RESET?
+	input logic clk,
+	input logic [31:0] rot_word_done,
+	input logic [127:0] round_key_done,
+	output logic [31:0] sub_bytes_KS_done,
+	output logic [127:0] sub_bytes_cypher_done
+	);
 	
-	//assigning all bytes in the data to the byte array
-    //assign aes_state[0][0] = round_key_done[127:120]; // S00
-    //assign aes_state[1][0] = round_key_done[119:112]; // S01
-    //assign aes_state[2][0] = round_key_done[111:104]; // S02
-    //assign aes_state[3][0] = round_key_done[103:96];  // S03
-
-    //assign aes_state[0][1] = round_key_done[95:88];   // S10
-    //assign aes_state[1][1] = round_key_done[87:80];   // S11
-    //assign aes_state[2][1] = round_key_done[79:72];   // S12
-    //assign aes_state[3][1] = round_key_done[71:64];   // S13
-
-    //assign aes_state[0][2] = round_key_done[63:56];   // S20
-    //assign aes_state[1][2] = round_key_done[55:48];   // S21
-    //assign aes_state[2][2] = round_key_done[47:40];   // S22
-    //assign aes_state[3][2] = round_key_done[39:32];   // S23
-
-    //assign aes_state[0][3] = round_key_done[31:24];   // S30
-    //assign aes_state[1][3] = round_key_done[23:16];   // S31
-    //assign aes_state[2][3] = round_key_done[15:8];    // S32
-    //assign aes_state[3][3] = round_key_done[7:0];     // S33
-//endmodule
+	//INCOMPLETE
+	
+endmodule
 
 // Rcon ///////////////////////////////////////////////
 // this is the second step in the key schedule expander
@@ -427,25 +422,96 @@ module fill_round_key(
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 endmodule
 
+//******************************************************
+// NEW CODE BELOW THIS PERTAINS TO ALTERING CYPHERTEXT
+//******************************************************
+
 // add round key ////////////////////////////
 // this uses an XOR with the current state of the data for each round given a different round key
 ////////////////////////////////////////////
-//module add_round_key (
-	//input logic [127:0] plaintext,
-	//input logic [127:0] cypher_intermediate,
-	//input logic [3:0] current_round,
-	//input logic [127:0] current_round_key,
-	//output logic [127:0] round_key_done);
+module add_round_key (
+	input logic clk,
+	input logic [127:0] cyphertext_intermediate,
+	input logic [127:0] current_round_key,
+	input logic init_cyph_en,
+	output logic [127:0] round_key_zero,
+	output logic [127:0] round_key_done
+	);
+	// add round key logic XOR cyphertext with current round key
+	always_comb begin
+		round_key_done <= cyphertext_intermediate ^ current_round_key;
+	end
+	////////////////////////////////////////////////////////////
 	
-	//always_comb begin
-		//case(current_round)
-			//4'd1: round_key_done = plaintext ^ current_round_key;
-			//4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: round_key_done = cypher_intermediate ^ current_round_key;
-			//default: round_key_done = 128'd0;
-		//endcase
-	//end
+	// initial add XOR round key register for round 0
+	always_ff @(posedge clk) begin
+		if (init_cyph_en)
+			round_key_zero = round_key_done;
+		else
+			round_key_zero = round_key_zero;
+	end
+	/////////////////////////////////////////////////
+endmodule
 
-//endmodule
+module shift_rows(
+	input logic [127:0] sub_bytes_cypher_done,
+	output logic [127:0] shift_rows_done
+	);
+	
+	//internal variables
+	logic [7:0] cypher_matrix[3:0][3:0];
+	////////////////////
+	
+	// create cypher matrix to more easily shift rows /////////
+	assign cypher_matrix[0][0] = sub_bytes_cypher_done[127:120];
+	assign cypher_matrix[1][0] = sub_bytes_cypher_done[119:112];
+	assign cypher_matrix[2][0] = sub_bytes_cypher_done[111:104];
+	assign cypher_matrix[3][0] = sub_bytes_cypher_done[103:96];
+
+	assign cypher_matrix[0][1] = sub_bytes_cypher_done[95:88];
+	assign cypher_matrix[1][1] = sub_bytes_cypher_done[87:80];
+	assign cypher_matrix[2][1] = sub_bytes_cypher_done[79:72];
+	assign cypher_matrix[3][1] = sub_bytes_cypher_done[71:64];
+
+	assign cypher_matrix[0][2] = sub_bytes_cypher_done[63:56];
+	assign cypher_matrix[1][2] = sub_bytes_cypher_done[55:48];
+	assign cypher_matrix[2][2] = sub_bytes_cypher_done[47:40];
+	assign cypher_matrix[3][2] = sub_bytes_cypher_done[39:32];
+
+	assign cypher_matrix[0][3] = sub_bytes_cypher_done[31:24];
+	assign cypher_matrix[1][3] = sub_bytes_cypher_done[23:16];
+	assign cypher_matrix[2][3] = sub_bytes_cypher_done[15:8];
+	assign cypher_matrix[3][3] = sub_bytes_cypher_done[7:0];
+	///////////////////////////////////////////////////////////
+	
+	// perform shift row logic ////////////////////////////////
+	always_comb begin
+		// row 0: no shift
+        shift_rows_done[127:120] = cypher_matrix[0][0];
+        shift_rows_done[119:112] = cypher_matrix[1][3];
+        shift_rows_done[111:104] = cypher_matrix[2][2];
+        shift_rows_done[103:96]  = cypher_matrix[3][1];
+
+        // row 1: shift left by 1
+        shift_rows_done[95:88]   = cypher_matrix[0][1];
+        shift_rows_done[87:80]   = cypher_matrix[1][0];
+        shift_rows_done[79:72]   = cypher_matrix[2][3];
+        shift_rows_done[71:64]   = cypher_matrix[3][2];
+
+        // row 2: shift left by 2
+        shift_rows_done[63:56]   = cypher_matrix[0][2];
+        shift_rows_done[55:48]   = cypher_matrix[1][1];
+        shift_rows_done[47:40]   = cypher_matrix[2][0];
+        shift_rows_done[39:32]   = cypher_matrix[3][3];
+
+        // row 3: shift left by 3
+        shift_rows_done[31:24]   = cypher_matrix[0][3];
+        shift_rows_done[23:16]   = cypher_matrix[1][2];
+        shift_rows_done[15:8]    = cypher_matrix[2][1];
+        shift_rows_done[7:0]     = cypher_matrix[3][0];
+    end
+	///////////////////////////////////////////////////////////
+endmodule
 
 /////////////////////////////////////////////
 // sbox
