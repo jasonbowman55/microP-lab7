@@ -97,19 +97,18 @@ module aes_core(input  logic         clk,
     logic [127:0] cyphertext_intermediate;  //output from 
 
     //Register enables
-    logic rk_en;           //enables and chooses current round key
-    logic [1:0] cypher_en; //enables current cyphertext and alters input based on state
+    logic rk_en, init_cyph_one_en;      //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key
+    logic [1:0] cyph_en; 				//enables current cyphertext and alters input based on state
 
-    //other control signals
+    //state and round variables
     logic [3:0] round;       //currenct rounf of the AES cypher algorithm
     logic [3:0] state_KS;    //current state of the Key Schedule FSM
 	logic [3:0] state_CYPH;  //current state of the Cypher the
-
 //////////////////////////////////////////////////////////////////
 
 // sub-module instantiation /////////////////
-	fsm FSM1(clk, reset, round, state_KS, state_CYPH);
-    //rot_word key_start();
+	fsm FSM1(clk, reset, load, state_KS, state_CYPH, round);
+    //rot_word KS(round_key, rot_w_done);
     //fill_round_key key_end();
     //add_round_key cypher_start();
     //mix_cols cypher_end();
@@ -117,25 +116,31 @@ module aes_core(input  logic         clk,
 endmodule
 
 // FSM /////////////////////////////////////////////////
-// this is the finite state machine for this code
+// This FSM block includes many things. The main FSM for both the Key Schedule and Cypher half of the bock diagram, and the following
+// - round counter / register enable logic / 
+// This is because all of these block rely on the state, thus need to be in this module
 ////////////////////////////////////////////////////////
 module fsm(
     input logic clk, reset, load,
     output logic [3:0] state_KS,
-	output logic [3:0] state_CYPH
+	output logic [3:0] state_CYPH,
+	output logic [3:0] round,
+	output logic rk_en, init_cyph_one_en,
+	output logic [1:0] cyph_en
 );
 
 	//internal logic///////////
-	logic [3:0] nextstate_KS;
-	logic [3:0] nextstate_CYPH;
+	logic [3:0] nextstate_KS;	//next state for the key schedule portion of the BD
+	logic [3:0] nextstate_CYPH;	//next state for the cypher portion of the BD
+	logic clk_div;			 	//used to divide out the round counter, resulting in round + 1 every other clk cycle
 	///////////////////////////
 
     //instantiation of states for the FSM
-    parameter S0 = 5'b000; //initial state
-	parameter KS1 = 5'b001; //rot_word -> STARTsub_bytes
-	parameter KS2 = 5'b010; //ENDsub_bytes -> Rcon -> fill_round_key
-	parameter CYPH1 = 5'b011; //ass_round_key -> STARTsub_bytes
-	parameter CYPH2 = 5'b100; //ENDsub_bytes -> shift_rows -> mix_cols
+    parameter S0 = 5'b000; 		//initial state
+	parameter KS1 = 5'b001; 	//rot_word -> STARTsub_bytes
+	parameter KS2 = 5'b010; 	//ENDsub_bytes -> Rcon -> fill_round_key
+	parameter CYPH1 = 5'b011; 	//ass_round_key -> STARTsub_bytes
+	parameter CYPH2 = 5'b100; 	//ENDsub_bytes -> shift_rows -> mix_cols
     /////////////////////////////////////
 
     //next state logic (key schedule)/////////
@@ -144,14 +149,15 @@ module fsm(
 			state_KS <= S0;
 		else 	
 			state_KS <= nextstate_KS;
+	//////////////////////////////////////////
 
-    //next state logic (cypher)//////////////
+    //next state logic (cypher)///////////////
      always_ff @(posedge clk)
 		if (!reset) 
 			state_CYPH <= S0;
 		else 	
 			state_CYPH <= nextstate_CYPH;
-    /////////////////////////////////////////
+    //////////////////////////////////////////
 
     //FSM machines for (key schedule)///////////
     always_comb begin
@@ -167,6 +173,8 @@ module fsm(
 				nextstate_CYPH = S0;
         endcase
     end
+	////////////////////////////////////////////
+	
     //FSM machines for (key cypher)/////////////
     always_comb begin
         case(state_CYPH)
@@ -181,7 +189,63 @@ module fsm(
 				nextstate_CYPH = S0;
         endcase
     end
+	////////////////////////////////////////////
 
+	// round counter ///////////////////////////
+	always_ff @(posedge clk) begin
+		if (state_KS != S0 && state_CYPH != S0) begin	//make sure that everything is loaded from MCU, and rounds have begun
+			if (clk_div == 1) begin						//check every other clk cycle
+				clk_div <= 0;							//reset clk_div every other clk cycle
+				if (round < 10) 						//round is never more than 10
+					round <= round + 1;
+			end else
+				clk_div <= 1;							//clk_div = 1 every other clk cycle
+		end
+	end
+	////////////////////////////////////////////
+	
+	// Register Logic **************************************************
+	// - This will output triggers for a register control block in the top module to activate certain inputs to clock schedule, cypher, and add_round_key
+	
+	// round key register (2 input, one output) based on state and round
+	always_comb begin
+		case(state_KS)
+			KS2: 
+				case(round)
+					4'd0: rk_en = 1'b0;
+					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 1'b1;
+					default: rk_en = 1'b0;
+				endcase
+			default:
+				rk_en = 1'b0;
+		endcase
+	end
+	///////////////////////////////////////////////////////////////////
+	
+	// round key register (4 input, one output) based on state and round
+	always_comb begin
+		case(state_KS)
+			CYPH2: 
+				case(round)
+					4'd0: begin
+						cyph_en = 2'b00;
+						init_cyph_one_en = 1'b1;
+						end
+					4'd1: cyph_en = 2'b11;
+					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: cyph_en = 2'b01;
+					4'd10: cyph_en = 2'b10;
+					default: begin
+						cyph_en = 2'b00;
+						init_cyph_one_en = 1'b0;
+						end
+				endcase
+			default:
+				cyph_en = 2'b00;
+		endcase
+	end
+	////////////////////////////////////////////////////////////////////
+	
+	//******************************************************************
 endmodule
 
 
