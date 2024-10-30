@@ -97,7 +97,7 @@ module aes_core(input  logic         clk,
     logic [127:0] cyphertext_intermediate;  //output from 
 
     //Register enables
-    logic rk_en, init_cyph_one_en;      //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key
+    logic rk_en, init_cyph_en;          //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key
     logic [1:0] cyph_en; 				//enables current cyphertext and alters input based on state
 
     //state and round variables
@@ -107,7 +107,7 @@ module aes_core(input  logic         clk,
 //////////////////////////////////////////////////////////////////
 
 // sub-module instantiation /////////////////
-	fsm FSM1(clk, reset, load, state_KS, state_CYPH, round);
+	fsm FSM1(clk, reset, load, state_KS, state_CYPH, round, rk_en, init_cyph_en, cyph_en);
     //rot_word KS(round_key, rot_w_done);
     //fill_round_key key_end();
     //add_round_key cypher_start();
@@ -125,7 +125,7 @@ module fsm(
     output logic [3:0] state_KS,
 	output logic [3:0] state_CYPH,
 	output logic [3:0] round,
-	output logic rk_en, init_cyph_one_en,
+	output logic rk_en, init_cyph_en,
 	output logic [1:0] cyph_en
 );
 
@@ -212,8 +212,8 @@ module fsm(
 		case(state_KS)
 			KS2: 
 				case(round)
-					4'd0: rk_en = 1'b0;
-					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 1'b1;
+					4'd0: rk_en = 1'b0;														   //input initial key to add_round_key for round 0 to produce initial intermediate_cypher
+					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 1'b1; //all future rounds, feed round_key calculated in key schedule, into add_round_key and rot_word
 					default: rk_en = 1'b0;
 				endcase
 			default:
@@ -228,15 +228,18 @@ module fsm(
 			CYPH2: 
 				case(round)
 					4'd0: begin
-						cyph_en = 2'b00;
-						init_cyph_one_en = 1'b1;
+						cyph_en = 2'b00;											 //round 0 feed plaintext into add_round_key to then calculate initial cyphertext
+						init_cyph_en = 1'b1;									 	 //enable init_cyph register to store initial cyphertext generated in round 0
 						end
-					4'd1: cyph_en = 2'b11;
-					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: cyph_en = 2'b01;
-					4'd10: cyph_en = 2'b10;
+					4'd1: begin
+						cyph_en = 2'b11;											 //feed intermediate_cypher from round 0 back into add_round_key
+						init_cyph_en = 1'b0;										 //disable init_cyph register effectively holding initial cyphertext in that register
+						end
+					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: cyph_en = 2'b01; //rounds 2-9 feed calculated intermediate_cypher
+					4'd10: cyph_en = 2'b10;											 //final round hold final cyphertext on output pin awaiting "done" assertion
 					default: begin
 						cyph_en = 2'b00;
-						init_cyph_one_en = 1'b0;
+						init_cyph_en = 1'b0;
 						end
 				endcase
 			default:
