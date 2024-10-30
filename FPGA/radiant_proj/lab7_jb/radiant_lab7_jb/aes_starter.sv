@@ -84,30 +84,56 @@ module aes_core(input  logic         clk,
 
 // internal logic ////////////////////////////////////////////////
     //key expansion
-	logic [127:0] rot_w_done; //output from rot_word in key expansion
-    logic [127:0] sb_rk_done; //output from sub_bytes in key expansion
-    logic [127:0] rcon_done;  //output from Rcon module in key expansion
-    logic [127:0] round_key;  //output from fill_round_key in key expansion, full round key
+	logic [127:0] rot_w_done; 			//output from rot_word in key expansion
+    logic [127:0] sb_rk_done; 			//output from sub_bytes in key expansion
+    logic [127:0] rcon_done;  			//output from Rcon module in key expansion
+    logic [127:0] fill_round_key_done;  //output from fill_round_key in key expansion, full round key
 
     //main cypher
     logic [127:0] round_key_done;           //output from add round key in main cypher
     logic [127:0] sb_cypher_done;           //output from sub bytes in main cypher
     logic [127:0] shift_rows_done;          //output from shift rows in main cypher 
     logic [127:0] mix_cols_done;            //output from the mix cols in main cypher
-    logic [127:0] cyphertext_intermediate;  //output from 
+    logic [127:0] cyphertext_intermediate;  //output from cypher register
 
-    //Register enables
+    //Register enables and output logic
     logic rk_en, init_cyph_en;          //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key
     logic [1:0] cyph_en; 				//enables current cyphertext and alters input based on state
+	logic [127:0] current_round_key;	//current round key output from round key register
+	logic [127:0] round_key_zero;		//output from the initial cypher register inside add_round_key
 
     //state and round variables
-    logic [3:0] round;       //currenct rounf of the AES cypher algorithm
+    logic [3:0] round;       //stores the round number 0-10 (each round = 2 clk cycles
     logic [3:0] state_KS;    //current state of the Key Schedule FSM
 	logic [3:0] state_CYPH;  //current state of the Cypher the
 //////////////////////////////////////////////////////////////////
 
+// top level register logic ***************************
+	// round key regsiter //////////////////////////
+	always_ff @(posedge clk) begin
+		if (rk_en == 1'b0)
+			current_round_key = key;
+		else
+			current_round_key = fill_round_key_done;
+	end
+	////////////////////////////////////////////////
+	
+	// cypher register////////////////////////////////
+	always_ff @(posedge clk) begin
+		if (cyph_en == 2'b00)
+			cyphertext_intermediate = plaintext;
+		else if (cyph_en == 2'b01)
+			cyphertext_intermediate = mix_cols_done;
+		else if (cyph_en == 2'b10)
+			cyphertext_intermediate = shift_rows_done;
+		else if (cyph_en == 2'b11)
+			cyphertext_intermediate = round_key_zero;
+	end
+	//////////////////////////////////////////////////
+//*****************************************************
+	
 // sub-module instantiation /////////////////
-	fsm FSM1(clk, reset, load, state_KS, state_CYPH, round, rk_en, init_cyph_en, cyph_en);
+	fsm FSM1(clk, reset, load, round, rk_en, init_cyph_en, cyph_en);
     //rot_word KS(round_key, rot_w_done);
     //fill_round_key key_end();
     //add_round_key cypher_start();
@@ -117,20 +143,20 @@ endmodule
 
 // FSM /////////////////////////////////////////////////
 // This FSM block includes many things. The main FSM for both the Key Schedule and Cypher half of the bock diagram, and the following
-// - round counter / register enable logic / 
+// - round counter / register enable logic / cypher & round key FSM / 
 // This is because all of these block rely on the state, thus need to be in this module
 ////////////////////////////////////////////////////////
 module fsm(
     input logic clk, reset, load,
-    output logic [3:0] state_KS,
-	output logic [3:0] state_CYPH,
-	output logic [3:0] round,
+    output logic [3:0] round,
 	output logic rk_en, init_cyph_en,
 	output logic [1:0] cyph_en
 );
 
 	//internal logic///////////
+	logic [3:0] state_KS;		//current state of key schedule FSM
 	logic [3:0] nextstate_KS;	//next state for the key schedule portion of the BD
+	logic [3:0] state_CYPH;		//current state of cypher FSM
 	logic [3:0] nextstate_CYPH;	//next state for the cypher portion of the BD
 	logic clk_div;			 	//used to divide out the round counter, resulting in round + 1 every other clk cycle
 	///////////////////////////
@@ -163,7 +189,7 @@ module fsm(
     always_comb begin
         case(state_KS)
 			S0:
-				if (load == 1)
+				if (load == 1'b0)			//wait for plain text to load before starting fsm loop
 					nextstate_CYPH = KS1;
             KS1:
                 nextstate_KS = KS2;
@@ -179,8 +205,8 @@ module fsm(
     always_comb begin
         case(state_CYPH)
 			S0:
-				if (load == 1)
-					nextstate_CYPH = KS1;
+				if (load == 1'b0)			//wait for plain text to load before starting fsm loop
+					nextstate_CYPH = CYPH1;
             KS1:
                 nextstate_CYPH = CYPH2;
             KS2:
@@ -251,20 +277,35 @@ module fsm(
 	//******************************************************************
 endmodule
 
-
-
-
-
-
-
-//module rot_word(
-	//input logic [31:0] key [3:0],
-	//output logic [127:0] rotated
-	//);
+// rot_word /////////////////////////////
+// this is the first step to the key schedule process
+/////////////////////////////////////////
+module rot_word(
+	input logic [127:0] current_round_key,
+	output logic [127:0] rot_w_done
+	);
 	
-	//rotated = key[1] key[2] key[3] key[0];
-
-//endmodule
+	// internal logic ////////
+	logic [31:0] w3;	//most right col in cypher matrix
+	logic [7:0] B1;		//first byte from top in the col
+	logic [7:0] B2;		//second byte from top in the col
+	logic [7:0] B3;		//third byte from top in the col
+	logic [7:0] B4;		//fourth byte from top in the col
+	//////////////////////////
+	
+	// init vals /////////////
+	always_comb begin
+		w3 = current_round_key[31:0]; //last word in round key
+		B1 = w3[31:25];
+		B2 = w3[24:16];
+		B3 = w3[15:8];
+		B4 = w3[7:0];
+	
+		// set output ///////////////////////////////////////////
+		rot_w_done = {current_round_key[127:32], B2, B3, B4, B1};
+	end
+	/////////////////////////////////////////////////////////
+endmodule
 
 // sub bytes ///////////////////////////////
 // this creates the S matrix (4x4 bytes) col major array
