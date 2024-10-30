@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2024.1.1.259.1
-// Netlist written on Wed Oct 30 10:39:02 2024
+// Netlist written on Wed Oct 30 13:20:31 2024
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/lattice radiant/ip/pmi/pmi_ice40up.v"
@@ -69,18 +69,17 @@ module aes_core (input clk, input load, input [127:0]key, input [127:0]plaintext
     
     wire GND_net;
     
-    (* lineinfo="@5(79[38],79[42])" *) OB done_pad (.I(GND_net), .O(done));
-    VLO i14 (.Z(GND_net));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[127]  (.I(GND_net), 
             .O(cyphertext[127]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[126]  (.I(GND_net), 
             .O(cyphertext[126]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[125]  (.I(GND_net), 
-            .O(cyphertext[125]));
+    (* lineinfo="@5(79[38],79[42])" *) OB done_pad (.I(GND_net), .O(done));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[124]  (.I(GND_net), 
             .O(cyphertext[124]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[123]  (.I(GND_net), 
             .O(cyphertext[123]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[125]  (.I(GND_net), 
+            .O(cyphertext[125]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[122]  (.I(GND_net), 
             .O(cyphertext[122]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[121]  (.I(GND_net), 
@@ -327,5 +326,6 @@ module aes_core (input clk, input load, input [127:0]key, input [127:0]plaintext
             .O(cyphertext[1]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[0]  (.I(GND_net), 
             .O(cyphertext[0]));
+    VLO i1 (.Z(GND_net));
     
 endmodule

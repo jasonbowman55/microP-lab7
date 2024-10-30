@@ -82,11 +82,11 @@ module aes_core(input  logic         clk,
 
 ////////////////////////////////////////////////
 
-// internal logic ////////////////////////////////////////////////
+// internal variables ////////////////////////////////////////////
     //key expansion
-	logic [127:0] rot_w_done; 			//output from rot_word in key expansion
-    logic [127:0] sb_rk_done; 			//output from sub_bytes in key expansion
-    logic [127:0] rcon_done;  			//output from Rcon module in key expansion
+	logic [31:0] rot_w_done; 			//output modified word from rot_word in key expansion
+    logic [31:0] sub_bytes_done; 		//output modified word from sub_bytes in key expansion
+    logic [31:0] rcon_done;  			//output modified word from rcon module in key expansion
     logic [127:0] fill_round_key_done;  //output from fill_round_key in key expansion, full round key
 
     //main cypher
@@ -97,10 +97,11 @@ module aes_core(input  logic         clk,
     logic [127:0] cyphertext_intermediate;  //output from cypher register
 
     //Register enables and output logic
-    logic rk_en, init_cyph_en;          //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key
-    logic [1:0] cyph_en; 				//enables current cyphertext and alters input based on state
-	logic [127:0] current_round_key;	//current round key output from round key register
-	logic [127:0] round_key_zero;		//output from the initial cypher register inside add_round_key
+    logic rk_en, init_cyph_en, prev_rk_en;  //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key / prev_rk_en: store prev RK in rot_word
+    logic [1:0] cyph_en; 					//enables current cyphertext and alters input based on state
+	logic [127:0] current_round_key;		//current round key output from round key register
+	logic [127:0] prev_round_key;			//previous round key output rot_word module
+	logic [127:0] round_key_zero;			//output from the initial cypher register inside add_round_key
 
     //state and round variables
     logic [3:0] round;       //stores the round number 0-10 (each round = 2 clk cycles
@@ -133,8 +134,9 @@ module aes_core(input  logic         clk,
 //*****************************************************
 	
 // sub-module instantiation /////////////////
-	fsm FSM1(clk, reset, load, round, rk_en, init_cyph_en, cyph_en);
-    //rot_word KS(round_key, rot_w_done);
+	fsm FSM1(clk, reset, load, round, rk_en, init_cyph_en, prev_rk_en, cyph_en);
+    rot_word KS1(clk, current_round_key, prev_rk_en, prev_round_key, rot_w_done);
+	rcon kS2(prev_round_key, sub_bytes_done, round, rcon_done);
     //fill_round_key key_end();
     //add_round_key cypher_start();
     //mix_cols cypher_end();
@@ -149,11 +151,11 @@ endmodule
 module fsm(
     input logic clk, reset, load,
     output logic [3:0] round,
-	output logic rk_en, init_cyph_en,
+	output logic rk_en, init_cyph_en, prev_rk_en,
 	output logic [1:0] cyph_en
 );
 
-	//internal logic///////////
+	//internal vasriables//////
 	logic [3:0] state_KS;		//current state of key schedule FSM
 	logic [3:0] nextstate_KS;	//next state for the key schedule portion of the BD
 	logic [3:0] state_CYPH;		//current state of cypher FSM
@@ -190,13 +192,15 @@ module fsm(
         case(state_KS)
 			S0:
 				if (load == 1'b0)			//wait for plain text to load before starting fsm loop
-					nextstate_CYPH = KS1;
+					nextstate_KS = KS1;
+				else
+					nextstate_KS = S0;
             KS1:
                 nextstate_KS = KS2;
             KS2:
                 nextstate_KS = KS1;
 			default:
-				nextstate_CYPH = S0;
+				nextstate_KS = S0;
         endcase
     end
 	////////////////////////////////////////////
@@ -207,6 +211,8 @@ module fsm(
 			S0:
 				if (load == 1'b0)			//wait for plain text to load before starting fsm loop
 					nextstate_CYPH = CYPH1;
+				else
+					nextstate_CYPH = S0;
             KS1:
                 nextstate_CYPH = CYPH2;
             KS2:
@@ -223,9 +229,9 @@ module fsm(
 			if (clk_div == 1) begin						//check every other clk cycle
 				clk_div <= 0;							//reset clk_div every other clk cycle
 				if (round < 10) 						//round is never more than 10
-					round <= round + 1;
+					round <= round + 4'b1;
 			end else
-				clk_div <= 1;							//clk_div = 1 every other clk cycle
+				clk_div <= 1'b1;							//clk_div = 1 every other clk cycle
 		end
 	end
 	////////////////////////////////////////////
@@ -235,22 +241,38 @@ module fsm(
 	
 	// round key register (2 input, one output) based on state and round
 	always_comb begin
+		// Initialize output signals
+		rk_en = 1'b0;          // Default to 0
+		prev_rk_en = 1'b0;     // Default to 0
+		
 		case(state_KS)
-			KS2: 
+			S0:
+				prev_rk_en = 1'b0;
+			KS1:
+				prev_rk_en = 1'b1;															   //set previous round key = current rk in rot_word to store for use in rcon and fill_round_key
+			KS2: begin
+				prev_rk_en = 1'b0;															   //set prev rk register to 0 in KS2 to store prev rk to be used in rcon and fill_round_key
 				case(round)
 					4'd0: rk_en = 1'b0;														   //input initial key to add_round_key for round 0 to produce initial intermediate_cypher
 					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 1'b1; //all future rounds, feed round_key calculated in key schedule, into add_round_key and rot_word
 					default: rk_en = 1'b0;
 				endcase
-			default:
+				end
+			default: begin
 				rk_en = 1'b0;
+				prev_rk_en = 1'b0;
+				end
 		endcase
 	end
 	///////////////////////////////////////////////////////////////////
 	
-	// round key register (4 input, one output) based on state and round
+	// cypher source register (4 input, one output) based on state and round
 	always_comb begin
-		case(state_KS)
+		// Initialize output signals
+		cyph_en = 2'b00;          // Default to 0
+		init_cyph_en = 1'b0;     // Default to 0
+		
+		case(state_CYPH)
 			CYPH2: 
 				case(round)
 					4'd0: begin
@@ -268,12 +290,13 @@ module fsm(
 						init_cyph_en = 1'b0;
 						end
 				endcase
-			default:
+			default: begin
 				cyph_en = 2'b00;
+				init_cyph_en = 1'b0;
+				end
 		endcase
 	end
 	////////////////////////////////////////////////////////////////////
-	
 	//******************************************************************
 endmodule
 
@@ -281,28 +304,40 @@ endmodule
 // this is the first step to the key schedule process
 /////////////////////////////////////////
 module rot_word(
+	input logic clk,
 	input logic [127:0] current_round_key,
-	output logic [127:0] rot_w_done
+	input logic prev_rk_en,
+	output logic [127:0] prev_round_key,
+	output logic [31:0] rot_w_done
 	);
 	
-	// internal logic ////////
-	logic [31:0] w3;	//most right col in cypher matrix
+	// internal variables /////
+	logic [31:0] w3;	//most right col in round key
 	logic [7:0] B1;		//first byte from top in the col
 	logic [7:0] B2;		//second byte from top in the col
 	logic [7:0] B3;		//third byte from top in the col
 	logic [7:0] B4;		//fourth byte from top in the col
 	//////////////////////////
 	
+	// previous round key register ///////
+	always_ff @(posedge clk) begin
+		if (prev_rk_en)
+			prev_round_key = current_round_key;
+		else
+			prev_round_key = prev_round_key;
+	end
+	//////////////////////////////////////
+	
 	// init vals /////////////
 	always_comb begin
 		w3 = current_round_key[31:0]; //last word in round key
-		B1 = w3[31:25];
-		B2 = w3[24:16];
+		B1 = w3[31:24];
+		B2 = w3[23:16];
 		B3 = w3[15:8];
 		B4 = w3[7:0];
 	
 		// set output ///////////////////////////////////////////
-		rot_w_done = {current_round_key[127:32], B2, B3, B4, B1};
+		rot_w_done = {B2, B3, B4, B1};
 	end
 	/////////////////////////////////////////////////////////
 endmodule
@@ -336,6 +371,40 @@ endmodule
     //assign aes_state[2][3] = round_key_done[15:8];    // S32
     //assign aes_state[3][3] = round_key_done[7:0];     // S33
 //endmodule
+
+// Rcon ///////////////////////////////////////////////
+// this is the second step in the key schedule expander
+///////////////////////////////////////////////////////
+module rcon (
+	input logic [127:0] prev_round_key,
+	input logic [31:0] sub_bytes_done,
+	input logic [3:0] round,
+	output logic [31:0] rcon_done
+	);
+	
+	// internal variables //
+	logic [31:0] rcon[1:10] = '{ 32'h01000000,
+								 32'h02000000,
+								 32'h04000000,
+								 32'h08000000,
+								 32'h10000000,
+								 32'h20000000,
+								 32'h40000000,
+								 32'h80000000,
+								 32'h1B000000,
+								 32'h36000000 };	//Rcon matrix
+	////////////////////////
+	
+	// variable assignment logic ////.////
+	always_comb begin
+        if (round >= 1 && round <= 10) begin								   //ensure in correct round bounds
+            rcon_done = prev_round_key[127:96] ^ sub_bytes_done ^ rcon[round]; //XOR operation with the first word of previous RK, calculated sub_bytes word, and rcon value based on round
+        end else begin
+            rcon_done = 32'h00000000;
+        end
+    end
+	//////////////////////////////////////
+endmodule
 
 // add round key ////////////////////////////
 // this uses an XOR with the current state of the data for each round given a different round key
