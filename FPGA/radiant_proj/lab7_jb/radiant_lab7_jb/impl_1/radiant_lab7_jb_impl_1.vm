@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2024.1.1.259.1
-// Netlist written on Wed Oct 30 13:20:31 2024
+// Netlist written on Wed Oct 30 13:38:19 2024
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/lattice radiant/ip/pmi/pmi_ice40up.v"
@@ -69,143 +69,143 @@ module aes_core (input clk, input load, input [127:0]key, input [127:0]plaintext
     
     wire GND_net;
     
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[127]  (.I(GND_net), 
-            .O(cyphertext[127]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[126]  (.I(GND_net), 
-            .O(cyphertext[126]));
-    (* lineinfo="@5(79[38],79[42])" *) OB done_pad (.I(GND_net), .O(done));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[124]  (.I(GND_net), 
-            .O(cyphertext[124]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[123]  (.I(GND_net), 
-            .O(cyphertext[123]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[125]  (.I(GND_net), 
-            .O(cyphertext[125]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[122]  (.I(GND_net), 
-            .O(cyphertext[122]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[121]  (.I(GND_net), 
-            .O(cyphertext[121]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[120]  (.I(GND_net), 
-            .O(cyphertext[120]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[119]  (.I(GND_net), 
-            .O(cyphertext[119]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[118]  (.I(GND_net), 
-            .O(cyphertext[118]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[117]  (.I(GND_net), 
-            .O(cyphertext[117]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[116]  (.I(GND_net), 
-            .O(cyphertext[116]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[115]  (.I(GND_net), 
-            .O(cyphertext[115]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[114]  (.I(GND_net), 
-            .O(cyphertext[114]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[113]  (.I(GND_net), 
-            .O(cyphertext[113]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[112]  (.I(GND_net), 
-            .O(cyphertext[112]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[111]  (.I(GND_net), 
-            .O(cyphertext[111]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[110]  (.I(GND_net), 
-            .O(cyphertext[110]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[109]  (.I(GND_net), 
-            .O(cyphertext[109]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[108]  (.I(GND_net), 
-            .O(cyphertext[108]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[107]  (.I(GND_net), 
-            .O(cyphertext[107]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[106]  (.I(GND_net), 
-            .O(cyphertext[106]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[105]  (.I(GND_net), 
-            .O(cyphertext[105]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[104]  (.I(GND_net), 
-            .O(cyphertext[104]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[103]  (.I(GND_net), 
-            .O(cyphertext[103]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[102]  (.I(GND_net), 
-            .O(cyphertext[102]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[101]  (.I(GND_net), 
-            .O(cyphertext[101]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[100]  (.I(GND_net), 
-            .O(cyphertext[100]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[99]  (.I(GND_net), 
-            .O(cyphertext[99]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[98]  (.I(GND_net), 
-            .O(cyphertext[98]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[97]  (.I(GND_net), 
-            .O(cyphertext[97]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[96]  (.I(GND_net), 
-            .O(cyphertext[96]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[95]  (.I(GND_net), 
-            .O(cyphertext[95]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[94]  (.I(GND_net), 
-            .O(cyphertext[94]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[93]  (.I(GND_net), 
-            .O(cyphertext[93]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[92]  (.I(GND_net), 
-            .O(cyphertext[92]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[91]  (.I(GND_net), 
-            .O(cyphertext[91]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[90]  (.I(GND_net), 
-            .O(cyphertext[90]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[89]  (.I(GND_net), 
-            .O(cyphertext[89]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[88]  (.I(GND_net), 
-            .O(cyphertext[88]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[87]  (.I(GND_net), 
-            .O(cyphertext[87]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[86]  (.I(GND_net), 
-            .O(cyphertext[86]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[85]  (.I(GND_net), 
-            .O(cyphertext[85]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[84]  (.I(GND_net), 
-            .O(cyphertext[84]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[83]  (.I(GND_net), 
-            .O(cyphertext[83]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[82]  (.I(GND_net), 
-            .O(cyphertext[82]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[81]  (.I(GND_net), 
-            .O(cyphertext[81]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[80]  (.I(GND_net), 
-            .O(cyphertext[80]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[79]  (.I(GND_net), 
-            .O(cyphertext[79]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[78]  (.I(GND_net), 
             .O(cyphertext[78]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[77]  (.I(GND_net), 
-            .O(cyphertext[77]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[76]  (.I(GND_net), 
-            .O(cyphertext[76]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[75]  (.I(GND_net), 
-            .O(cyphertext[75]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[74]  (.I(GND_net), 
-            .O(cyphertext[74]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[73]  (.I(GND_net), 
-            .O(cyphertext[73]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[72]  (.I(GND_net), 
-            .O(cyphertext[72]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[71]  (.I(GND_net), 
-            .O(cyphertext[71]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[79]  (.I(GND_net), 
+            .O(cyphertext[79]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[70]  (.I(GND_net), 
             .O(cyphertext[70]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[71]  (.I(GND_net), 
+            .O(cyphertext[71]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[80]  (.I(GND_net), 
+            .O(cyphertext[80]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[75]  (.I(GND_net), 
+            .O(cyphertext[75]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[81]  (.I(GND_net), 
+            .O(cyphertext[81]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[82]  (.I(GND_net), 
+            .O(cyphertext[82]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[72]  (.I(GND_net), 
+            .O(cyphertext[72]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[73]  (.I(GND_net), 
+            .O(cyphertext[73]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[76]  (.I(GND_net), 
+            .O(cyphertext[76]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[83]  (.I(GND_net), 
+            .O(cyphertext[83]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[84]  (.I(GND_net), 
+            .O(cyphertext[84]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[85]  (.I(GND_net), 
+            .O(cyphertext[85]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[86]  (.I(GND_net), 
+            .O(cyphertext[86]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[87]  (.I(GND_net), 
+            .O(cyphertext[87]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[88]  (.I(GND_net), 
+            .O(cyphertext[88]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[89]  (.I(GND_net), 
+            .O(cyphertext[89]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[90]  (.I(GND_net), 
+            .O(cyphertext[90]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[91]  (.I(GND_net), 
+            .O(cyphertext[91]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[60]  (.I(GND_net), 
+            .O(cyphertext[60]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[92]  (.I(GND_net), 
+            .O(cyphertext[92]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[93]  (.I(GND_net), 
+            .O(cyphertext[93]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[94]  (.I(GND_net), 
+            .O(cyphertext[94]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[95]  (.I(GND_net), 
+            .O(cyphertext[95]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[96]  (.I(GND_net), 
+            .O(cyphertext[96]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[97]  (.I(GND_net), 
+            .O(cyphertext[97]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[98]  (.I(GND_net), 
+            .O(cyphertext[98]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[99]  (.I(GND_net), 
+            .O(cyphertext[99]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[100]  (.I(GND_net), 
+            .O(cyphertext[100]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[101]  (.I(GND_net), 
+            .O(cyphertext[101]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[102]  (.I(GND_net), 
+            .O(cyphertext[102]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[103]  (.I(GND_net), 
+            .O(cyphertext[103]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[104]  (.I(GND_net), 
+            .O(cyphertext[104]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[105]  (.I(GND_net), 
+            .O(cyphertext[105]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[106]  (.I(GND_net), 
+            .O(cyphertext[106]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[107]  (.I(GND_net), 
+            .O(cyphertext[107]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[108]  (.I(GND_net), 
+            .O(cyphertext[108]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[109]  (.I(GND_net), 
+            .O(cyphertext[109]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[66]  (.I(GND_net), 
+            .O(cyphertext[66]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[67]  (.I(GND_net), 
+            .O(cyphertext[67]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[69]  (.I(GND_net), 
             .O(cyphertext[69]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[68]  (.I(GND_net), 
             .O(cyphertext[68]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[67]  (.I(GND_net), 
-            .O(cyphertext[67]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[66]  (.I(GND_net), 
-            .O(cyphertext[66]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[65]  (.I(GND_net), 
-            .O(cyphertext[65]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[64]  (.I(GND_net), 
-            .O(cyphertext[64]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[63]  (.I(GND_net), 
-            .O(cyphertext[63]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[62]  (.I(GND_net), 
-            .O(cyphertext[62]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[61]  (.I(GND_net), 
             .O(cyphertext[61]));
-    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[60]  (.I(GND_net), 
-            .O(cyphertext[60]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[62]  (.I(GND_net), 
+            .O(cyphertext[62]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[110]  (.I(GND_net), 
+            .O(cyphertext[110]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[111]  (.I(GND_net), 
+            .O(cyphertext[111]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[112]  (.I(GND_net), 
+            .O(cyphertext[112]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[63]  (.I(GND_net), 
+            .O(cyphertext[63]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[74]  (.I(GND_net), 
+            .O(cyphertext[74]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[113]  (.I(GND_net), 
+            .O(cyphertext[113]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[114]  (.I(GND_net), 
+            .O(cyphertext[114]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[115]  (.I(GND_net), 
+            .O(cyphertext[115]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[116]  (.I(GND_net), 
+            .O(cyphertext[116]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[117]  (.I(GND_net), 
+            .O(cyphertext[117]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[118]  (.I(GND_net), 
+            .O(cyphertext[118]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[119]  (.I(GND_net), 
+            .O(cyphertext[119]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[120]  (.I(GND_net), 
+            .O(cyphertext[120]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[121]  (.I(GND_net), 
+            .O(cyphertext[121]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[122]  (.I(GND_net), 
+            .O(cyphertext[122]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[123]  (.I(GND_net), 
+            .O(cyphertext[123]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[124]  (.I(GND_net), 
+            .O(cyphertext[124]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[125]  (.I(GND_net), 
+            .O(cyphertext[125]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[126]  (.I(GND_net), 
+            .O(cyphertext[126]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[127]  (.I(GND_net), 
+            .O(cyphertext[127]));
+    (* lineinfo="@5(79[38],79[42])" *) OB done_pad (.I(GND_net), .O(done));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[64]  (.I(GND_net), 
+            .O(cyphertext[64]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[65]  (.I(GND_net), 
+            .O(cyphertext[65]));
+    (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[77]  (.I(GND_net), 
+            .O(cyphertext[77]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[59]  (.I(GND_net), 
             .O(cyphertext[59]));
     (* lineinfo="@5(80[38],80[48])" *) OB \cyphertext_pad[58]  (.I(GND_net), 

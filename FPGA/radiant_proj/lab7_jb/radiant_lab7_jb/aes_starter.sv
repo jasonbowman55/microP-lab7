@@ -136,8 +136,10 @@ module aes_core(input  logic         clk,
 // sub-module instantiation /////////////////
 	fsm FSM1(clk, reset, load, round, rk_en, init_cyph_en, prev_rk_en, cyph_en);
     rot_word KS1(clk, current_round_key, prev_rk_en, prev_round_key, rot_w_done);
-	rcon kS2(prev_round_key, sub_bytes_done, round, rcon_done);
-    //fill_round_key key_end();
+	//sub_bytes KS2();
+	rcon kS3(prev_round_key, sub_bytes_done, round, rcon_done);
+    fill_round_key KS4(rcon_done, prev_round_key, fill_round_key_done);
+
     //add_round_key cypher_start();
     //mix_cols cypher_end();
 /////////////////////////////////////////////
@@ -404,6 +406,25 @@ module rcon (
         end
     end
 	//////////////////////////////////////
+endmodule
+
+// fill_round_key //////////////////////////////////////////
+// this works to complete the last 3 XOR statements to fill col[1, 2, 3] in the new round key
+////////////////////////////////////////////////////////////
+module fill_round_key(
+	input logic [31:0] rcon_done,
+	input logic [127:0] prev_round_key,
+	output logic [127:0] fill_round_key_done
+	);
+	// fill the full round key with the following XOR statements
+	// use blocking statements so that following calculations can be done with the previously calculated values
+	always_comb begin
+		fill_round_key_done[127:96] = rcon_done;											//set col[0] of new RK to be the majorly altered word from rcon and above
+		fill_round_key_done[95:64] = prev_round_key[95:64] ^ fill_round_key_done[127:96];	//calculate col[1] based on prevRK col[1] and newRK col[0]
+		fill_round_key_done[63:32] = prev_round_key[63:32] ^ fill_round_key_done[95:64];	//calculate col[2] based on prevRK col[2] and newRK col[1]
+		fill_round_key_done[31:0] = prev_round_key[31:0] ^ fill_round_key_done[63:32];		//calculate col[3] based on prevRK col[3] and newRK col[2]
+	end
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 endmodule
 
 // add round key ////////////////////////////
