@@ -82,117 +82,172 @@ module aes_core(input  logic         clk,
 
 ////////////////////////////////////////////////
 
-// internal logic //////////////
-	logic [0:3][0:3][7:0] aes_state;
-	logic [127:0] cypher_intermediate;
-	logic [127:0] round_key_done;
-	logic [3:0] current_round;
-	logic [127:0] current_round_key;
+// internal logic ////////////////////////////////////////////////
+    //key expansion
+	logic [127:0] rot_w_done; //output from rot_word in key expansion
+    logic [127:0] sb_rk_done; //output from sub_bytes in key expansion
+    logic [127:0] rcon_done;  //output from Rcon module in key expansion
+    logic [127:0] round_key;  //output from fill_round_key in key expansion, full round key
 
-	//logic [127:0] shift_rows_done;
-////////////////////////////////
+    //main cypher
+    logic [127:0] round_key_done;           //output from add round key in main cypher
+    logic [127:0] sb_cypher_done;           //output from sub bytes in main cypher
+    logic [127:0] shift_rows_done;          //output from shift rows in main cypher 
+    logic [127:0] mix_cols_done;            //output from the mix cols in main cypher
+    logic [127:0] cyphertext_intermediate;  //output from 
 
+    //Register enables
+    logic rk_en;           //enables and chooses current round key
+    logic [1:0] cypher_en; //enables current cyphertext and alters input based on state
 
-// sub-module instantiation
-	//FSM();
-	key_schedule();
-	add_round_key ARK(plaintext, cypher_intermediate, current_round, current_round_key, round_key_done);
-	sub_bytes SB(round_key_done, aes_state);
-	//shift_rows SR(sub_bytes_done, shift_rows_done);
-	//mix_cols MC(shift_rows_done, mix_cols_done);
-    
+    //other control signals
+    logic [3:0] round;       //currenct rounf of the AES cypher algorithm
+    logic [3:0] state_KS;    //current state of the Key Schedule FSM
+	logic [3:0] state_CYPH;  //current state of the Cypher the
+
+//////////////////////////////////////////////////////////////////
+
+// sub-module instantiation /////////////////
+	fsm FSM1(clk, reset, round, state_KS, state_CYPH);
+    //rot_word key_start();
+    //fill_round_key key_end();
+    //add_round_key cypher_start();
+    //mix_cols cypher_end();
+/////////////////////////////////////////////
 endmodule
 
-// key schedule ////////////////////////////////////////
-// this generates the round key for all rounds based on the original key
+// FSM /////////////////////////////////////////////////
+// this is the finite state machine for this code
 ////////////////////////////////////////////////////////
-module key_schedule(
-	input logic [127:0] key,
-    input logic [127:0] new_key,
-	output logic [127:0] current_round_key
-	);
-	
-    // internal logic //////////
-    logic [3:0][3:0][7:0] current_round_key;
-    logic [3:0][3:0][7:0] prev_round_key;
-    ////////////////////////////
+module fsm(
+    input logic clk, reset, load,
+    output logic [3:0] state_KS,
+	output logic [3:0] state_CYPH
+);
 
-	// make words accessible ///////////
-	assign word[0] = key[127:96]; //col4
-	assign word[1] = key[95:64];  //col3
-	assign word[2] = key[63:32];  //col2
-	assign word[3] = key[31:0];   //col1
-	////////////////////////////////////
+	//internal logic///////////
+	logic [3:0] nextstate_KS;
+	logic [3:0] nextstate_CYPH;
+	///////////////////////////
 
+    //instantiation of states for the FSM
+    parameter S0 = 5'b000; //initial state
+	parameter KS1 = 5'b001; //rot_word -> STARTsub_bytes
+	parameter KS2 = 5'b010; //ENDsub_bytes -> Rcon -> fill_round_key
+	parameter CYPH1 = 5'b011; //ass_round_key -> STARTsub_bytes
+	parameter CYPH2 = 5'b100; //ENDsub_bytes -> shift_rows -> mix_cols
+    /////////////////////////////////////
+
+    //next state logic (key schedule)/////////
+    always_ff @(posedge clk)
+		if (!reset) 
+			state_KS <= S0;
+		else 	
+			state_KS <= nextstate_KS;
+
+    //next state logic (cypher)//////////////
+     always_ff @(posedge clk)
+		if (!reset) 
+			state_CYPH <= S0;
+		else 	
+			state_CYPH <= nextstate_CYPH;
+    /////////////////////////////////////////
+
+    //FSM machines for (key schedule)///////////
     always_comb begin
-        case(state)
-            S1:
-                current_round_key = key;
-            S2: 
-                prev_round_key = current_round_key;
-                current_round_key = new_key;
-
+        case(state_KS)
+			S0:
+				if (load == 1)
+					nextstate_CYPH = KS1;
+            KS1:
+                nextstate_KS = KS2;
+            KS2:
+                nextstate_KS = KS1;
+			default:
+				nextstate_CYPH = S0;
+        endcase
+    end
+    //FSM machines for (key cypher)/////////////
+    always_comb begin
+        case(state_CYPH)
+			S0:
+				if (load == 1)
+					nextstate_CYPH = KS1;
+            KS1:
+                nextstate_CYPH = CYPH2;
+            KS2:
+                nextstate_CYPH = CYPH1;
+			default:
+				nextstate_CYPH = S0;
+        endcase
+    end
 
 endmodule
 
-module rot_word(
-	input logic [31:0] key [3:0],
-	output logic [127:0] rotated
-	);
+
+
+
+
+
+
+//module rot_word(
+	//input logic [31:0] key [3:0],
+	//output logic [127:0] rotated
+	//);
 	
-	rotated = key[1] key[2] key[3] key[0];
+	//rotated = key[1] key[2] key[3] key[0];
 
-endmodule
+//endmodule
 
 // sub bytes ///////////////////////////////
 // this creates the S matrix (4x4 bytes) col major array
 ////////////////////////////////////////////
-module sub_bytes(
-	input logic [127:0] round_key_done,
-	output logic [0:3][0:3][7:0] aes_state
-	);
+//module sub_bytes(
+	//input logic [127:0] round_key_done,
+	//output logic [0:3][0:3][7:0] aes_state
+	//);
 	
-	// assigning all bytes in the data to the byte array
-    assign aes_state[0][0] = round_key_done[127:120]; // S00
-    assign aes_state[1][0] = round_key_done[119:112]; // S01
-    assign aes_state[2][0] = round_key_done[111:104]; // S02
-    assign aes_state[3][0] = round_key_done[103:96];  // S03
+	//assigning all bytes in the data to the byte array
+    //assign aes_state[0][0] = round_key_done[127:120]; // S00
+    //assign aes_state[1][0] = round_key_done[119:112]; // S01
+    //assign aes_state[2][0] = round_key_done[111:104]; // S02
+    //assign aes_state[3][0] = round_key_done[103:96];  // S03
 
-    assign aes_state[0][1] = round_key_done[95:88];   // S10
-    assign aes_state[1][1] = round_key_done[87:80];   // S11
-    assign aes_state[2][1] = round_key_done[79:72];   // S12
-    assign aes_state[3][1] = round_key_done[71:64];   // S13
+    //assign aes_state[0][1] = round_key_done[95:88];   // S10
+    //assign aes_state[1][1] = round_key_done[87:80];   // S11
+    //assign aes_state[2][1] = round_key_done[79:72];   // S12
+    //assign aes_state[3][1] = round_key_done[71:64];   // S13
 
-    assign aes_state[0][2] = round_key_done[63:56];   // S20
-    assign aes_state[1][2] = round_key_done[55:48];   // S21
-    assign aes_state[2][2] = round_key_done[47:40];   // S22
-    assign aes_state[3][2] = round_key_done[39:32];   // S23
+    //assign aes_state[0][2] = round_key_done[63:56];   // S20
+    //assign aes_state[1][2] = round_key_done[55:48];   // S21
+    //assign aes_state[2][2] = round_key_done[47:40];   // S22
+    //assign aes_state[3][2] = round_key_done[39:32];   // S23
 
-    assign aes_state[0][3] = round_key_done[31:24];   // S30
-    assign aes_state[1][3] = round_key_done[23:16];   // S31
-    assign aes_state[2][3] = round_key_done[15:8];    // S32
-    assign aes_state[3][3] = round_key_done[7:0];     // S33
-endmodule
+    //assign aes_state[0][3] = round_key_done[31:24];   // S30
+    //assign aes_state[1][3] = round_key_done[23:16];   // S31
+    //assign aes_state[2][3] = round_key_done[15:8];    // S32
+    //assign aes_state[3][3] = round_key_done[7:0];     // S33
+//endmodule
 
 // add round key ////////////////////////////
 // this uses an XOR with the current state of the data for each round given a different round key
 ////////////////////////////////////////////
-module add_round_key (
-	input logic [127:0] plaintext,
-	input logic [127:0] cypher_intermediate,
-	input logic [3:0] current_round,
-	input logic [127:0] current_round_key,
-	output logic [127:0] round_key_done);
+//module add_round_key (
+	//input logic [127:0] plaintext,
+	//input logic [127:0] cypher_intermediate,
+	//input logic [3:0] current_round,
+	//input logic [127:0] current_round_key,
+	//output logic [127:0] round_key_done);
 	
-	always_comb begin
-		case(current_round)
-			4'd1: round_key_done = plaintext ^ current_round_key;
-			4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: round_key_done = cypher_intermediate ^ current_round_key;
-			default: round_key_done = 128'd0;
-		endcase
-	end
+	//always_comb begin
+		//case(current_round)
+			//4'd1: round_key_done = plaintext ^ current_round_key;
+			//4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: round_key_done = cypher_intermediate ^ current_round_key;
+			//default: round_key_done = 128'd0;
+		//endcase
+	//end
 
-endmodule
+//endmodule
 
 /////////////////////////////////////////////
 // sbox
