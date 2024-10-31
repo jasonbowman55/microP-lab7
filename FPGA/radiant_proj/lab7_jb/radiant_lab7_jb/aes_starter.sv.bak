@@ -101,7 +101,7 @@ module aes_core(input  logic         clk,
     logic [1:0] cyph_en; 					//enables current cyphertext and alters input based on state
 	logic [127:0] current_round_key;		//current round key output from round key register
 	logic [127:0] prev_round_key;			//previous round key output rot_word module
-	logic [127:0] round_key_zero;			//output from the initial cypher register inside add_round_key
+	logic [127:0] cypher_zero;			//output from the initial cypher register inside add_round_key
 
     //state and round variables
     logic [3:0] round;       //stores the round number 0-10 (each round = 2 clk cycles
@@ -114,7 +114,7 @@ module aes_core(input  logic         clk,
 	always_ff @(posedge clk) begin
 		if (rk_en == 1'b0)
 			current_round_key = key;
-		else
+		else if (rk_en == 1'b1)
 			current_round_key = fill_round_key_done;
 	end
 	////////////////////////////////////////////////
@@ -128,23 +128,45 @@ module aes_core(input  logic         clk,
 		else if (cyph_en == 2'b10)
 			cyphertext_intermediate = shift_rows_done;
 		else if (cyph_en == 2'b11)
-			cyphertext_intermediate = round_key_zero;
+			cyphertext_intermediate = cypher_zero;
 	end
 	//////////////////////////////////////////////////
 //*****************************************************
+	
+//*****************************************************
+// reset logic based on the val of load
+	// load based reset ////////////////////////
+	logic reset; // Declare reset as a register
+	logic load_prev;
+	
+	// reset when load and load_prev are in this state for one clk cycle
+	always_ff @(posedge clk) begin
+    		if (!load && load_prev) begin
+        		reset <= 1;  
+    		end else begin
+        		reset <= 0;  
+    		end
+	end
+	////////////////////////////////////////////////////////////////////
+
+	// load_prev gets load/////////
+	always_ff @(posedge clk) begin
+		load_prev = load;
+	end
+	///////////////////////////////
 	
 // sub-module instantiation /////////////////
 	//FSM
 	fsm FSM1(clk, reset, load, round, rk_en, init_cyph_en, prev_rk_en, cyph_en);
 	
 	//Key Schdule and expansion modules
-    rot_word KS1(clk, current_round_key, prev_rk_en, prev_round_key, rot_word_done);
+    	rot_word KS1(clk, current_round_key, prev_rk_en, prev_round_key, rot_word_done);
 	sub_bytes_KS KS2(clk, rot_word_done, sub_bytes_KS_done);
 	rcon KS3(prev_round_key, sub_bytes_KS_done, round, rcon_done);
 	fill_round_key KS4(rcon_done, prev_round_key, fill_round_key_done);
 	
 	//cypher stuff
-	add_round_key CYPH1(clk, cyphertext_intermediate, current_round_key, init_cyph_en, round_key_zero, round_key_done);
+	add_round_key CYPH1(clk, cyphertext_intermediate, current_round_key, init_cyph_en, cypher_zero, round_key_done);
 	sub_bytes_CYPH CYPH2(clk, round_key_done, sub_bytes_cypher_done);
 	shift_rows CYPH3(sub_bytes_cypher_done, shift_rows_done);
     mix_cols CYPH4(shift_rows_done, mix_cols_done);
@@ -179,27 +201,9 @@ module fsm(
 	parameter CYPH2 = 2'b10; 	//ENDsub_bytes -> shift_rows -> mix_cols
     /////////////////////////////////////
 
-	// load based reset ////////////////////////
-	logic reset_int; // Declare reset_int as a register
-	logic load_prev;
-
-	always_ff @(posedge clk) begin
-    		if (!load && load_prev) begin
-        		reset_int <= 1;  
-    		end else begin
-        		reset_int <= 0;  
-    		end
-	end
-	////////////////////////////////////////////
-
-	always_ff @(posedge clk) begin
-		load_prev = load;
-	end
-
-
     //next state logic (key schedule)/////////
     always_ff @(posedge clk)
-		if (reset_int) 
+		if (reset) 
 			state_KS <= S0;
 		else 	
 			state_KS <= nextstate_KS;
@@ -207,7 +211,7 @@ module fsm(
 
     //next state logic (cypher)///////////////
      always_ff @(posedge clk)
-		if (reset_int) 
+		if (reset) 
 			state_CYPH <= S0;
 		else 	
 			state_CYPH <= nextstate_CYPH;
@@ -217,10 +221,10 @@ module fsm(
     always_comb begin
         case(state_KS)
 			S0:
-				if (reset_int)			//wait for plain text to load before starting fsm loop
-					nextstate_KS = KS1;
-				else
+				if (reset)					//wait for plain text to load before starting fsm loop
 					nextstate_KS = S0;
+				else
+					nextstate_KS = KS1;
             KS1:
                 nextstate_KS = KS2;
             KS2:
@@ -235,10 +239,10 @@ module fsm(
     always_comb begin
         case(state_CYPH)
 			S0:
-				if (reset_int)			//wait for plain text to load before starting fsm loop
-					nextstate_CYPH = CYPH1;
-				else
+				if (reset)					//wait for plain text to load before starting fsm loop
 					nextstate_CYPH = S0;
+				else
+					nextstate_CYPH = CYPH1;
             KS1:
                 nextstate_CYPH = CYPH2;
             KS2:
@@ -251,15 +255,15 @@ module fsm(
 
 	// round counter ///////////////////////////
 	always_ff @(posedge clk) begin
-		if (reset_int)
+		if (reset)
 			round = 0;
 		else begin					//make sure that everything is loaded from MCU, and rounds have begun
 			if (clk_div == 1) begin						//check every other clk cycle
-				clk_div <= 0;							//reset clk_div every other clk cycle
+				clk_div = 0;							//reset clk_div every other clk cycle
 				if (round < 10) 						//round is never more than 10
-					round <= round + 4'b1;
+					round = round + 4'b1;
 			end else
-				clk_div <= 1'b1;							//clk_div = 1 every other clk cycle
+				clk_div = 1'b1;							//clk_div = 1 every other clk cycle
 		end
 	end
 	////////////////////////////////////////////
@@ -270,16 +274,18 @@ module fsm(
 	// round key register (2 input, one output) based on state and round
 	always_comb begin
 		// Initialize output signals
-		rk_en = 1'b0;          // Default to 0
-		prev_rk_en = 1'b0;     // Default to 0
+		//rk_en = 1'b0;          // Default to 0
+		//prev_rk_en = 1'b0;     // Default to 0
 		
 		case(state_KS)
 			S0:
 				prev_rk_en = 1'b0;
-			KS1:
-				prev_rk_en = 1'b1;															   //set previous round key = current rk in rot_word to store for use in rcon and fill_round_key
-			KS2: begin
-				prev_rk_en = 1'b0;															   //set prev rk register to 0 in KS2 to store prev rk to be used in rcon and fill_round_key
+			KS1: begin
+				prev_rk_en = 1'b0;															   //set previous round key = current rk in rot_word to store for use in rcon and fill_round_key
+				rk_en = 1'b1;
+			     end
+			KS2: begin																			//SWITCH THESE TWO
+				prev_rk_en = 1'b1;															   //set prev rk register to 0 in KS2 to store prev rk to be used in rcon and fill_round_key
 				case(round)
 					4'd0: rk_en = 1'b0;														   //input initial key to add_round_key for round 0 to produce initial intermediate_cypher
 					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 1'b1; //all future rounds, feed round_key calculated in key schedule, into add_round_key and rot_word
@@ -457,7 +463,7 @@ module add_round_key (
 	input logic [127:0] cyphertext_intermediate,
 	input logic [127:0] current_round_key,
 	input logic init_cyph_en,
-	output logic [127:0] round_key_zero,
+	output logic [127:0] cypher_zero,
 	output logic [127:0] round_key_done
 	);
 	// add round key logic XOR cyphertext with current round key
@@ -469,9 +475,9 @@ module add_round_key (
 	// initial add XOR round key register for round 0
 	always_ff @(posedge clk) begin
 		if (init_cyph_en)
-			round_key_zero = round_key_done;
+			cypher_zero <= round_key_done;
 		else
-			round_key_zero = round_key_zero;
+			cypher_zero <= cypher_zero;
 	end
 	/////////////////////////////////////////////////
 endmodule
