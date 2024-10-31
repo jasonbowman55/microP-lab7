@@ -218,9 +218,9 @@ module fsm(
         case(state_KS)
 			S0:
 				if (reset_int)			//wait for plain text to load before starting fsm loop
-					nextstate_KS = S0;
-				else
 					nextstate_KS = KS1;
+				else
+					nextstate_KS = S0;
             KS1:
                 nextstate_KS = KS2;
             KS2:
@@ -236,9 +236,9 @@ module fsm(
         case(state_CYPH)
 			S0:
 				if (reset_int)			//wait for plain text to load before starting fsm loop
-					nextstate_CYPH = S0;
-				else
 					nextstate_CYPH = CYPH1;
+				else
+					nextstate_CYPH = S0;
             KS1:
                 nextstate_CYPH = CYPH2;
             KS2:
