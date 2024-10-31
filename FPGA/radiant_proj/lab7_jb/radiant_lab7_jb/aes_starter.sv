@@ -269,7 +269,7 @@ module fsm(
 		else begin					//make sure that everything is loaded from MCU, and rounds have begun
 			if (clk_div == 1) begin						//check every other clk cycle
 				clk_div = 0;							//reset clk_div every other clk cycle
-				if (round < 11) 						//round is never more than 10
+				if (round < 10) 						//round is never more than 10
 					round = round + 4'b1;
 			end else
 				clk_div = 1'b1;							//clk_div = 1 every other clk cycle
