@@ -1,8 +1,9 @@
 ----------------------------------------------------------------------
-Report for cell aes_core.TECH
+Report for cell sub_bytes.TECH
 Register bits:  0 of 5280 (0.000%)
-I/O cells:      129
+I/O cells:      256
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                 OB       129          100.0
-                              TOTAL       129
+                                 IB       128          100.0
+                                 OB       128          100.0
+                              TOTAL       256
