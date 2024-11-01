@@ -493,3 +493,759 @@ restart -f
 # Loading work.mixcolumn
 # Loading work.galoismult
 run
+quit -sim
+# End time: 15:02:47 on Oct 31,2024, Elapsed time: 0:09:15
+# Errors: 0, Warnings: 1
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:02:57 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlfty25jaj".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfty25jaj
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+add wave -position 0 sim:/testbench_aes_core/dut/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+restart -f
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+run
+quit -sim
+# End time: 15:11:46 on Oct 31,2024, Elapsed time: 0:08:49
+# Errors: 0, Warnings: 2
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:11:51 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftmbdyh9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftmbdyh9
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+# Break key hit
+quit -sim
+# End time: 15:15:07 on Oct 31,2024, Elapsed time: 0:03:16
+# Errors: 0, Warnings: 3
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 3 errors.
+# 4 compiles, 1 failed with 3 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 3 errors.
+# 4 compiles, 1 failed with 3 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 3 errors.
+# 4 compiles, 1 failed with 3 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 5 errors.
+# 4 compiles, 1 failed with 5 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 5 errors.
+# 4 compiles, 1 failed with 5 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:19:31 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft2qgh25".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft2qgh25
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 5 errors.
+# 4 compiles, 1 failed with 5 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# End time: 15:23:52 on Oct 31,2024, Elapsed time: 0:04:21
+# Errors: 0, Warnings: 5
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:23:52 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft9g65mi".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft9g65mi
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# End time: 15:28:31 on Oct 31,2024, Elapsed time: 0:04:39
+# Errors: 0, Warnings: 4
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:28:31 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft6mwt95".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6mwt95
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+restart -f
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# End time: 15:42:28 on Oct 31,2024, Elapsed time: 0:13:57
+# Errors: 0, Warnings: 2
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:42:28 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftwa9wws".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftwa9wws
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+run
+quit -sim
+# End time: 15:55:17 on Oct 31,2024, Elapsed time: 0:12:49
+# Errors: 0, Warnings: 3
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 15:55:28 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlfti2gq00".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfti2gq00
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+quit -sim
+# End time: 16:05:13 on Oct 31,2024, Elapsed time: 0:09:45
+# Errors: 0, Warnings: 4
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:05:20 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftej97e6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftej97e6
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+quit -sim
+# End time: 16:13:27 on Oct 31,2024, Elapsed time: 0:08:07
+# Errors: 0, Warnings: 4
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:13:38 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft1xwfy0".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft1xwfy0
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+quit -sim
+# End time: 16:16:37 on Oct 31,2024, Elapsed time: 0:02:59
+# Errors: 0, Warnings: 4
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:16:50 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftvn4v1g".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftvn4v1g
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+quit -sim
+# End time: 16:18:44 on Oct 31,2024, Elapsed time: 0:01:54
+# Errors: 0, Warnings: 4
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:18:51 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftr575i6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftr575i6
+add wave -position end sim:/testbench_aes_core/dut/KS2/*
+add wave -position end sim:/testbench_aes_core/dut/KS3/*
+add wave -position end sim:/testbench_aes_core/dut/KS4/*
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+run
+quit -sim
+# End time: 16:23:14 on Oct 31,2024, Elapsed time: 0:04:23
+# Errors: 0, Warnings: 2
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+# Load canceled
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:27:51 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'rk_en'. The port definition is at: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(204).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/FSM1 File: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 180
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftqwfmra".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftqwfmra
+add wave -position end sim:/testbench_aes_core/dut/KS2/*
+add wave -position end sim:/testbench_aes_core/dut/KS3/*
+add wave -position end sim:/testbench_aes_core/dut/KS4/*
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'rk_en'. The port definition is at: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(204).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/FSM1 File: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 180
+add wave -position 0 sim:/testbench_aes_core/dut/FSM1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+run
+quit -sim
+# End time: 16:45:06 on Oct 31,2024, Elapsed time: 0:17:15
+# Errors: 0, Warnings: 2
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:45:36 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1) does not match connection size (2) for port 'rk_en'. The port definition is at: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(204).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/FSM1 File: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 180
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+# Load canceled
+quit -sim
+# End time: 16:46:25 on Oct 31,2024, Elapsed time: 0:00:49
+# Errors: 0, Warnings: 5
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 16:46:32 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftqz95ah".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftqz95ah
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+add wave -position end sim:/testbench_aes_core/dut/KS2/*
+add wave -position end sim:/testbench_aes_core/dut/KS3/*
+add wave -position end sim:/testbench_aes_core/dut/KS4/*
+run
+add wave -position end sim:/testbench_aes_core/dut/CYPH1/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH2/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH3/*
+add wave -position end sim:/testbench_aes_core/dut/CYPH4/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+run
+quit -sim
+# End time: 17:05:54 on Oct 31,2024, Elapsed time: 0:19:22
+# Errors: 0, Warnings: 2
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 17:06:33 on Oct 31,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.fsm
+# Loading work.rot_word
+# Loading work.sub_bytes_KS
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_bytes_CYPH
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/FSM1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftjw1acw".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftjw1acw
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+add wave -position end sim:/testbench_aes_core/dut/KS2/*
+add wave -position end sim:/testbench_aes_core/dut/KS3/*
+add wave -position end sim:/testbench_aes_core/dut/KS4/*
+run

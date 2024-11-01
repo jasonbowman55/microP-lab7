@@ -98,8 +98,9 @@ module aes_core(input  logic         clk,
 	logic [127:0] final_cypher_text;		//ouput from register inside shift rows
 
     //Register enables and output logic
-    logic rk_en, init_cyph_en, prev_rk_en, final_cyph_en;  //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key / prev_rk_en: store prev RK in rot_word
-    logic [1:0] cyph_en; 					//enables current cyphertext and alters input based on state
+    logic [1:0] rk_en;
+    logic init_cyph_en, prev_rk_en, final_cyph_en;  //rk_en: chooses key origin / init_cyph_one_en: enable register to hold cypher after round 0 calc in add_round_key / prev_rk_en: store prev RK in rot_word
+    logic [2:0] cyph_en; 					//enables current cyphertext and alters input based on state
 	logic [127:0] current_round_key;		//current round key output from round key register
 	logic [127:0] prev_round_key;			//previous round key output rot_word module
 	logic [127:0] cypher_zero;			//output from the initial cypher register inside add_round_key
@@ -113,11 +114,19 @@ module aes_core(input  logic         clk,
 // top level register logic ***************************
 	// round key regsiter //////////////////////////
 	always_ff @(posedge clk) begin
-		if (rk_en == 1'b0)
+		if (rk_en == 2'b00)
 			current_round_key = key;
-		else if (rk_en == 1'b1)
+		else if (rk_en == 2'b01)
 			current_round_key = fill_round_key_done;
+		else if (rk_en == 2'b10)
+			current_round_key = current_round_key;
 	end
+	//always_comb begin
+	//	case(rk_en)
+	//		1'b0: current_round_key = key;
+	//		1'b1: current_round_key = fill_round_key_done;
+	//	endcase
+	//end
 	////////////////////////////////////////////////
 	
 	// cypher register////////////////////////////////
@@ -133,10 +142,12 @@ module aes_core(input  logic         clk,
 	//end
 	always_comb begin
 		case(cyph_en)
-			2'b00: cyphertext_intermediate = plaintext;
-			2'b01: cyphertext_intermediate = mix_cols_done;
-			2'b10: cyphertext_intermediate = final_cypher_text;
-			2'b11: cyphertext_intermediate = cypher_zero;
+			3'b000: cyphertext_intermediate = plaintext;
+			3'b001: cyphertext_intermediate = mix_cols_done;
+			3'b010: cyphertext_intermediate = final_cypher_text;
+			3'b011: cyphertext_intermediate = cypher_zero;
+			3'b100: cyphertext_intermediate = cyphertext_intermediate;
+			default: cyphertext_intermediate = 128'dx;
 		endcase
 	end
 	//////////////////////////////////////////////////
@@ -190,8 +201,9 @@ endmodule
 module fsm(
     input logic clk, reset,
     output logic [3:0] round,
-	output logic rk_en, init_cyph_en, prev_rk_en, final_cyph_en,
-	output logic [1:0] cyph_en
+	output logic [1:0] rk_en,
+	output logic init_cyph_en, prev_rk_en, final_cyph_en,
+	output logic [2:0] cyph_en
 );
 
 	//internal vasriables//////
@@ -269,7 +281,7 @@ module fsm(
 		else begin					//make sure that everything is loaded from MCU, and rounds have begun
 			if (clk_div == 1) begin						//check every other clk cycle
 				clk_div = 0;							//reset clk_div every other clk cycle
-				if (round < 11) 						//round is never more than 10
+				if (round < 10) 						//round is never more than 10
 					round = round + 4'b1;
 			end else
 				clk_div = 1'b1;							//clk_div = 1 every other clk cycle
@@ -280,30 +292,30 @@ module fsm(
 	// Register Logic **************************************************
 	// - This will output triggers for a register control block in the top module to activate certain inputs to clock schedule, cypher, and add_round_key
 	
-	logic rk_en_temp;
+	
 
 	// round key register (2 input, one output) based on state and round
-	always_ff @(posedge clk) begin
+	//always_ff @(posedge clk) begin
 		// Initialize output signals
 		//rk_en = 1'b0;          // Default to 0
 		//prev_rk_en = 1'b0;     // Default to 0
+	always_comb begin
 			case(state_KS)
 				S0:
-					rk_en_temp = 1'b0;
+					rk_en = 2'b00;
 				KS1: begin
 					if(round != 0)														   //set previous round key = current rk in rot_word to store for use in rcon and fill_round_key
-						rk_en_temp = 1'b1;
+						rk_en = 2'b01;
 					end
 				KS2:																			//SWITCH THESE TWO//														   //set prev rk register to 0 in KS2 to store prev rk to be used in rcon and fill_round_key
 					case(round)
-						4'd0: rk_en_temp = 1'b0;														   //input initial key to add_round_key for round 0 to produce initial intermediate_cypher
-						4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 1'b1; //all future rounds, feed round_key calculated in key schedule, into add_round_key and rot_word
-						default: rk_en_temp = 1'b0;
+						4'd0: rk_en = 2'b00;														   //input initial key to add_round_key for round 0 to produce initial intermediate_cypher
+						4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10: rk_en = 2'b01; //all future rounds, feed round_key calculated in key schedule, into add_round_key and rot_word
+						default: rk_en = 2'b10;
 					endcase
 				default:
-					rk_en_temp = 1'b0;
+					rk_en = 2'b10;
 			endcase
-		rk_en = rk_en_temp;
 	end
 
 	// prev_rk_en enabler mux
@@ -324,28 +336,60 @@ module fsm(
 	
 	// cyphertext source enable muxs
 	always_comb begin
-		case(round)
+		if(state_CYPH == S0) begin
+			case(round)
 					4'd0: begin
-						cyph_en = 2'b00;											 //round 0 feed plaintext into add_round_key to then calculate initial cyphertext
+						cyph_en = 3'b000;											 //round 0 feed plaintext into add_round_key to then calculate initial cyphertext
 						init_cyph_en = 1'b1;
 						end
+					default: begin
+						cyph_en = 3'b100;
+						init_cyph_en = 1'b0;
+						end
+			endcase
+		end
+		else if(state_CYPH == KS1) begin
+			case(round)
 					4'd1: begin
-						cyph_en = 2'b11;											 //feed intermediate_cypher from round 0 back into add_round_key
+						cyph_en = 3'b011;											 //feed intermediate_cypher from round 0 back into add_round_key
 						init_cyph_en = 1'b0;
 						end
 					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: begin
-						cyph_en = 2'b01; 											 //rounds 2-9 feed calculated intermediate_cypher
+						cyph_en = 3'b001; 											 //rounds 2-9 feed calculated intermediate_cypher
 						init_cyph_en = 1'b0;
 						end
 					4'd10: begin
-						cyph_en = 2'b10;											 //final round hold final cyphertext on output pin awaiting "done" assertion
+						cyph_en = 3'b010;											 //final round hold final cyphertext on output pin awaiting "done" assertion
 						init_cyph_en = 1'b0;
 						end
 					default: begin
-						cyph_en = 2'b00;
+						cyph_en = 3'b100;
 						init_cyph_en = 1'b0;
 						end
-		endcase//
+			endcase
+		end
+
+		else if(state_CYPH == KS2) begin
+			case(round)
+					4'd1: begin
+						cyph_en = 3'b100;											 //feed intermediate_cypher from round 0 back into add_round_key
+						init_cyph_en = 1'b0;
+						end
+					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: begin
+						cyph_en = 3'b100; 											 //rounds 2-9 feed calculated intermediate_cypher
+						init_cyph_en = 1'b0;
+						end
+					4'd10: begin
+						cyph_en = 3'b100;											 //final round hold final cyphertext on output pin awaiting "done" assertion
+						init_cyph_en = 1'b0;
+						end
+					default: begin
+						cyph_en = 3'b100;
+						init_cyph_en = 1'b0;
+						end
+				
+			endcase
+		end
 	end
 	////////////////////////////////////////////////////////////////////
 	//******************************************************************
@@ -372,7 +416,7 @@ module rot_word(
 	input logic [127:0] current_round_key,
 	input logic prev_rk_en,
 	output logic [127:0] prev_round_key,
-	output logic [31:0] rot_w_done
+	output logic [31:0] rot_word_done
 	);
 	
 	// internal variables /////
@@ -385,10 +429,10 @@ module rot_word(
 	
 	// previous round key register ///////
 	always_ff @(posedge clk) begin
-		if (prev_rk_en)
-			prev_round_key = current_round_key;
-		else
-			prev_round_key = 128'bx;
+		if (reset)
+			prev_round_key <= 128'bx;
+		else if (prev_rk_en)
+			prev_round_key <= current_round_key;
 	end
 	//////////////////////////////////////
 	
@@ -401,7 +445,7 @@ module rot_word(
 		B4 = w3[7:0];
 	
 		// set output ///////////////////////////////////////////
-		rot_w_done = {B2, B3, B4, B1};
+		rot_word_done = {B2, B3, B4, B1};
 	end
 	/////////////////////////////////////////////////////////
 endmodule
@@ -575,34 +619,34 @@ module shift_rows(
 	always_comb begin
 		// row 0: no shift
         shift_rows_done[127:120] = cypher_matrix[0][0];
-        shift_rows_done[119:112] = cypher_matrix[1][3];
+        shift_rows_done[119:112] = cypher_matrix[1][1];
         shift_rows_done[111:104] = cypher_matrix[2][2];
-        shift_rows_done[103:96]  = cypher_matrix[3][1];
+        shift_rows_done[103:96]  = cypher_matrix[3][3];
 
         // row 1: shift left by 1
         shift_rows_done[95:88]   = cypher_matrix[0][1];
-        shift_rows_done[87:80]   = cypher_matrix[1][0];
+        shift_rows_done[87:80]   = cypher_matrix[1][2];
         shift_rows_done[79:72]   = cypher_matrix[2][3];
-        shift_rows_done[71:64]   = cypher_matrix[3][2];
+        shift_rows_done[71:64]   = cypher_matrix[3][0];
 
         // row 2: shift left by 2
         shift_rows_done[63:56]   = cypher_matrix[0][2];
-        shift_rows_done[55:48]   = cypher_matrix[1][1];
+        shift_rows_done[55:48]   = cypher_matrix[1][3];
         shift_rows_done[47:40]   = cypher_matrix[2][0];
-        shift_rows_done[39:32]   = cypher_matrix[3][3];
+        shift_rows_done[39:32]   = cypher_matrix[3][1];
 
         // row 3: shift left by 3
         shift_rows_done[31:24]   = cypher_matrix[0][3];
-        shift_rows_done[23:16]   = cypher_matrix[1][2];
+        shift_rows_done[23:16]   = cypher_matrix[1][0];
         shift_rows_done[15:8]    = cypher_matrix[2][1];
-        shift_rows_done[7:0]     = cypher_matrix[3][0];
+        shift_rows_done[7:0]     = cypher_matrix[3][2];
     end
 	///////////////////////////////////////////////////////////
 	
 	// final cypher storage register
 	always_ff @(posedge clk) begin
 		if(final_cyph_en)
-			final_cypher_text = 128'h0100000000000000;
+			final_cypher_text = sub_bytes_cypher_done;
 	end
 	////////////////////////////////
 endmodule
