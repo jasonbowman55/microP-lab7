@@ -17,5 +17,5 @@ Writing output file 'radiant_lab7_jb_impl_1_syn.udb'.
 POSTSYN finished successfully.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 42 MB
-Checksum -- postsyn: 6d5efb6cc37648c74c18900d347927a8f0355be
+Peak Memory Usage: 40 MB
+Checksum -- postsyn: a3c341b9d7cba418b9d87f315d1f8ea22d1e23ac
