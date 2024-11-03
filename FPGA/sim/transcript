@@ -1253,3 +1253,5 @@ run
 # ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
 #    Time: 4650 ns  Iteration: 1  Instance: /testbench_aes_core
 # Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# End time: 13:45:04 on Nov 03,2024, Elapsed time: 0:59:40
+# Errors: 0, Warnings: 2
