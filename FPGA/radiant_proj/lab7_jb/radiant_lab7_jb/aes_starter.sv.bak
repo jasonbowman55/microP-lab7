@@ -436,7 +436,8 @@ module rcon (
 	// variable assignment logic ////.////
 	always_comb begin
         if (round >= 1 && round <= 10) begin								   //ensure in correct round bounds
-            rcon_done = prev_round_key[127:96] ^ sub_bytes_done ^ rcon[round]; //XOR operation with the first word of previous RK, calculated sub_bytes word, and rcon value based on round
+            //rcon_done = prev_round_key[127:96] ^ sub_bytes_done ^ rcon[round]; //XOR operation with the first word of previous RK, calculated sub_bytes word, and rcon value based on round
+		rcon_done = sub_bytes_done ^ rcon[round];
         end else begin
             rcon_done = 32'h00000000;
         end
@@ -487,26 +488,26 @@ endmodule
 /////////////////////////////////////////////////////
 module sub_bytes_CYPH( //DO I NEED CLK AND RESET?
 	input logic clk,
-	input logic [127:0] sub_bytes_cypher_done,
-	output logic [127:0] round_key_done
+	input logic [127:0] round_key_done,
+	output logic [127:0] sub_bytes_done_CYPH
 	);
 	// perform sub bytes on full intermediate cypher with sbox_sync
-	sbox_sync s4(round_key_done[7:0], clk, sub_bytes_cypher_done[7:0]);
-	sbox_sync s5(round_key_done[15:8], clk, sub_bytes_cypher_done[15:8]);
-	sbox_sync s6(round_key_done[23:16], clk, sub_bytes_cypher_done[23:16]);
-	sbox_sync s7(round_key_done[31:24], clk, sub_bytes_cypher_done[31:24]);
-	sbox_sync s8(round_key_done[39:32], clk, sub_bytes_cypher_done[39:32]);
-	sbox_sync s9(round_key_done[47:40], clk, sub_bytes_cypher_done[47:40]);
-	sbox_sync s10(round_key_done[55:48], clk, sub_bytes_cypher_done[55:48]);
-	sbox_sync s11(round_key_done[63:56], clk, sub_bytes_cypher_done[63:56]);
-	sbox_sync s12(round_key_done[71:64], clk, sub_bytes_cypher_done[71:64]);
-	sbox_sync s13(round_key_done[79:72], clk, sub_bytes_cypher_done[79:72]);
-	sbox_sync s14(round_key_done[87:80], clk, sub_bytes_cypher_done[87:80]);
-	sbox_sync s15(round_key_done[95:88], clk, sub_bytes_cypher_done[95:88]);
-	sbox_sync s16(round_key_done[103:96], clk, sub_bytes_cypher_done[103:96]);
-	sbox_sync s17(round_key_done[111:104], clk, sub_bytes_cypher_done[111:104]);
-	sbox_sync s18(round_key_done[119:112], clk, sub_bytes_cypher_done[119:112]);
-	sbox_sync s19(round_key_done[127:120], clk, sub_bytes_cypher_done[127:120]);
+	sbox_sync s4(round_key_done[7:0], clk, sub_bytes_done_CYPH[7:0]);
+	sbox_sync s5(round_key_done[15:8], clk, sub_bytes_done_CYPH[15:8]);
+	sbox_sync s6(round_key_done[23:16], clk, sub_bytes_done_CYPH[23:16]);
+	sbox_sync s7(round_key_done[31:24], clk, sub_bytes_done_CYPH[31:24]);
+	sbox_sync s8(round_key_done[39:32], clk, sub_bytes_done_CYPH[39:32]);
+	sbox_sync s9(round_key_done[47:40], clk, sub_bytes_done_CYPH[47:40]);
+	sbox_sync s10(round_key_done[55:48], clk, sub_bytes_done_CYPH[55:48]);
+	sbox_sync s11(round_key_done[63:56], clk, sub_bytes_done_CYPH[63:56]);
+	sbox_sync s12(round_key_done[71:64], clk, sub_bytes_done_CYPH[71:64]);
+	sbox_sync s13(round_key_done[79:72], clk, sub_bytes_done_CYPH[79:72]);
+	sbox_sync s14(round_key_done[87:80], clk, sub_bytes_done_CYPH[87:80]);
+	sbox_sync s15(round_key_done[95:88], clk, sub_bytes_done_CYPH[95:88]);
+	sbox_sync s16(round_key_done[103:96], clk, sub_bytes_done_CYPH[103:96]);
+	sbox_sync s17(round_key_done[111:104], clk, sub_bytes_done_CYPH[111:104]);
+	sbox_sync s18(round_key_done[119:112], clk, sub_bytes_done_CYPH[119:112]);
+	sbox_sync s19(round_key_done[127:120], clk, sub_bytes_done_CYPH[127:120]);
 	////////////////////////////////////////////////////////////
 endmodule
 //////////////////////////////////////////////////////
@@ -525,25 +526,25 @@ module shift_rows(
 	////////////////////
 	
 	// create cypher matrix to more easily shift rows /////////
-	assign cypher_matrix[0][0] = sub_bytes_cypher_done[127:120];
-	assign cypher_matrix[1][0] = sub_bytes_cypher_done[119:112];
-	assign cypher_matrix[2][0] = sub_bytes_cypher_done[111:104];
-	assign cypher_matrix[3][0] = sub_bytes_cypher_done[103:96];
+	assign cypher_matrix[0][0] = sub_bytes_done_CYPH[127:120];
+	assign cypher_matrix[1][0] = sub_bytes_done_CYPH[119:112];
+	assign cypher_matrix[2][0] = sub_bytes_done_CYPH[111:104];
+	assign cypher_matrix[3][0] = sub_bytes_done_CYPH[103:96];
 
-	assign cypher_matrix[0][1] = sub_bytes_cypher_done[95:88];
-	assign cypher_matrix[1][1] = sub_bytes_cypher_done[87:80];
-	assign cypher_matrix[2][1] = sub_bytes_cypher_done[79:72];
-	assign cypher_matrix[3][1] = sub_bytes_cypher_done[71:64];
+	assign cypher_matrix[0][1] = sub_bytes_done_CYPH[95:88];
+	assign cypher_matrix[1][1] = sub_bytes_done_CYPH[87:80];
+	assign cypher_matrix[2][1] = sub_bytes_done_CYPH[79:72];
+	assign cypher_matrix[3][1] = sub_bytes_done_CYPH[71:64];
 
-	assign cypher_matrix[0][2] = sub_bytes_cypher_done[63:56];
-	assign cypher_matrix[1][2] = sub_bytes_cypher_done[55:48];
-	assign cypher_matrix[2][2] = sub_bytes_cypher_done[47:40];
-	assign cypher_matrix[3][2] = sub_bytes_cypher_done[39:32];
+	assign cypher_matrix[0][2] = sub_bytes_done_CYPH[63:56];
+	assign cypher_matrix[1][2] = sub_bytes_done_CYPH[55:48];
+	assign cypher_matrix[2][2] = sub_bytes_done_CYPH[47:40];
+	assign cypher_matrix[3][2] = sub_bytes_done_CYPH[39:32];
 
-	assign cypher_matrix[0][3] = sub_bytes_cypher_done[31:24];
-	assign cypher_matrix[1][3] = sub_bytes_cypher_done[23:16];
-	assign cypher_matrix[2][3] = sub_bytes_cypher_done[15:8];
-	assign cypher_matrix[3][3] = sub_bytes_cypher_done[7:0];
+	assign cypher_matrix[0][3] = sub_bytes_done_CYPH[31:24];
+	assign cypher_matrix[1][3] = sub_bytes_done_CYPH[23:16];
+	assign cypher_matrix[2][3] = sub_bytes_done_CYPH[15:8];
+	assign cypher_matrix[3][3] = sub_bytes_done_CYPH[7:0];
 	///////////////////////////////////////////////////////////
 	
 	// perform shift row logic ////////////////////////////////
