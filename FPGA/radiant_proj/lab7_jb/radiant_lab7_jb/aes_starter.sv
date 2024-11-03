@@ -281,7 +281,7 @@ module hold (
 	// register to hold cyphertext
 	always_ff @(posedge clk) begin
 		if (reset)
-			cyphertext_intermediate <= 128'b0;
+			cyphertext_intermediate = 128'b0;
 		else
 			cyphertext_intermediate = cypher_src;
 	end
@@ -289,25 +289,25 @@ module hold (
 	// register to hold the first cypher text
 	always_ff @(posedge clk) begin
 		if (reset)
-			cypher_zero <= 128'b0;
+			cypher_zero = 128'b0;
 		else if (round == 0 && state_CYPH == 2'b10)  //2'b10 = CYPH2
-			cypher_zero <= cyphertext_intermediate;
+			cypher_zero = cyphertext_intermediate;
 	end
 	////////////////////////////////
 	
 	// current round key register
 	always_ff @(posedge clk) begin
 		if (reset)
-			current_round_key <= 128'bx;
+			current_round_key = 128'bx;
 		else if (state_KS == 2'b10)		//KS2
-			current_round_key <= rk_src;
+			current_round_key = rk_src;
 	end
 	
 	
 	// previous round key register
 	always_ff @(posedge clk) begin
 		if (reset)
-			prev_round_key <= 128'bx;
+			prev_round_key = 128'bx;
 		else
 			prev_round_key = current_round_key;
 	end
@@ -344,7 +344,7 @@ module source(
 		end
 	end
 	////////////////////////////////////////////////////////////////
-
+//
 	// mux src for the cound key source ////////////////////////////
 	always_comb begin
 		if (reset) begin
