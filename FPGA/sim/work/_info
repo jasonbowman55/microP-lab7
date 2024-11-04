@@ -11,24 +11,24 @@ cModel Technology
 dC:/Users/jbowman/Desktop/Lab10_JB_Folder
 vadd_round_key
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1730712123
+Z1 !s110 1730716546
 !i10b 1
-!s100 lB0O0W]7MIO;<@kk44an;0
+!s100 dIkZ4SR_:ZJAXJd=]4UO[0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IV=<]V:W53h9G]c35P]6SD2
+IiZ=nT__ZE_OBB`zb7^a4[2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 Z4 dC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim
-Z5 w1730712120
+Z5 w1730716542
 Z6 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
 Z7 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
-!i122 1486
-L0 482 11
+!i122 1558
+L0 521 11
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1730712123.000000
+Z9 !s108 1730716545.000000
 Z10 !s107 C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 Z11 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 !i113 1
@@ -47,7 +47,7 @@ R4
 R5
 R6
 R7
-!i122 1486
+!i122 1558
 L0 6 12
 R8
 r1
@@ -63,17 +63,17 @@ vaes_core
 R0
 R1
 !i10b 1
-!s100 Nj64Nz8ZGDH]NoJ6zjM660
+!s100 BRYQ]diaL8`f<D83Z8DL@0
 R2
-IHLE^8L[7R`nR9:kaf5:_62
+IcPBd9<^cTbg1nUW`c18J^2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 75 85
+!i122 1558
+L0 75 86
 R8
 r1
 !s85 0
@@ -97,7 +97,7 @@ R4
 R5
 R6
 R7
-!i122 1486
+!i122 1558
 L0 26 29
 R8
 r1
@@ -113,17 +113,17 @@ vcontroller
 R0
 R1
 !i10b 1
-!s100 Zi9gYEGXe3J62X<fEc7zB1
+!s100 XZ5DGZ2iQZ6^>ib@DJ=Qk2
 R2
-IHa4NYjHL@]iU[QXA4RJ3N3
+I9W41doRM[zSLm[nc>WddZ1
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 165 206
+!i122 1558
+L0 166 244
 R8
 r1
 !s85 0
@@ -138,17 +138,17 @@ vfill_round_key
 R0
 R1
 !i10b 1
-!s100 [8E7bRWN^HM=aJf8U<coD2
+!s100 DP97Mzo8laCW:D7VT_6ab3
 R2
-INdbk6z9XcjXE3zH7GKd4Y1
+IW]WUHZgBiGn`FR0>;`RSi2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 459 15
+!i122 1558
+L0 498 15
 R8
 r1
 !s85 0
@@ -212,17 +212,17 @@ vgaloismult
 R0
 R1
 !i10b 1
-!s100 1VBa]YAKnMXaY7on?NzVO1
+!s100 QRC5o8cAcz11GoOR527zJ3
 R2
-IiN=FfX[9H]Pfnm4`LIT@g1
+ID_L133oYU?2l=ObZ4Fa8?2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 679 8
+!i122 1558
+L0 718 8
 R8
 r1
 !s85 0
@@ -286,17 +286,17 @@ vmix_cols
 R0
 R1
 !i10b 1
-!s100 S<L:klIAiHHI_8DEQ?o:j1
+!s100 Sg`;bCSN0ZdIYhd:_NSN23
 R2
-I<6n@P@B?SN4TmKz8;z4?Z3
+I>zQDNzGJDK4_A[H6d;[_b2
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 636 8
+!i122 1558
+L0 675 8
 R8
 r1
 !s85 0
@@ -311,17 +311,17 @@ vmixcolumn
 R0
 R1
 !i10b 1
-!s100 9MG4m1EX7Dl><?W;kld3g0
+!s100 eVXm??2aIP>1L>48Zci7h0
 R2
-IN3=H^9BD0gjnS<V;HiJ3F3
+IH:S_:n`g::9g0fBz]^5@T1
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 652 19
+!i122 1558
+L0 691 19
 R8
 r1
 !s85 0
@@ -336,17 +336,17 @@ vrcon
 R0
 R1
 !i10b 1
-!s100 =l2MfXFYmLDb3X>A<lS3k2
+!s100 1`_j?Y@M79;8`lM:Ea0^:0
 R2
-IEWj61K::d2O2F<LPjIYRN2
+Io?5f2b@mel19VDQLbJE:53
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 421 34
+!i122 1558
+L0 460 34
 R8
 r1
 !s85 0
@@ -361,17 +361,17 @@ vrot_word
 R0
 R1
 !i10b 1
-!s100 87i9Y<^<nR89XWfX[_Zb10
+!s100 ZoD:a<nn:6XAG5M<L3eCV1
 R2
-I?Q<@hXAkW@<1;P@WEz6Na3
+IO66@zk3iZVS[40i5@0=Q?0
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 375 26
+!i122 1558
+L0 414 26
 R8
 r1
 !s85 0
@@ -386,17 +386,17 @@ vsbox
 R0
 R1
 !i10b 1
-!s100 :mO^m8bJifb<^DXKW:XdO0
+!s100 _9Gn;3[2DLjiI8L:7cdMY1
 R2
-I5RgIX?kX<Wb@8lRlSDN[R2
+Ifej_hTB]eZe<:EW2UAE>L0
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 594 10
+!i122 1558
+L0 633 10
 R8
 r1
 !s85 0
@@ -411,17 +411,17 @@ vsbox_sync
 R0
 R1
 !i10b 1
-!s100 ZW[J]QKn<5gUZXA?7L_EB1
+!s100 oKARB>3[b?QRHN:OD`ISD3
 R2
-I7nANAk>@C1`<Mm20g6EB:2
+I1g0:gOI677o5d_hd1T?TW1
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 611 16
+!i122 1558
+L0 650 16
 R8
 r1
 !s85 0
@@ -436,17 +436,17 @@ vshift_rows
 R0
 R1
 !i10b 1
-!s100 S^B]XP52mIS`Pe9FoYBPf3
+!s100 QVXH<fL8TgFN2DDoJ<^I21
 R2
-I;ShJ[]XAQjE[l_J6XjjPU0
+INNjVggELmd386ghic8U561
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 526 59
+!i122 1558
+L0 565 59
 R8
 r1
 !s85 0
@@ -535,17 +535,17 @@ vsub_cyph
 R0
 R1
 !i10b 1
-!s100 3LhChaVG<Td6g97X1jL[M0
+!s100 kO0GU><UX85F4fcMRein_2
 R2
-IXV7:dhkJN@Uni><do`P0e3
+IIi9OJ8[dS_Y33DUG4oL=71
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 497 24
+!i122 1558
+L0 536 24
 R8
 r1
 !s85 0
@@ -560,17 +560,17 @@ vsub_word
 R0
 R1
 !i10b 1
-!s100 RKzliKRCRZ9:SBm5VU[3;1
+!s100 Hhn8ef_:RU9hlRQR5AM:c1
 R2
-IgMBV@2FZm^lLQIDkNWmhA2
+I7I[R00zc>[zQ[U<3]ORO13
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1486
-L0 405 12
+!i122 1558
+L0 444 12
 R8
 r1
 !s85 0
@@ -583,7 +583,7 @@ R12
 R13
 vtestbench_aes_core
 R0
-R1
+Z27 !s110 1730716545
 !i10b 1
 !s100 aD<7_IY:C]X`2c6i`[Pa<0
 R2
@@ -591,16 +591,16 @@ IT5l5M;UOb:]16KSHe`=C43
 R3
 S1
 R4
-Z27 w1730427715
+Z28 w1730427715
 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv
 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv
-!i122 1483
+!i122 1555
 L0 11 42
 R8
 r1
 !s85 0
 31
-!s108 1730712122.000000
+R9
 !s107 C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv|
 !i113 1
@@ -608,7 +608,7 @@ R12
 R13
 vtestbench_aes_sbox
 R0
-R1
+R27
 !i10b 1
 !s100 Nmef5zQfeg8YD40R?7AW03
 R2
@@ -616,10 +616,10 @@ I4U5PW56H2;4TXQfe1:RVJ1
 R3
 S1
 R4
-R27
+R28
 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv
 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv
-!i122 1484
+!i122 1556
 L0 7 67
 R8
 r1
@@ -633,7 +633,7 @@ R12
 R13
 vtestbench_aes_spi
 R0
-R1
+R27
 !i10b 1
 !s100 PcFFUBNWE;M`BnY_zj0Uj2
 R2
@@ -641,10 +641,10 @@ I[dHVkGM60KR39maQ9e;cM3
 R3
 S1
 R4
-R27
+R28
 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
-!i122 1485
+!i122 1557
 L0 8 73
 R8
 r1
