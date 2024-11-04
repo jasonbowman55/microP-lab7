@@ -185,10 +185,12 @@ module fsm(
 	parameter KS2 = 3'b010; 	//ENDsub_bytes -> Rcon -> fill_round_key
 	parameter KS3 = 3'b011;
 	parameter KS4 = 3'b100;
+	parameter KS5 = 3'b101;
 	parameter CYPH1 = 3'b001; 	//ass_round_key -> STARTsub_bytes
 	parameter CYPH2 = 3'b010; 	//ENDsub_bytes -> shift_rows -> mix_cols
 	parameter CYPH3 = 3'b011;
 	parameter CYPH4 = 3'b100;
+	parameter CYPH5 = 3'b101;
 
     /////////////////////////////////////
 
@@ -223,7 +225,9 @@ module fsm(
 	    KS3:
                 nextstate_KS = KS4;
 		KS4:
-				nextstate_KS = KS1;
+				nextstate_KS = KS5;
+		KS5: 
+			nextstate_KS = KS1;
 			default:
 				nextstate_KS = S0_KS;
         endcase
@@ -245,7 +249,9 @@ module fsm(
 			CYPH3:
                 		nextstate_CYPH = CYPH4;
 			CYPH4:
-						nextstate_CYPH = CYPH1;
+						nextstate_CYPH = CYPH5;
+			CYPH5: 
+				nextstate_CYPH = CYPH1;
 			default:
 				nextstate_CYPH = S0_CYPH;
         endcase
@@ -256,7 +262,7 @@ module fsm(
 	always_ff @(posedge clk) begin
 		if (reset) begin
 			round <= 4'd0;
-		end else if (state_KS == KS4) begin
+		end else if (state_KS == KS5) begin
 			if (round < 10) 
 				round <= round + 1;
 		end
@@ -303,12 +309,24 @@ module hold (
 	end
 	////////////////////////////////
 	
+	
+
 	// current round key register
 	always_ff @(posedge clk) begin
 		if (reset)
 			current_round_key = 128'bx;
-		else if (state_KS == 3'b001) 				//KS3
-			current_round_key = rk_src;
+		else begin
+			case(round)
+				4'd0: begin
+					if (state_KS == 3'b000)
+						current_round_key = rk_src;
+				      end
+				default: begin
+					if (state_KS == 3'b101)
+						current_round_key = rk_src;
+					 end
+			endcase
+		end
 	end
 	
 	
@@ -358,11 +376,10 @@ module source(
 	always_comb begin
 		if (reset) begin
         	rk_src <= 128'b0;
-		end else if (state_KS == 3'b000 || state_KS == 3'b001) begin
+		end else begin
 				case(round)
 					4'd0: rk_src = key;
-					4'd1: rk_src = round_key_done;
-					4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10:
+					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10:
 						  rk_src = fill_round_key_done;
 					default:
 						  rk_src = 128'bx;
