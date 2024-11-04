@@ -11,28 +11,28 @@ cModel Technology
 dC:/Users/jbowman/Desktop/Lab10_JB_Folder
 vadd_round_key
 Z0 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z1 !s110 1730679366
+Z1 !s110 1730693958
 !i10b 1
 !s100 5dP<cn_80c0;UFTI8BblF1
 IhUbi8Rg2=aeafaMge@nHg2
 S1
 Z2 dC:/Users/jbowman/Desktop/microP-lab7/FPGA/sim
-Z3 w1730679362
+Z3 w1730693956
 Z4 8C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
 Z5 FC:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
-!i122 1252
+!i122 1273
 L0 500 11
 Z6 VDg1SIo80bB@j0V0VzS_@n1
 Z7 OP;L;2022.3;75
 r1
 !s85 0
 31
-Z8 !s108 1730679366.000000
-!s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
-Z9 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
+Z8 !s108 1730693958.000000
+Z9 !s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
+Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 !i113 1
-Z10 o-work work -sv
-Z11 tCvgOpt 0
+Z11 o-work work -sv
+Z12 tCvgOpt 0
 vaes
 R0
 R1
@@ -44,7 +44,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 6 12
 R6
 R7
@@ -52,11 +52,11 @@ r1
 !s85 0
 31
 R8
-Z12 !s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vaes_core
 R0
 R1
@@ -68,7 +68,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 75 87
 R6
 R7
@@ -76,11 +76,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vaes_spi
 R0
 R1
@@ -92,7 +92,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 26 29
 R6
 R7
@@ -100,11 +100,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vfill_round_key
 R0
 R1
@@ -116,7 +116,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 477 15
 R6
 R7
@@ -124,11 +124,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vfsm
 R0
 R1
@@ -140,7 +140,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 167 115
 R6
 R7
@@ -148,11 +148,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vfsm_controller
 Z13 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
 Z14 !s110 1730585863
@@ -176,8 +176,8 @@ Z21 !s108 1730585863.000000
 Z22 !s107 C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 Z23 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 !i113 1
-R10
 R11
+R12
 vgaloismult
 R0
 R1
@@ -189,7 +189,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 697 8
 R6
 R7
@@ -197,11 +197,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vhold
 R0
 R1
@@ -213,7 +213,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 286 56
 R6
 R7
@@ -221,11 +221,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vholding
 R13
 R14
@@ -249,8 +249,8 @@ R21
 R22
 R23
 !i113 1
-R10
 R11
+R12
 vmix_cols
 R0
 R1
@@ -262,7 +262,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 654 8
 R6
 R7
@@ -270,11 +270,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vmixcolumn
 R0
 R1
@@ -286,7 +286,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 670 19
 R6
 R7
@@ -294,11 +294,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vrcon
 R0
 R1
@@ -310,7 +310,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 441 32
 R6
 R7
@@ -318,11 +318,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vrot_word
 R0
 R1
@@ -334,7 +334,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 395 26
 R6
 R7
@@ -342,11 +342,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vsbox
 R0
 R1
@@ -358,7 +358,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 612 10
 R6
 R7
@@ -366,11 +366,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vsbox_sync
 R0
 R1
@@ -382,7 +382,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 629 16
 R6
 R7
@@ -390,11 +390,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vshift_rows
 R0
 R1
@@ -406,7 +406,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 544 59
 R6
 R7
@@ -414,11 +414,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vsource
 R0
 R1
@@ -430,7 +430,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 346 45
 R6
 R7
@@ -438,11 +438,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 vsub_bytes_CYPH
 R0
 R1
@@ -454,7 +454,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 515 24
 R6
 R7
@@ -462,11 +462,11 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 nsub_bytes_@c@y@p@h
 vsub_bytes_KS
 R0
@@ -479,7 +479,7 @@ R2
 R3
 R4
 R5
-!i122 1252
+!i122 1273
 L0 425 12
 R6
 R7
@@ -487,36 +487,36 @@ r1
 !s85 0
 31
 R8
-R12
 R9
-!i113 1
 R10
+!i113 1
 R11
+R12
 nsub_bytes_@k@s
 vtestbench_aes_core
 R0
 R1
 !i10b 1
-!s100 aD<7_IY:C]X`2c6i`[Pa<0
-I7b=c>2PI>zA4[DMTOlUW91
+!s100 94l5;<ld_;8VMfSA2hO?l0
+IV@j90`5S2L24RCN0PWM0N1
 S1
 R2
-Z24 w1730674024
-8C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv
-FC:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv
-!i122 1249
-L0 11 42
+w1730693928
+8C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/aes_KS_tb.sv
+FC:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/aes_KS_tb.sv
+!i122 1274
+L0 1 30
 R6
 R7
 r1
 !s85 0
 31
 R8
-!s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv|
+!s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/aes_KS_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/aes_KS_tb.sv|
 !i113 1
-R10
 R11
+R12
 vtestbench_aes_sbox
 R0
 R1
@@ -525,10 +525,10 @@ R1
 IgUa9N`c3^QEDYb4IeTR>J3
 S1
 R2
-R24
+Z24 w1730168301
 8C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv
 FC:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv
-!i122 1250
+!i122 1271
 L0 7 67
 R6
 R7
@@ -539,8 +539,8 @@ R8
 !s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv|
 !i113 1
-R10
 R11
+R12
 vtestbench_aes_spi
 R0
 R1
@@ -552,7 +552,7 @@ R2
 R24
 8C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
 FC:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
-!i122 1251
+!i122 1272
 L0 8 73
 R6
 R7
@@ -563,5 +563,5 @@ R8
 !s107 C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv|
 !i113 1
-R10
 R11
+R12
