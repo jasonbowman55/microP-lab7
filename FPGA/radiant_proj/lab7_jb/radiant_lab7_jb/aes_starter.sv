@@ -284,7 +284,7 @@ end
 			case(state)
 				S1:
 					cypher_src = plaintext;
-				S2, S3, S4, S5, S6, S7, S8, S9, S10, S11:
+				S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12:
 					cypher_src = round_key_done;
 				default:
 					cypher_src = 128'bx;
@@ -300,7 +300,7 @@ end
 		end else begin
 				case(state)
 					S1: rk_src = key;
-					S2, S3, S4, S5, S6, S7, S8, S9, S10, S11:
+					S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12:
 						  rk_src = fill_round_key_done;
 					default:
 						  rk_src = 128'bx;
@@ -318,7 +318,7 @@ end
 					S1: adrk_src = cyphertext_intermediate;
 					S2, S3, S4, S5, S6, S7, S8, S9, S10:
 						adrk_src = mix_cols_done;
-					S11:
+					S11, S12:
 						adrk_src = shift_rows_done;
 					default:
 						  adrk_src = 128'bx;
@@ -398,13 +398,21 @@ end
 	//***************************************************************
 	
 	// done logic //////////////////////
-	always_comb begin
-		if (reset) begin
-			done_int = 1'b0;
-		end else if (state == S12) begin
-			done_int = 1'b1;
-		end
+logic done_int_delay = 0;
+
+always_ff @(posedge clk or posedge reset) begin
+	if (reset) begin
+		done_int_delay <= 1'b0;
+		done_int <= 1'b0;
+	end else if (state == S12) begin
+		done_int_delay <= 1'b1;
+		done_int <= done_int_delay;
+	end else begin
+		done_int_delay <= 1'b0;
+		done_int <= done_int_delay;
 	end
+end
+
 	///////////////////////////////////
 endmodule
 
