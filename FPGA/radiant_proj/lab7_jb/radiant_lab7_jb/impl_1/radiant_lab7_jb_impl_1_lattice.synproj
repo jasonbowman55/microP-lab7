@@ -52,7 +52,7 @@
 
 
 -path "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb"
--top sub_bytes
+-top aes_core
 -udb "radiant_lab7_jb_impl_1_rtl.udb"
 -output_hdl "radiant_lab7_jb_impl_1.vm"
 

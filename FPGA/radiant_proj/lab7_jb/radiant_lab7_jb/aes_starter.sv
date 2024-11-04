@@ -85,18 +85,18 @@ module aes_core(input  logic         clk,
 // internal variables ////////////////////////////////////////////
     //key expansion
 	logic [31:0] rot_word_done; 		//output modified word from rot_word in key expansion
-    logic [31:0] sub_bytes_KS_done; 	//output modified word from sub_bytes in key expansion
+    logic [31:0] sub_word_done; 	//output modified word from sub_bytes in key expansion
     logic [31:0] rcon_done;  			//output modified word from rcon module in key expansion
     logic [127:0] fill_round_key_done;  //output from fill_round_key in key expansion, full round key
 
     //main cypher
     logic [127:0] round_key_done;           //output from add round key in main cypher
-    logic [127:0] sub_bytes_done_CYPH;    	//output from sub bytes in main cypher
+    logic [127:0] sub_cyph_done;    	//output from sub bytes in main cypher
     logic [127:0] shift_rows_done;          //output from shift rows in main cypher 
     logic [127:0] mix_cols_done;            //output from the mix cols in main cypher
 
 	// registers
-	logic [127:0] current_round_key;		//current round key output from round key register
+	logic [127:0] round_key;		//current round key output from round key register
 	logic [127:0] prev_round_key;			//previous round key output rot_word module
 	logic [127:0] cypher_zero;				//output from the initial cypher register inside add_round_key
 	logic [127:0] cyphertext_intermediate; 	//cypher text in between rounds
@@ -106,13 +106,24 @@ module aes_core(input  logic         clk,
 	logic [127:0] rk_src;					//output from the round key source mux
 	
     //top level / controller_fsm module variables
-    logic [3:0] round;       				//stores the round number 0-10 (each round = 2 clk cycles
 	logic reset;							//dependant on load\\
 	logic load_prev;						//used to generate reset
-	logic [2:0] state_KS, state_CYPH;				//key schedule & cypher states
-	logic done_int;							//internal done signal to say that the cyphertext is complete
+	logic [3:0] state;						//key schedule & cypher states
+	logic done_int;							//done controll signal
 
 //*************************TOP MODULE LOGIC*****************
+
+	// done logic //////////////////////
+	always_comb begin
+		if (reset) begin
+			cyphertext = 128'bx;
+			done = 1'b0;
+		end else if (done_int == 1) begin
+			cyphertext = cyphertext_intermediate;
+			done = 1'b1;
+		end
+	end
+	///////////////////////////////////
 
 	// reset logic //////////////////////
 	always_ff @(posedge clk) begin
@@ -127,34 +138,21 @@ module aes_core(input  logic         clk,
 		load_prev = load;
 	end
 	////////////////////////////////////
-	
-	// done logic //////////////////////
-	always_comb begin
-		if (reset) begin
-			done = 1'b0;
-			cyphertext = 128'bx;
-		end else if (done_int) begin
-			done = 1'b1;
-			cyphertext = cyphertext_intermediate;
-		end
-	end
-	///////////////////////////////////
+
 	
 // **************SUB-MODULE INSTANTIATION*****************************
 	//the main control, muxs, registers, and fsm module (CONTROLLER)
-	fsm CTR1(clk, reset, done_int, round, state_KS, state_CYPH);
-	hold CTR2(clk, reset, round, round_key_done, state_KS, state_CYPH, cypher_src, rk_src, cypher_zero, cyphertext_intermediate, current_round_key, prev_round_key);
-	source CTR3(reset, round, state_KS, state_CYPH, cypher_zero, plaintext, shift_rows_done, mix_cols_done, key, fill_round_key_done, round_key_done, cypher_src, rk_src);
+	controller CTR1(clk, reset, round_key_done, shift_rows_done, mix_cols_done, key, plaintext, fill_round_key_done, done_int, state, round_key, cyphertext_intermediate);
 
 	//Key Schdule and expansion modules
-    rot_word KS1(current_round_key, rot_word_done);
-	sub_bytes_KS KS2(clk, rot_word_done, sub_bytes_KS_done);
-	rcon KS3(round, state_KS, prev_round_key, sub_bytes_KS_done, rcon_done);
-	fill_round_key KS4(rcon_done, prev_round_key, fill_round_key_done);
+    rot_word KS1(round_key, rot_word_done);
+	sub_word KS2(clk, rot_word_done, sub_word_done);
+	rcon KS3(state, round_key, sub_word_done, rcon_done);
+	fill_round_key KS4(rcon_done, round_key, fill_round_key_done);
 	
 	//cypher stuff
-	add_round_key CYPH1(cyphertext_intermediate, current_round_key, round_key_done);
-	sub_bytes_CYPH CYPH2(clk, round_key_done, sub_bytes_done_CYPH);
+	add_round_key CYPH1(cyphertext_intermediate, round_key, round_key_done);
+	sub_cyph CYPH2(clk, round_key_done, sub_cyph_done);
 	shift_rows CYPH3(sub_bytes_done_CYPH, shift_rows_done);
     mix_cols CYPH4(shift_rows_done, mix_cols_done);
 //********************************************************************
@@ -164,223 +162,132 @@ endmodule
 // This FSM block acts as the pacer and contoller of the system
 // This is because all of these block rely on the state / round, thus need to be in this module
 ////////////////////////////////////////////////////////
-module fsm(
+module controller(
     input logic clk, reset,
+    input logic [127:0] round_key_done, shift_rows_done, mix_cols_done, key, plaintext, fill_round_key_done,
     output logic done_int,
-	output logic [3:0] round,
-	output logic [2:0] state
+	output logic [3:0] state,
+	output logic [127:0] round_key, cyphertext_intermediate
 	);
 
 	//state vasriables/////////
-	logic [1:0] state;		//current state of key schedule FSM
-	logic [2:0] nextstate;	//next state for the key schedule portion of the BD
-	logic [1:0] state;		//current state of cypher FSM
-	logic [2:0] nextstate;	//next state for the cypher portion of the BD
+	//logic [3:0] state;		//current state of key schedule FSM
+	logic [3:0] nextstate;	//next state for the key schedule portion of the BD
+	logic [127:0] cypher_src, rk_src;
 	///////////////////////////
 
     //instantiation of states for the FSM
-    parameter S0 = 5'd0;
-	parameter S1 = 5'd1;
-    parameter S2 = 5'd2;
-    parameter S3 = 5'd3;
-    parameter S4 = 5'd4;
-    parameter S5 = 5'd5;
-    parameter S6 = 5'd6;
-    parameter S7 = 5'd7;
-    parameter S8 = 5'd8;
-    parameter timer = 5'd0;
-	parameter next_timer = timer +1;
-    /////////////////////////////////////
+    parameter S0 = 4'd0;
+	parameter S1 = 4'd1;
+    parameter S2 = 4'd2;
+    parameter S3 = 4'd3;
+    parameter S4 = 4'd4;
+    parameter S5 = 4'd5;
+    parameter S6 = 4'd6;
+    parameter S7 = 4'd7;
+    parameter S8 = 4'd8;
+    parameter S9 = 4'd9;
+    parameter S10 = 4'd10;
+    parameter S11 = 4'd11;
+	parameter S12 = 4'd12;
+    logic [3:0] timer = 4'd0;
+logic [3:0] timer_limit = 5;
 
-	// main FSM ////////////////////////
-	always_comb begin
-		case(state)
-			S0: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S1
-			S1: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S2
-			S2: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S3
-			S3: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S4
-			S4: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S5
-			S5: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S6
-			S6: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S7
-			S7: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S8
-			S8: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S9
-			S9: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S10
-			S10: begin
-					if (timer < 5)
-						timer <= next_timer;
-					else
-						nextstate <= S510
-		endcase
+/////////////////////////////////////////
+
+// Next state logic and timer update //
+always_ff @(posedge clk) begin
+	if (reset) begin
+		state <= S0;
+		timer <= 4'd0;
+	end else begin
+		state <= nextstate;
+		if (state == nextstate && timer < timer_limit) // Only increment timer within the same state
+			timer <= timer + 1;
+		else
+			timer <= 4'd0; // Reset timer when moving to a new state
 	end
+end
+
+/////////////////////////////////////////
+
+// Main FSM //
+always_comb begin
+	nextstate = state; // Default to remain in the current state
+	case (state)
+		S0: begin
+			if (reset)
+				nextstate = S0;
+			else
+				nextstate = S1;
+		end
+		S1: begin
+			if (timer >= timer_limit)
+				nextstate = S2;
+		end
+		S2: begin
+			if (timer >= timer_limit)
+				nextstate = S3;
+		end
+		S3: begin
+			if (timer >= timer_limit)
+				nextstate = S4;
+		end
+		S4: begin
+			if (timer >= timer_limit)
+				nextstate = S5;
+		end
+		S5: begin
+			if (timer >= timer_limit)
+				nextstate = S6;
+		end
+		S6: begin
+			if (timer >= timer_limit)
+				nextstate = S7;
+		end
+		S7: begin
+			if (timer >= timer_limit)
+				nextstate = S8;
+		end
+		S8: begin
+			if (timer >= timer_limit)
+				nextstate = S9;
+		end
+		S9: begin
+			if (timer >= timer_limit)
+				nextstate = S10;
+		end
+		S10: begin
+			if (timer >= timer_limit)
+				nextstate = S11;
+		end
+		S11: begin
+			if (timer >= timer_limit)
+				nextstate = S12;
+		end
+		S12: begin
+			if (timer >= timer_limit)
+				nextstate = S12; // Remain in S12
+		end
+	endcase
+end
+
 	////////////////////////////////////////
 	
-	// contol signals //////////////////////
-	always_comb begin
-		case(state)
-			
-			
-			
-
-
-    //next state logic ///////////////
-    always_ff @(posedge clk) begin
-		if (reset) 
-			state <= S0;
-		else begin
-			state <= nextstate;
-			timer <= 0;
-		end
-	end
-	//////////////////////////////////
-
-	// round counter ///////////////////////////
-	always_ff @(posedge clk) begin
-		if (reset) begin
-			round <= 4'd0;
-		end else if (state == S1) begin
-			if (round < 10) 
-				round <= round + 1;
-		end
-	end
-	////////////////////////////////////////////
-
-	// done_int flag ///////////////////////////
-	always_ff @(posedge clk) begin
-		if (reset) begin
-			done_int <= 1'b0;
-		end else if (round == 10) begin
-			done_int = 1'b1;
-		end
-	end
-	////////////////////////////////////////////
-
-endmodule
-
-// holding ////////////////////////////////////////
-// this module holds all oif the registers that hold intermitant values
-///////////////////////////////////////////////////
-module hold (
-	input logic clk, reset,
-	input logic [3:0] state,
-	input logic [127:0] round_key_done,
-	input logic [127:0] cypher_src, rk_src,
-	output logic [127:0] cypher_zero, cyphertext_intermediate, current_round_key, prev_round_key
-	);
-
-	// register to hold cyphertext
-	always_ff @(posedge clk) begin
-		if (reset)
-			cyphertext_intermediate = 128'b0;
-		else
-			cyphertext_intermediate = cypher_src;
-	end
-	
-	// register to hold the first cypher text
-	always_ff @(posedge clk) begin
-		if (reset)
-			cypher_zero = 128'b0;
-		else if (round == 0 && state_CYPH == 3'b010)  //2'b10 = CYPH2
-			cypher_zero = round_key_done;
-	end
-	////////////////////////////////
-	
-	
-
-	// current round key register
-	always_ff @(posedge clk) begin
-		if (reset)
-			current_round_key = 128'bx;
-		else begin
-			
-			
- 			case(round)
-				4'd0: begin
-					if (state_KS == 3'b000)
-						current_round_key = rk_src;
-				      end
-				default: begin
-					if (state_KS == 3'b101)
-						current_round_key = rk_src;
-					 end
-			endcase
-		end
-	end
-	
-	
-	// previous round key register
-	always_ff @(posedge clk) begin
-		if (reset)
-			prev_round_key = 128'bx;
-		else
-			prev_round_key = current_round_key;
-	end
-	////////////////////////////////////////////////////////////////////
-endmodule
-
-// source //////////////////////////////////////
-// this module operates the MUXs used to input into the registers given a ceratin round
-////////////////////////////////////////////////
-module source(
-	input logic reset,
-	input logic [3:0] round,
-	input logic [2:0] state_KS, state_CYPH,
-	input logic [127:0] cypher_zero, plaintext, shift_rows_done, mix_cols_done, key, fill_round_key_done, round_key_done,
-	output logic [127:0] cypher_src, rk_src
-	);
-
+	// MUXs ********************************************************
 	// source mux for the cyphertext line //////////////////////////
 	always_comb begin
 		if (reset) begin
         		cypher_src <= 128'b0;
 		end else begin
-			case(round)
-				4'd0:
+			case(state)
+				S1:
 					cypher_src = plaintext;
-				4'd1:
-					cypher_src = cypher_zero;
-				4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9: 
+				S2:
+					cypher_src = round_key_done;
+				S3, S4, S5, S6, S7, S8, S9, S10:
 					cypher_src = mix_cols_done;
-				4'd10:
+				S11:
 					cypher_src = shift_rows_done;
 				default:
 					cypher_src = 128'bx;
@@ -388,15 +295,15 @@ module source(
 		end
 	end
 	////////////////////////////////////////////////////////////////
-//
+	
 	// mux src for the cound key source ////////////////////////////
 	always_comb begin
 		if (reset) begin
         	rk_src <= 128'b0;
 		end else begin
-				case(round)
-					4'd0: rk_src = key;
-					4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd6, 4'd7, 4'd8, 4'd9, 4'd10:
+				case(state)
+					S1: rk_src = key;
+					S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11:
 						  rk_src = fill_round_key_done;
 					default:
 						  rk_src = 128'bx;
@@ -404,13 +311,69 @@ module source(
 		end
 	end
 	////////////////////////////////////////////////////////////////
+	//**************************************************************
+
+	// flip flip enable logic **************************************
+		// register to hold cyphertext //////////////
+	always_ff @(posedge clk) begin
+		if (reset)
+			cyphertext_intermediate = 128'b0;
+		else
+			cyphertext_intermediate = cypher_src;
+	end
+	/////////////////////////////////////////////
+	
+	// register to hold the value of fill round key done for one extra clk cycle
+	logic [127:0] fill_round_key_temp;
+logic [127:0] fill_round_key_delay;
+
+always_ff @(posedge clk) begin
+    if (reset) begin
+        fill_round_key_delay <= 128'bx;
+        fill_round_key_temp <= 128'bx;
+    end else begin
+        fill_round_key_delay <= fill_round_key_done;     // First cycle delay
+        fill_round_key_temp <= fill_round_key_delay;     // Second cycle delay
+    end
+end
+
+	////////////////////////////////////////////////////////////////////////////
+
+	// current round key register /////////////////
+	always_ff @(posedge clk) begin
+		if (reset)
+			round_key = 128'bx;
+		else begin
+ 			case(state)
+				S1:
+					round_key = key;
+				S2, S3, S4, S5, S6, S7, S8, S9, S10, S11:
+					if(timer == 0)
+					round_key = fill_round_key_temp;
+				default:
+					round_key = 128'bx;
+			endcase
+		end
+	end
+	//////////////////////////////////////////////
+	//***************************************************************
+	
+	// done logic //////////////////////
+	always_comb begin
+		if (reset) begin
+			done_int = 1'b0;
+		end else if (state == S12) begin
+			done_int = 1'b1;
+		end
+	end
+	///////////////////////////////////
 endmodule
 
 // rot_word /////////////////////////////
 // this is the first step to the key schedule process
 /////////////////////////////////////////
 module rot_word(
-	input logic [127:0] current_round_key,
+	input logic [127:0] round_key,
 	output logic [31:0] rot_word_done
 	);
 	
@@ -424,7 +387,7 @@ module rot_word(
 	
 	// init vals /////////////
 	always_comb begin
-		w3 = current_round_key[31:0]; //last word in round key
+		w3 = round_key[31:0]; //last word in round key
 		B1 = w3[31:24];
 		B2 = w3[23:16];
 		B3 = w3[15:8];
@@ -439,16 +402,16 @@ endmodule
 // sub bytes ///////////////////////////////
 // this creates the S matrix (4x4 bytes) col major array
 ////////////////////////////////////////////
-module sub_bytes_KS( //DO I NEED CLK AND RESET?
+module sub_word( //DO I NEED CLK AND RESET?
 	input logic clk,
 	input logic [31:0] rot_word_done,
-	output logic [31:0] sub_bytes_KS_done
+	output logic [31:0] sub_word_done
 	);
 	// perform sub bytes word by word using sbox_sync ////////////
-	sbox_sync s0(rot_word_done[31:24], clk, sub_bytes_KS_done[31:24]);
-	sbox_sync s1(rot_word_done[23:16], clk, sub_bytes_KS_done[23:16]);
-	sbox_sync s2(rot_word_done[15:8], clk, sub_bytes_KS_done[15:8]);
-	sbox_sync s3(rot_word_done[7:0], clk, sub_bytes_KS_done[7:0]);
+	sbox_sync s0(rot_word_done[31:24], clk, sub_word_done[31:24]);
+	sbox_sync s1(rot_word_done[23:16], clk, sub_word_done[23:16]);
+	sbox_sync s2(rot_word_done[15:8], clk, sub_word_done[15:8]);
+	sbox_sync s3(rot_word_done[7:0], clk, sub_word_done[7:0]);
 	//////////////////////////////////////////////////////////////
 endmodule
 
@@ -456,15 +419,14 @@ endmodule
 // this is the second step in the key schedule expander
 ///////////////////////////////////////////////////////
 module rcon (
-	input logic [3:0] round,
-	input logic [2:0] state_KS,
-	input logic [127:0] prev_round_key,
-	input logic [31:0] sub_bytes_KS_done,
+	input logic [3:0] state,
+	input logic [127:0] round_key,
+	input logic [31:0] sub_word_done,
 	output logic [31:0] rcon_done
 	);
 	
 	// internal variables //
-	logic [31:0] rcon[0:9] = '{				 32'h01000000,
+	logic [31:0] rcon[0:9] = '{	 32'h01000000,
 								 32'h02000000,
 								 32'h04000000,
 								 32'h08000000,
@@ -476,11 +438,14 @@ module rcon (
 								 32'h36000000 };	//Rcon matrix
 	////////////////////////
 	
-	// variable assignment logic ////.////
+	// variable assignment logic ////////
+	logic [31:0] rcon_done_intermediate;
+
 	always_comb begin
-        if (round >= 0) begin								   //ensure in correct round bounds
+        if (state != 0) begin								   //ensure in correct round bounds
             //rcon_done = prev_round_key[127:96] ^ sub_bytes_done ^ rcon[round]; //XOR operation with the first word of previous RK, calculated sub_bytes word, and rcon value based on round
-		rcon_done = sub_bytes_KS_done ^ rcon[round];
+		rcon_done_intermediate = round_key [127:96] ^ sub_word_done;
+		rcon_done = rcon_done_intermediate ^ rcon[state - 1];
         end else begin
             rcon_done = 32'bx;
         end
@@ -493,16 +458,16 @@ endmodule
 ////////////////////////////////////////////////////////////
 module fill_round_key(
 	input logic [31:0] rcon_done,
-	input logic [127:0] prev_round_key,
+	input logic [127:0] round_key,
 	output logic [127:0] fill_round_key_done
 	);
 	// fill the full round key with the following XOR statements
 	// use blocking statements so that following calculations can be done with the previously calculated values
 	always_comb begin
 		fill_round_key_done[127:96] = rcon_done;
-		fill_round_key_done[95:64] = prev_round_key[95:64] ^ fill_round_key_done[127:96];
-		fill_round_key_done[63:32] = prev_round_key[63:32] ^ fill_round_key_done[95:64];
-		fill_round_key_done[31:0] = prev_round_key[31:0] ^ fill_round_key_done[63:32];	
+		fill_round_key_done[95:64] = round_key[95:64] ^ fill_round_key_done[127:96];
+		fill_round_key_done[63:32] = round_key[63:32] ^ fill_round_key_done[95:64];
+		fill_round_key_done[31:0] = round_key[31:0] ^ fill_round_key_done[63:32];	
 	end
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 endmodule
@@ -516,12 +481,12 @@ endmodule
 ////////////////////////////////////////////
 module add_round_key (
 	input logic [127:0] cyphertext_intermediate,
-	input logic [127:0] current_round_key,
+	input logic [127:0] round_key,
 	output logic [127:0] round_key_done
 	);
 	// add round key logic XOR cyphertext with current round key
 	always_comb begin
-		round_key_done <= cyphertext_intermediate ^ current_round_key;
+		round_key_done <= cyphertext_intermediate ^ round_key;
 	end
 	////////////////////////////////////////////////////////////
 endmodule
@@ -529,28 +494,28 @@ endmodule
 // sub bytes for the cypher /////////////////////////
 // this is the second thing to do in the cypher side of the AES-128
 /////////////////////////////////////////////////////
-module sub_bytes_CYPH( //DO I NEED CLK AND RESET?
+module sub_cyph( //DO I NEED CLK AND RESET?
 	input logic clk,
 	input logic [127:0] round_key_done,
-	output logic [127:0] sub_bytes_done_CYPH
+	output logic [127:0] sub_cyph_done
 	);
 	// perform sub bytes on full intermediate cypher with sbox_sync
-	sbox_sync s4(round_key_done[7:0], clk, sub_bytes_done_CYPH[7:0]);
-	sbox_sync s5(round_key_done[15:8], clk, sub_bytes_done_CYPH[15:8]);
-	sbox_sync s6(round_key_done[23:16], clk, sub_bytes_done_CYPH[23:16]);
-	sbox_sync s7(round_key_done[31:24], clk, sub_bytes_done_CYPH[31:24]);
-	sbox_sync s8(round_key_done[39:32], clk, sub_bytes_done_CYPH[39:32]);
-	sbox_sync s9(round_key_done[47:40], clk, sub_bytes_done_CYPH[47:40]);
-	sbox_sync s10(round_key_done[55:48], clk, sub_bytes_done_CYPH[55:48]);
-	sbox_sync s11(round_key_done[63:56], clk, sub_bytes_done_CYPH[63:56]);
-	sbox_sync s12(round_key_done[71:64], clk, sub_bytes_done_CYPH[71:64]);
-	sbox_sync s13(round_key_done[79:72], clk, sub_bytes_done_CYPH[79:72]);
-	sbox_sync s14(round_key_done[87:80], clk, sub_bytes_done_CYPH[87:80]);
-	sbox_sync s15(round_key_done[95:88], clk, sub_bytes_done_CYPH[95:88]);
-	sbox_sync s16(round_key_done[103:96], clk, sub_bytes_done_CYPH[103:96]);
-	sbox_sync s17(round_key_done[111:104], clk, sub_bytes_done_CYPH[111:104]);
-	sbox_sync s18(round_key_done[119:112], clk, sub_bytes_done_CYPH[119:112]);
-	sbox_sync s19(round_key_done[127:120], clk, sub_bytes_done_CYPH[127:120]);
+	sbox_sync s4(round_key_done[7:0], clk, sub_cyph_done[7:0]);
+	sbox_sync s5(round_key_done[15:8], clk, sub_cyph_done[15:8]);
+	sbox_sync s6(round_key_done[23:16], clk, sub_cyph_done[23:16]);
+	sbox_sync s7(round_key_done[31:24], clk, sub_cyph_done[31:24]);
+	sbox_sync s8(round_key_done[39:32], clk, sub_cyph_done[39:32]);
+	sbox_sync s9(round_key_done[47:40], clk, sub_cyph_done[47:40]);
+	sbox_sync s10(round_key_done[55:48], clk, sub_cyph_done[55:48]);
+	sbox_sync s11(round_key_done[63:56], clk, sub_cyph_done[63:56]);
+	sbox_sync s12(round_key_done[71:64], clk, sub_cyph_done[71:64]);
+	sbox_sync s13(round_key_done[79:72], clk, sub_cyph_done[79:72]);
+	sbox_sync s14(round_key_done[87:80], clk, sub_cyph_done[87:80]);
+	sbox_sync s15(round_key_done[95:88], clk, sub_cyph_done[95:88]);
+	sbox_sync s16(round_key_done[103:96], clk, sub_cyph_done[103:96]);
+	sbox_sync s17(round_key_done[111:104], clk, sub_cyph_done[111:104]);
+	sbox_sync s18(round_key_done[119:112], clk, sub_cyph_done[119:112]);
+	sbox_sync s19(round_key_done[127:120], clk, sub_cyph_done[127:120]);
 	////////////////////////////////////////////////////////////
 endmodule
 //////////////////////////////////////////////////////

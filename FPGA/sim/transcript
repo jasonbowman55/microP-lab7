@@ -1,8 +1,181 @@
-# 0 compiles, 4 failed with no errors.
-# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
-# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
-# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
-# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Error opening C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 30 errors.
+# 4 compiles, 1 failed with 30 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 27 errors.
+# 4 compiles, 1 failed with 27 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 27 errors.
+# 4 compiles, 1 failed with 27 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 27 errors.
+# 4 compiles, 1 failed with 27 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 31 errors.
+# 4 compiles, 1 failed with 31 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 27 errors.
+# 4 compiles, 1 failed with 27 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 27 errors.
+# 4 compiles, 1 failed with 27 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 24 errors.
+# 4 compiles, 1 failed with 24 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 21 errors.
+# 4 compiles, 1 failed with 21 errors.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 25 errors.
+# 4 compiles, 1 failed with 25 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 17 errors.
+# 4 compiles, 1 failed with 17 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 35 errors.
+# 4 compiles, 1 failed with 35 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 48 errors.
+# 4 compiles, 1 failed with 48 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 2 errors.
+# 4 compiles, 1 failed with 2 errors.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 12 errors.
+# 4 compiles, 1 failed with 12 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 12 errors.
+# 4 compiles, 1 failed with 12 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 10 errors.
+# 4 compiles, 1 failed with 10 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 9 errors.
+# 4 compiles, 1 failed with 9 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 9 errors.
+# 4 compiles, 1 failed with 9 errors.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 7 errors.
+# 4 compiles, 1 failed with 7 errors.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 6 errors.
+# 4 compiles, 1 failed with 6 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 5 errors.
+# 4 compiles, 1 failed with 5 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 2 errors.
+# 4 compiles, 1 failed with 2 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 39 errors.
+# 4 compiles, 1 failed with 39 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 39 errors.
+# 4 compiles, 1 failed with 39 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 12 errors.
+# 4 compiles, 1 failed with 12 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 12 errors.
+# 4 compiles, 1 failed with 12 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 3 errors.
+# 4 compiles, 1 failed with 3 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 2 errors.
+# 4 compiles, 1 failed with 2 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 2 errors.
+# 4 compiles, 1 failed with 2 errors.
+# Error opening C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
+# Path name 'C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/(vlog-13069) C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv' doesn't exist.
 # Compile of aes_core_tb.sv was successful.
 # Compile of aes_sbox_tb.sv was successful.
 # Compile of aes_spi_tb.sv was successful.
@@ -10,99 +183,744 @@
 # 4 compiles, 0 failed with no errors.
 vsim -gui work.testbench_aes_core
 # vsim -gui work.testbench_aes_core 
-# Start time: 19:51:43 on Nov 03,2024
-# //  ModelSim DE-64 2022.3 Jul 18 2022
-# //
-# //  Copyright 1991-2022 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  ModelSim DE-64 and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
+# Start time: 00:46:16 on Nov 04,2024
 # Loading sv_std.std
 # Loading work.testbench_aes_core
 # Loading work.aes_core
-# Loading work.fsm
-# Loading work.hold
-# Loading work.source
+# Loading work.controller
 # Loading work.rot_word
-# Loading work.sub_bytes_KS
+# Loading work.sub_word
 # Loading work.sbox_sync
 # Loading work.rcon
 # Loading work.fill_round_key
 # Loading work.add_round_key
-# Loading work.sub_bytes_CYPH
+# ** Error: (vsim-3033) Instantiation of 'sub_syph' failed. The design unit was not found.
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+#         Searched libraries:
+#             C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim/work
 # Loading work.shift_rows
 # Loading work.mix_cols
 # Loading work.mixcolumn
 # Loading work.galoismult
-add wave -position end sim:/testbench_aes_core/dut/CTR1/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
-#           Attempting to use alternate WLF file "./wlftz06mm3".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftz06mm3
-run
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run
-# Error: cyphertext = d6163b57812c68fa06774f17ded8ba21, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 5650 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-add wave -position end sim:/testbench_aes_core/dut/CTR2/*
-run
-# Error: cyphertext = cd863afdc1c448fb32c4b904f46e6c0f, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 5750 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-restart -f
-run
-# Error: cyphertext = d6163b57812c68fa06774f17ded8ba21, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 5650 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-add wave -position end sim:/testbench_aes_core/dut/KS1/*
-add wave -position end sim:/testbench_aes_core/dut/KS2/*
-add wave -position end sim:/testbench_aes_core/dut/KS3/*
-add wave -position end sim:/testbench_aes_core/dut/KS4/*
-run
-# Error: cyphertext = cd863afdc1c448fb32c4b904f46e6c0f, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 5750 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-restart -f
-run
-# Error: cyphertext = d6163b57812c68fa06774f17ded8ba21, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 5650 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-add wave -position 0 sim:/testbench_aes_core/dut/CTR1/*
-add wave -position 0 sim:/testbench_aes_core/dut/CTR2/*
-# Compile of aes_core_tb.sv was successful.
-# Compile of aes_sbox_tb.sv was successful.
-# Compile of aes_spi_tb.sv was successful.
-# Compile of aes_starter.sv failed with 2 errors.
-# 4 compiles, 1 failed with 2 errors.
-# Compile of aes_core_tb.sv was successful.
-# Compile of aes_sbox_tb.sv was successful.
-# Compile of aes_spi_tb.sv was successful.
-# Compile of aes_starter.sv failed with 2 errors.
-# 4 compiles, 1 failed with 2 errors.
-# Compile of aes_core_tb.sv was successful.
-# Compile of aes_sbox_tb.sv was successful.
-# Compile of aes_spi_tb.sv was successful.
-# Compile of aes_starter.sv failed with 2 errors.
-# Compile of aes_KS_tb.sv was successful.
-# 5 compiles, 1 failed with 2 errors.
+# Error loading design
+# End time: 00:46:16 on Nov 04,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 38
 # Compile of aes_core_tb.sv was successful.
 # Compile of aes_sbox_tb.sv was successful.
 # Compile of aes_spi_tb.sv was successful.
 # Compile of aes_starter.sv was successful.
-# Compile of aes_KS_tb.sv was successful.
-# 5 compiles, 0 failed with no errors.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 00:46:55 on Nov 04,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(408).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(409).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(443).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(466).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(482).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+add wave -position end sim:/testbench_aes_core/dut/CTR1/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft8vz71a".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft8vz71a
+run
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(408).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(442).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(465).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(481).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(408).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(442).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(465).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(481).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(409).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(410).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(444).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(467).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(483).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(409).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(410).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(444).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(467).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(483).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+add wave -position end sim:/testbench_aes_core/dut/CTR1/*
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+add wave -position end sim:/testbench_aes_core/dut/CTR1/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(406).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(441).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(464).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+# Warning in wave window restart: (vish-4014) No objects found matching '/testbench_aes_core/dut/CTR1/next_timer'. 
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(406).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(441).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(464).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(170).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CTR1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 145
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(359).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 148
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(406).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(441).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS4 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 151
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'round_key'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(464).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH1 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 154
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+add wave -position end sim:/testbench_aes_core/dut/CTR1/*
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+add wave -position end sim:/testbench_aes_core/dut/KS2/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+add wave -position end sim:/testbench_aes_core/dut/KS3/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(391).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 149
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'sub_word_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(407).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/KS3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 150
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_cyph_done'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(480).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH2 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 155
+# Warning in wave window restart: (vish-4014) No objects found matching '/testbench_aes_core/dut/KS2/sub_bytes_KS_done'. 
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(507).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(507).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(508).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(508).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(508).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(511).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(511).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(511).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(511).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(522).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(522).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+add wave -position end sim:/testbench_aes_core/dut/KS1/*
+add wave -position end sim:/testbench_aes_core/dut/KS2/*
+add wave -position end sim:/testbench_aes_core/dut/KS3/*
+add wave -position end sim:/testbench_aes_core/dut/KS4/*
+add wave -position 0 sim:/testbench_aes_core/dut/CTR1/*
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'sub_bytes_done_CYPH'. The port definition is at: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv(527).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_core/dut/CYPH3 File: C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 156
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Error: cyphertext = zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7150 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
