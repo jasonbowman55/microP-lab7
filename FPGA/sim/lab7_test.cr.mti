@@ -1,4 +1,11 @@
-C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
+C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/aes_KS_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/aes_KS_tb.sv
+Model Technology ModelSim DE-64 vlog 2022.3 Compiler 2022.07 Jul 18 2022
+-- Compiling module testbench_aes_core
+
+Top level modules:
+	testbench_aes_core
+
+} {} {}} C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
 Model Technology ModelSim DE-64 vlog 2022.3 Compiler 2022.07 Jul 18 2022
 -- Compiling module testbench_aes_spi
 

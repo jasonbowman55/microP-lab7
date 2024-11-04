@@ -168,108 +168,123 @@ module fsm(
     input logic clk, reset,
     output logic done_int,
 	output logic [3:0] round,
-	output logic [2:0] state_KS, state_CYPH
+	output logic [2:0] state
 	);
 
 	//state vasriables/////////
-	//logic [1:0] state_KS;		//current state of key schedule FSM
-	logic [2:0] nextstate_KS;	//next state for the key schedule portion of the BD
-	//logic [1:0] state_CYPH;		//current state of cypher FSM
-	logic [2:0] nextstate_CYPH;	//next state for the cypher portion of the BD
+	logic [1:0] state;		//current state of key schedule FSM
+	logic [2:0] nextstate;	//next state for the key schedule portion of the BD
+	logic [1:0] state;		//current state of cypher FSM
+	logic [2:0] nextstate;	//next state for the cypher portion of the BD
 	///////////////////////////
 
     //instantiation of states for the FSM
-    parameter S0_KS = 3'b000; 		//initial state
-	parameter S0_CYPH = 3'b000;
-	parameter KS1 = 3'b001; 	//rot_word -> STARTsub_bytes
-	parameter KS2 = 3'b010; 	//ENDsub_bytes -> Rcon -> fill_round_key
-	parameter KS3 = 3'b011;
-	parameter KS4 = 3'b100;
-	parameter KS5 = 3'b101;
-	parameter CYPH1 = 3'b001; 	//ass_round_key -> STARTsub_bytes
-	parameter CYPH2 = 3'b010; 	//ENDsub_bytes -> shift_rows -> mix_cols
-	parameter CYPH3 = 3'b011;
-	parameter CYPH4 = 3'b100;
-	parameter CYPH5 = 3'b101;
-
+    parameter S0 = 5'd0;
+	parameter S1 = 5'd1;
+    parameter S2 = 5'd2;
+    parameter S3 = 5'd3;
+    parameter S4 = 5'd4;
+    parameter S5 = 5'd5;
+    parameter S6 = 5'd6;
+    parameter S7 = 5'd7;
+    parameter S8 = 5'd8;
+    parameter timer = 5'd0;
+	parameter next_timer = timer +1;
     /////////////////////////////////////
 
-    //next state logic (key schedule)/////////
-    always_ff @(posedge clk)
-		if (reset) 
-			state_KS <= S0_KS;
-		else 	
-			state_KS <= nextstate_KS;
-	//////////////////////////////////////////
-
-    //next state logic (cypher)///////////////
-     always_ff @(posedge clk)
-		if (reset) 
-			state_CYPH <= S0_CYPH;
-		else 	
-			state_CYPH <= nextstate_CYPH;
-    //////////////////////////////////////////
-
-    //FSM machines for (key schedule)///////////
-    always_comb begin
-        case(state_KS)
-			S0_KS:
-				if (reset)					//wait for plain text to load before starting fsm loop
-					nextstate_KS = S0_KS;
-				else
-					nextstate_KS = KS1;
-            KS1:
-                nextstate_KS = KS2;
-            KS2:
-                nextstate_KS = KS3;
-	    KS3:
-                nextstate_KS = KS4;
-		KS4:
-				nextstate_KS = KS5;
-		KS5: 
-			nextstate_KS = KS1;
-			default:
-				nextstate_KS = S0_KS;
-        endcase
-    end
-	////////////////////////////////////////////
+	// main FSM ////////////////////////
+	always_comb begin
+		case(state)
+			S0: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S1
+			S1: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S2
+			S2: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S3
+			S3: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S4
+			S4: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S5
+			S5: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S6
+			S6: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S7
+			S7: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S8
+			S8: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S9
+			S9: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S10
+			S10: begin
+					if (timer < 5)
+						timer <= next_timer;
+					else
+						nextstate <= S510
+		endcase
+	end
+	////////////////////////////////////////
 	
-    //FSM machines for (key cypher)/////////////
-    always_comb begin
-        case(state_CYPH)
-			S0_CYPH:
-				if (reset)					//wait for plain text to load before starting fsm loop
-					nextstate_CYPH = S0_CYPH;
-				else
-					nextstate_CYPH = CYPH1;
-			CYPH1:
-                		nextstate_CYPH = CYPH2;
-            		CYPH2:
-                		nextstate_CYPH = CYPH3;
-			CYPH3:
-                		nextstate_CYPH = CYPH4;
-			CYPH4:
-						nextstate_CYPH = CYPH5;
-			CYPH5: 
-				nextstate_CYPH = CYPH1;
-			default:
-				nextstate_CYPH = S0_CYPH;
-        endcase
-    end
-	////////////////////////////////////////////
+	// contol signals //////////////////////
+	always_comb begin
+		case(state)
+			
+			
+			
+
+
+    //next state logic ///////////////
+    always_ff @(posedge clk) begin
+		if (reset) 
+			state <= S0;
+		else begin
+			state <= nextstate;
+			timer <= 0;
+		end
+	end
+	//////////////////////////////////
 
 	// round counter ///////////////////////////
 	always_ff @(posedge clk) begin
 		if (reset) begin
 			round <= 4'd0;
-		end else if (state_KS == KS5) begin
+		end else if (state == S1) begin
 			if (round < 10) 
 				round <= round + 1;
 		end
 	end
 	////////////////////////////////////////////
 
-	// done_int flag
+	// done_int flag ///////////////////////////
 	always_ff @(posedge clk) begin
 		if (reset) begin
 			done_int <= 1'b0;
@@ -277,6 +292,7 @@ module fsm(
 			done_int = 1'b1;
 		end
 	end
+	////////////////////////////////////////////
 
 endmodule
 
@@ -285,9 +301,8 @@ endmodule
 ///////////////////////////////////////////////////
 module hold (
 	input logic clk, reset,
-	input logic [3:0] round,
+	input logic [3:0] state,
 	input logic [127:0] round_key_done,
-	input logic [2:0] state_KS, state_CYPH,
 	input logic [127:0] cypher_src, rk_src,
 	output logic [127:0] cypher_zero, cyphertext_intermediate, current_round_key, prev_round_key
 	);
@@ -316,7 +331,9 @@ module hold (
 		if (reset)
 			current_round_key = 128'bx;
 		else begin
-			case(round)
+			
+			
+ 			case(round)
 				4'd0: begin
 					if (state_KS == 3'b000)
 						current_round_key = rk_src;
