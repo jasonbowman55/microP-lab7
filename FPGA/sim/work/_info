@@ -11,7 +11,7 @@ cModel Technology
 dC:/Users/jbowman/Desktop/Lab10_JB_Folder
 vadd_round_key
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1730717604
+Z1 !s110 1730718019
 !i10b 1
 !s100 Xl?_h9cSP@5N<`f?RX=CJ1
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -19,16 +19,16 @@ IX>=2f`g[DhFa`LGHJiM=i0
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 Z4 dC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/sim
-Z5 w1730717602
+Z5 w1730717985
 Z6 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
 Z7 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv
-!i122 1578
+!i122 1586
 L0 529 11
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1730717604.000000
+Z9 !s108 1730718019.000000
 Z10 !s107 C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 Z11 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv|
 !i113 1
@@ -47,7 +47,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 6 12
 R8
 r1
@@ -72,7 +72,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 75 86
 R8
 r1
@@ -97,7 +97,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 26 29
 R8
 r1
@@ -113,16 +113,16 @@ vcontroller
 R0
 R1
 !i10b 1
-!s100 OC7XN=ai8><V4HeK<AZ_21
+!s100 dSiblVI0[ilW9A1_MAI;A3
 R2
-I]L9=hX0AiO]HWaBAnzi;e3
+I;C:;<FLIB`JMhhMn98^<X3
 R3
 S1
 R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 166 252
 R8
 r1
@@ -147,7 +147,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 506 15
 R8
 r1
@@ -221,7 +221,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 726 8
 R8
 r1
@@ -295,7 +295,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 683 8
 R8
 r1
@@ -320,7 +320,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 699 19
 R8
 r1
@@ -345,7 +345,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 468 34
 R8
 r1
@@ -370,7 +370,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 422 26
 R8
 r1
@@ -395,7 +395,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 641 10
 R8
 r1
@@ -420,7 +420,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 658 16
 R8
 r1
@@ -445,7 +445,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 573 59
 R8
 r1
@@ -544,7 +544,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 544 24
 R8
 r1
@@ -569,7 +569,7 @@ R4
 R5
 R6
 R7
-!i122 1578
+!i122 1586
 L0 452 12
 R8
 r1
@@ -583,7 +583,7 @@ R12
 R13
 vtestbench_aes_core
 R0
-R1
+!s110 1730718018
 !i10b 1
 !s100 aD<7_IY:C]X`2c6i`[Pa<0
 R2
@@ -594,13 +594,13 @@ R4
 Z27 w1730427715
 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv
 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv
-!i122 1575
+!i122 1583
 L0 11 42
 R8
 r1
 !s85 0
 31
-R9
+Z28 !s108 1730718018.000000
 !s107 C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv|
 !i113 1
@@ -619,13 +619,13 @@ R4
 R27
 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv
 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv
-!i122 1576
+!i122 1584
 L0 7 67
 R8
 r1
 !s85 0
 31
-R9
+R28
 !s107 C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_sbox_tb.sv|
 !i113 1
@@ -644,7 +644,7 @@ R4
 R27
 8C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
 FC:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv
-!i122 1577
+!i122 1585
 L0 8 73
 R8
 r1
