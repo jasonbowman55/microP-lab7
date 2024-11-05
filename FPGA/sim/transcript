@@ -1507,3 +1507,5 @@ run
 # ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
 #    Time: 7350 ns  Iteration: 1  Instance: /testbench_aes_core
 # Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+add wave -position end sim:/testbench_aes_core/dut/CTR1/*
+add wave -position end sim:/testbench_aes_core/dut/*
