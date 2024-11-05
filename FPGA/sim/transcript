@@ -83,3 +83,49 @@ restart -f
 quit -sim
 # End time: 22:30:24 on Nov 04,2024, Elapsed time: 0:00:52
 # Errors: 0, Warnings: 1
+vsim -gui work.testbench_aes_spi
+# vsim -gui work.testbench_aes_spi 
+# Start time: 23:00:45 on Nov 04,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_spi/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftanq6tw".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftanq6tw
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+run 10000
+# End time: 23:01:36 on Nov 04,2024, Elapsed time: 0:00:51
+# Errors: 0, Warnings: 3
