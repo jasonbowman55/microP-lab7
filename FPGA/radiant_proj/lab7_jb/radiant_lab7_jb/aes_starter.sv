@@ -115,7 +115,7 @@ module aes_core(input  logic         clk,
 //*************************TOP MODULE LOGIC*****************
 
 	// done logic //////////////////////
-	always_comb begin
+	always_ff @(posedge clk) begin
 		if (reset) begin
 			cyphertext = 128'bx;
 			done = 1'b0;
