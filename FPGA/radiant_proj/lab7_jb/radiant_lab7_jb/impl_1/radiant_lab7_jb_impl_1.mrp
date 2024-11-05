@@ -7,17 +7,18 @@ Device:  iCE40UP5K
 Package: SG48
 Performance Grade:  High-Performance_1.2V
 
-Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
-Mapped on: Mon Nov  4 22:05:03 2024
+Mapper:    version Radiant Software (64-bit) 2024.1.1.259.1
+Mapped on: Mon Nov  4 22:47:46 2024
 
 Design Information
 ------------------
 
-Command line:   map -pdc C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/
-     lab7_jb/radiant_lab7_jb/source/impl_1/impl_1.pdc -i
-     radiant_lab7_jb_impl_1_syn.udb -o radiant_lab7_jb_impl_1_map.udb -mp
-     radiant_lab7_jb_impl_1.mrp -hierrpt -gui -msgset C:/Users/jbowman/Desktop/m
-     icroP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/promote.xml
+Command line:   map -pdc C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/m
+     icroP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/source/impl_1/impl_1.p
+     dc -i radiant_lab7_jb_impl_1_syn.udb -o radiant_lab7_jb_impl_1_map.udb -mp
+     radiant_lab7_jb_impl_1.mrp -hierrpt -gui -msgset C:/Users/spenc/OneDrive/Do
+     cuments/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_l
+     ab7_jb/promote.xml
 
 Design Summary
 --------------
@@ -61,8 +62,8 @@ Design Summary
    Number of criticals: 0
    Number of errors:    0
 
-
                                     Page 1
+
 
 
 
@@ -107,9 +108,8 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 62 MB
-Checksum -- map: c9854af22776462a2ba2beb5b5165b1ba114f390
-
+   Peak Memory Usage: 63 MB
+Checksum -- map: 720c830190ce4ee7843eff25eea3e58b06ae315
 
 
 

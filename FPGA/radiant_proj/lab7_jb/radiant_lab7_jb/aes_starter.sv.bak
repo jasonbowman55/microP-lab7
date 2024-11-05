@@ -3,7 +3,7 @@
 //   Top level module with SPI interface and SPI core
 /////////////////////////////////////////////
 
-module aes(input  logic clk,
+module aes(//input  logic clk, //COMMENT BACK IN WHEN USING MODEL SIM
            input  logic sck, 
            input  logic sdi,
            output logic sdo,
@@ -12,6 +12,9 @@ module aes(input  logic clk,
                     
     logic [127:0] key, plaintext, cyphertext;
             
+		LSOSC #() 
+			 lf_osc (.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(clk)); //COMMENT OUT WHEN IN MODEL SIM
+			
     aes_spi spi(sck, sdi, sdo, done, key, plaintext, cyphertext);   
     aes_core core(clk, load, key, plaintext, done, cyphertext);
 endmodule
@@ -115,7 +118,7 @@ module aes_core(input  logic         clk,
 //*************************TOP MODULE LOGIC*****************
 
 	// done logic //////////////////////
-	always_comb begin
+	always_ff @(posedge clk) begin
 		if (reset) begin
 			cyphertext = 128'bx;
 			done = 1'b0;
@@ -399,14 +402,16 @@ end
 	
 	// done logic //////////////////////
 logic done_int_delay = 0;
+logic break_loop = 0;
 
 always_ff @(posedge clk or posedge reset) begin
 	if (reset) begin
 		done_int_delay <= 1'b0;
 		done_int <= 1'b0;
-	end else if (state == S12) begin
+	end else if (state == S12 && break_loop == 0) begin
 		done_int_delay <= 1'b1;
 		done_int <= done_int_delay;
+		break_loop = break_loop + 1;
 	end else begin
 		done_int_delay <= 1'b0;
 		done_int <= done_int_delay;

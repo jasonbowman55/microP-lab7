@@ -4,22 +4,14 @@
 # Compile of aes_spi_tb.sv was successful.
 # Compile of aes_starter.sv was successful.
 # 4 compiles, 0 failed with no errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
 vsim -gui work.testbench_aes_core
 # vsim -gui work.testbench_aes_core 
-# Start time: 20:52:05 on Nov 04,2024
-# //  ModelSim DE-64 2022.3 Jul 18 2022
-# //
-# //  Copyright 1991-2022 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  ModelSim DE-64 and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
+# Start time: 22:29:07 on Nov 04,2024
 # Loading sv_std.std
 # Loading work.testbench_aes_core
 # Loading work.aes_core
@@ -38,20 +30,20 @@ vsim -gui work.testbench_aes_core
 add wave -position end sim:/testbench_aes_core/dut/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
-#           Attempting to use alternate WLF file "./wlft33x2t1".
+#           Attempting to use alternate WLF file "./wlfts3nnyg".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft33x2t1
+#           Using alternate file: ./wlfts3nnyg
 run
 # Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7350 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+# ** Note: $stop    : C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7450 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
 quit -sim
-# End time: 20:54:27 on Nov 04,2024, Elapsed time: 0:02:22
+vsim -gui work.testbench_aes_spi
+# End time: 22:29:32 on Nov 04,2024, Elapsed time: 0:00:25
 # Errors: 0, Warnings: 10
-vsim -gui work.testbench_aes_spi
 # vsim -gui work.testbench_aes_spi 
-# Start time: 20:54:38 on Nov 04,2024
+# Start time: 22:29:32 on Nov 04,2024
 # Loading sv_std.std
 # Loading work.testbench_aes_spi
 # Loading work.aes
@@ -69,297 +61,25 @@ vsim -gui work.testbench_aes_spi
 # Loading work.mix_cols
 # Loading work.mixcolumn
 # Loading work.galoismult
-run
 add wave -position end sim:/testbench_aes_spi/dut/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
-#           Attempting to use alternate WLF file "./wlftfcng82".
+#           Attempting to use alternate WLF file "./wlftq3knsn".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftfcng82
-restart -f
-# Closing VCD file "testbench_aes_spi.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run
+#           Using alternate file: ./wlftq3knsn
 run 1000000
-# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
-#    Time: 46650 ns  Iteration: 1  Instance: /testbench_aes_spi
-# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
-quit -sim
-vsim -gui work.testbench_aes_core
-# End time: 20:56:56 on Nov 04,2024, Elapsed time: 0:02:18
-# Errors: 0, Warnings: 1
-# vsim -gui work.testbench_aes_core 
-# Start time: 20:56:56 on Nov 04,2024
-# Loading sv_std.std
-# Loading work.testbench_aes_core
-# Loading work.aes_core
-# Loading work.controller
-# Loading work.rot_word
-# Loading work.sub_word
-# Loading work.sbox_sync
-# Loading work.rcon
-# Loading work.fill_round_key
-# Loading work.add_round_key
-# Loading work.sub_cyph
-# Loading work.shift_rows
-# Loading work.mix_cols
-# Loading work.mixcolumn
-# Loading work.galoismult
-add wave -position end sim:/testbench_aes_core/dut/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
-#           Attempting to use alternate WLF file "./wlftqimfbg".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftqimfbg
-run
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7350 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 1000
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7450 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 1000
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7550 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 1000
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7650 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 1000
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7750 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-
-run 1000
-# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7850 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-# Compile of aes_core_tb.sv was successful.
-# Compile of aes_sbox_tb.sv was successful.
-# Compile of aes_spi_tb.sv was successful.
-# Compile of aes_starter.sv was successful.
-# 4 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench_aes_core
-# Loading work.aes_core
-# Loading work.controller
-# Loading work.rot_word
-# Loading work.sub_word
-# Loading work.sbox_sync
-# Loading work.rcon
-# Loading work.fill_round_key
-# Loading work.add_round_key
-# Loading work.sub_cyph
-# Loading work.shift_rows
-# Loading work.mix_cols
-# Loading work.mixcolumn
-# Loading work.galoismult
-run
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7350 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7450 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7550 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7650 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7750 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7850 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 7950 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 8050 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 8150 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 8250 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 8350 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 8450 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-run 100
-# Testbench ran successfully
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
-#    Time: 8550 ns  Iteration: 1  Instance: /testbench_aes_core
-# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
-
-restart -f
-vsim -gui work.testbench_aes_spi
-# End time: 21:03:24 on Nov 04,2024, Elapsed time: 0:06:28
-# Errors: 0, Warnings: 1
-# vsim -gui work.testbench_aes_spi 
-# Start time: 21:03:24 on Nov 04,2024
-# Loading sv_std.std
-# Loading work.testbench_aes_spi
-# Loading work.aes
-# Loading work.aes_spi
-# Loading work.aes_core
-# Loading work.controller
-# Loading work.rot_word
-# Loading work.sub_word
-# Loading work.sbox_sync
-# Loading work.rcon
-# Loading work.fill_round_key
-# Loading work.add_round_key
-# Loading work.sub_cyph
-# Loading work.shift_rows
-# Loading work.mix_cols
-# Loading work.mixcolumn
-# Loading work.galoismult
-add wave -position end sim:/testbench_aes_spi/dut/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
-#           Attempting to use alternate WLF file "./wlfttvmf54".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfttvmf54
-run 1000000
-# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
-#    Time: 46650 ns  Iteration: 1  Instance: /testbench_aes_spi
-# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
-run 10000
-# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
-#    Time: 46750 ns  Iteration: 1  Instance: /testbench_aes_spi
-# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+run 10
+run 10
+run 10
+run 10
+run 10
+run 10
+run 10
+run 10
+run 10
 restart -f
 # Closing VCD file "testbench_aes_spi.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-restart -f
-run 10000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-run 1000
-# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
-#    Time: 46650 ns  Iteration: 1  Instance: /testbench_aes_spi
-# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
-restart -f
-# Closing VCD file "testbench_aes_spi.vcd"
 quit -sim
-# End time: 21:08:38 on Nov 04,2024, Elapsed time: 0:05:14
+# End time: 22:30:24 on Nov 04,2024, Elapsed time: 0:00:52
 # Errors: 0, Warnings: 1
-# Compile of aes_core_tb.sv was successful.
-# Compile of aes_sbox_tb.sv was successful.
-# Compile of aes_spi_tb.sv was successful.
-# Compile of aes_starter.sv was successful.
-# 4 compiles, 0 failed with no errors.
-vsim -gui work.testbench_aes_spi
-# vsim -gui work.testbench_aes_spi 
-# Start time: 21:10:11 on Nov 04,2024
-# Loading sv_std.std
-# Loading work.testbench_aes_spi
-# Loading work.aes
-# Loading work.aes_spi
-# Loading work.aes_core
-# Loading work.controller
-# Loading work.rot_word
-# Loading work.sub_word
-# Loading work.sbox_sync
-# Loading work.rcon
-# Loading work.fill_round_key
-# Loading work.add_round_key
-# Loading work.sub_cyph
-# Loading work.shift_rows
-# Loading work.mix_cols
-# Loading work.mixcolumn
-# Loading work.galoismult
-add wave -position end sim:/testbench_aes_spi/dut/*
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
-#           Attempting to use alternate WLF file "./wlftiqgabv".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftiqgabv
-run 100000
-run
-run 100000
-run 100000
-run 100000
-run 100000
-run 100000
-run 10000000000
-# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
-# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
-#    Time: 1045650 ns  Iteration: 1  Instance: /testbench_aes_spi
-# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75

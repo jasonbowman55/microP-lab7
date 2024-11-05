@@ -54,6 +54,7 @@ GPIO_TypeDef * gpioPortToBase(int port) {
       port_id = (GPIO_TypeDef *) GPIOC_BASE;
       break;
   }
+
   return port_id;
 }
 
