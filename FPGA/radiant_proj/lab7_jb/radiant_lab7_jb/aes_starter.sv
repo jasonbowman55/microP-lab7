@@ -399,14 +399,16 @@ end
 	
 	// done logic //////////////////////
 logic done_int_delay = 0;
+logic break_loop = 0;
 
 always_ff @(posedge clk or posedge reset) begin
 	if (reset) begin
 		done_int_delay <= 1'b0;
 		done_int <= 1'b0;
-	end else if (state == S12) begin
+	end else if (state == S12 && break_loop == 0) begin
 		done_int_delay <= 1'b1;
 		done_int <= done_int_delay;
+		break_loop = break_loop + 1;
 	end else begin
 		done_int_delay <= 1'b0;
 		done_int <= done_int_delay;
