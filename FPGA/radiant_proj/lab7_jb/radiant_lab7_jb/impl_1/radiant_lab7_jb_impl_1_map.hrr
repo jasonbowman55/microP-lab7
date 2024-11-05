@@ -5,4 +5,4 @@ Report for cell aes
                                   cell	      count    Res Usage(%)
                                   LUT4	          1        100.0
                                LUTGATE	          1        100.0
-                                 IOBUF	          6        100.0
+                                 IOBUF	          5        100.0

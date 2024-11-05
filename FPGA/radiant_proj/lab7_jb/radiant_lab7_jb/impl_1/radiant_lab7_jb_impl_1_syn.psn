@@ -7,7 +7,6 @@ Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V 
 Reading input file 'radiant_lab7_jb_impl_1.vm' ...
 Reading constraint file 'C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/impl_1/radiant_lab7_jb_impl_1.ldc' ...
 Removing unused logic ...
-INFO <35811146> - Signal clk_c undriven or does not drive anything - clipped
 INFO <35811146> - Signal sck_c undriven or does not drive anything - clipped
 Starting design annotation....
  
@@ -20,4 +19,4 @@ POSTSYN finished successfully.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
 Peak Memory Usage: 39 MB
-Checksum -- postsyn: 2fa7b941d8261f64e0bf87d113220162a20a9548
+Checksum -- postsyn: 472eba25aa4642d7a5bae594ad407692c0a7df6

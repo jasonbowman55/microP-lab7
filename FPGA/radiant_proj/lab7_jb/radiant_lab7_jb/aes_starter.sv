@@ -3,7 +3,7 @@
 //   Top level module with SPI interface and SPI core
 /////////////////////////////////////////////
 
-module aes(input  logic clk,
+module aes(//input  logic clk, //COMMENT BACK IN WHEN USING MODEL SIM
            input  logic sck, 
            input  logic sdi,
            output logic sdo,
@@ -12,6 +12,9 @@ module aes(input  logic clk,
                     
     logic [127:0] key, plaintext, cyphertext;
             
+		LSOSC #() 
+			 lf_osc (.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(clk)); //COMMENT OUT WHEN IN MODEL SIM
+			
     aes_spi spi(sck, sdi, sdo, done, key, plaintext, cyphertext);   
     aes_core core(clk, load, key, plaintext, done, cyphertext);
 endmodule

@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------
 Report for cell aes.TECH
 Register bits:  0 of 5280 (0.000%)
-I/O cells:      6
+I/O cells:      5
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                 IB         4          100.0
+                                 IB         3          100.0
                                  OB         2          100.0
-                              TOTAL         6
+                              TOTAL         5

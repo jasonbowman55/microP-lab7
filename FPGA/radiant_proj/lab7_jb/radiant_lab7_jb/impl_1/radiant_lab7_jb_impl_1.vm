@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2024.1.0.34.2
-// Netlist written on Mon Nov  4 21:45:09 2024
+// Netlist written on Mon Nov  4 22:03:42 2024
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/users/jbowman/desktop/microp-lab7/fpga/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv"
@@ -69,10 +69,8 @@
 // Verilog Description of module aes
 //
 
-module aes (input clk, input sck, input sdi, output sdo, input load, 
-            output done);
+module aes (input sck, input sdi, output sdo, input load, output done);
     
-    (* is_clock=1, lineinfo="@3(6[25],6[28])" *) wire clk_c;
     (* is_clock=1, lineinfo="@3(7[25],7[28])" *) wire sck_c;
     
     wire sdi_c, load_c, GND_net;
@@ -80,7 +78,6 @@ module aes (input clk, input sck, input sdi, output sdo, input load,
     (* lineinfo="@3(10[25],10[29])" *) IB load_pad (.I(load), .O(load_c));
     (* lineinfo="@3(8[25],8[28])" *) IB sdi_pad (.I(sdi), .O(sdi_c));
     (* lineinfo="@3(7[25],7[28])" *) IB sck_pad (.I(sck), .O(sck_c));
-    (* lineinfo="@3(6[25],6[28])" *) IB clk_pad (.I(clk), .O(clk_c));
     (* lineinfo="@3(11[25],11[29])" *) OB done_pad (.I(GND_net), .O(done));
     (* lineinfo="@3(9[25],9[28])" *) OB sdo_pad (.I(GND_net), .O(sdo));
     VLO i1 (.Z(GND_net));

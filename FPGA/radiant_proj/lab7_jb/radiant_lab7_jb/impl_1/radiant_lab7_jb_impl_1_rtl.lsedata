@@ -2,7 +2,7 @@
 
 <clocks>
     <clockitem name = "sck"  type = "port" />
-    <clockitem name = "clk"  type = "port" />
+    <clockitem name = "clk"  type = "net" />
 </clocks>
 
 <!--
