@@ -121,7 +121,7 @@ module aes_core(input  logic         clk,
 	logic done_delay_1 = 0;
 	// done logic //////////////////////
 	always_ff @(posedge clk) begin
-		if (reset) begin
+		if (load) begin
 			cyphertext = 128'bx;
 			done = 1'b0;
 		end else if (done_delay_1 == 1)

@@ -133,7 +133,7 @@ module aes_core(input  logic         clk,
 	end
 	///////////////////////////////////
 
-	// reset logic //////////////////////
+	// reset logic ///////////////////////
 	always_ff @(posedge clk) begin
     		if (!load && load_prev) begin
         		reset <= 1;  

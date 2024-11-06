@@ -2,12 +2,12 @@
 <session>
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
-  <BreakpointListItem trigger="" line="60" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../src/STM32L432KC_SPI.c" useHWbreakpoint="false"/>
-  <BreakpointListItem trigger="" line="68" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../src/STM32L432KC_SPI.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="60" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" stopAll="false" group="Breakpoints" type="Breakpoint" state="4" filename="../src/STM32L432KC_SPI.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="68" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" stopAll="false" group="Breakpoints" type="Breakpoint" state="4" filename="../src/STM32L432KC_SPI.c" useHWbreakpoint="false"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
  <FrameBuffer>
-  <FrameBufferWindow width="1340279359" keepAspectRatio="0" zoomToFitWindow="0" addressSpace="" format="0" height="-1432196667" autoEvaluate="0" scaleFactor="1" refreshPeriod="0" name="lab07_mcu_Debug" addressText="" accessByDisplayWidth="0"/>
+  <FrameBufferWindow width="1340279359" keepAspectRatio="0" zoomToFitWindow="0" showGrid="0" addressSpace="" format="0" height="-1432196667" autoEvaluate="0" scaleFactor="1" refreshPeriod="0" name="lab07_mcu_Debug" addressText="" accessByDisplayWidth="0"/>
  </FrameBuffer>
  <Memory1>
   <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" viewType="4" addressOrder="0" columnsText="" refreshPeriod="0" name="lab04" sizeText="" addressText=""/>
@@ -84,14 +84,14 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="132" useTextEdit="1" path="../src/lab7.c" left="0" top="95" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="132" useTextEdit="1" path="../src/lab7.c" left="0" selected="1" top="51" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="26" y="19" useTextEdit="1" path="../lib/STM32L432KC.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="24" y="4" useTextEdit="1" openedFrom="/Users/joshbrake/dev/E155FA22/labs/lab07/lab07_mcu/src/lab7.c" path="../lib/STM32L432KC_SPI.c" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="31" y="30" useTextEdit="1" openedFrom="/Users/joshbrake/dev/E155FA22/labs/lab07/lab07_mcu/lib/STM32L432KC_SPI.c" path="../lib/STM32L432KC_SPI.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="198" useTextEdit="1" path="SEGGER_THUMB_Startup.s" left="0" top="161" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="13" y="41" useTextEdit="1" path="STM32L4xx/Device/Include/stm32l4xx.h" left="0" top="41" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="139" useTextEdit="1" path="STM32L4xx/Device/Include/stm32l432xx.h" left="0" top="94" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="23" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" selected="1" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="23" useTextEdit="1" path="../lib/STM32L432KC_GPIO.c" left="0" top="21" codecName="Default"/>
  </Files>
  <EMStudioWindow activeProject="lab07_mcu" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="/Users/joshbrake/dev/E155FA22/labs/lab07/lab07_mcu/src" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

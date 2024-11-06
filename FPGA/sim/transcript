@@ -313,3 +313,5 @@ restart -f; run 100000
 # ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
 #    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
 # Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+# End time: 16:35:17 on Nov 05,2024, Elapsed time: 0:37:23
+# Errors: 0, Warnings: 1
