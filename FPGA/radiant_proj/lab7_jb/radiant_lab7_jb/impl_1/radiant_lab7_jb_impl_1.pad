@@ -6,12 +6,13 @@ Performance Grade:      High-Performance_1.2V
 PACKAGE:          SG48
 Package Status:                     Preliminary    Version 1.5
 
-Mon Nov  4 22:47:54 2024
+Tue Nov  5 16:16:27 2024
 
 Pinout by Port Name:
 +-----------+----------+--------------+-------+------------------------------------------+
 | Port Name | Pin/Bank | Buffer Type  | Site  | Properties                               |
 +-----------+----------+--------------+-------+------------------------------------------+
+| clk       | 25/0     | LVCMOS33_IN  | PR20B | DRIVE:NA IO_TYPE:LVCMOS33 PULLMODE:100K  |
 | done      | 27/0     | LVCMOS33_OUT | PR19B | DRIVE:8mA IO_TYPE:LVCMOS33 PULLMODE:NA   |
 | load      | 26/0     | LVCMOS33_IN  | PR19A | DRIVE:NA IO_TYPE:LVCMOS33 PULLMODE:100K  |
 | sck       | 21/1     | LVCMOS33_IN  | PL19B | DRIVE:NA IO_TYPE:LVCMOS33 PULLMODE:100K  |
@@ -49,7 +50,7 @@ Pinout by Pin Number:
 | 20/1     |     unused, PULL:UP |            |              | PL20B | PCLKT1_0         |
 | 21/1     | sck                 | LOCATED    | LVCMOS33_IN  | PL19B |                  |
 | 23/0     |     unused, PULL:UP |            |              | PR20A |                  |
-| 25/0     |     unused, PULL:UP |            |              | PR20B |                  |
+| 25/0     | clk                 |            | LVCMOS33_IN  | PR20B |                  |
 | 26/0     | load                | LOCATED    | LVCMOS33_IN  | PR19A |                  |
 | 27/0     | done                | LOCATED    | LVCMOS33_OUT | PR19B |                  |
 | 28/0     |     unused, PULL:UP |            |              | PR18A |                  |
@@ -92,6 +93,7 @@ Pinout by Pin Number:
 
 Locate Constraints for each Pin: 
 
+ldc_set_location -site {25} [ get_ports {clk} ]
 ldc_set_location -site {27} [ get_ports {done} ]
 ldc_set_location -site {26} [ get_ports {load} ]
 ldc_set_location -site {21} [ get_ports {sck} ]
@@ -104,5 +106,5 @@ ldc_set_location -site {12} [ get_ports {sdo} ]
 
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Mon Nov  4 22:47:54 2024
+Tue Nov  5 16:16:27 2024
 

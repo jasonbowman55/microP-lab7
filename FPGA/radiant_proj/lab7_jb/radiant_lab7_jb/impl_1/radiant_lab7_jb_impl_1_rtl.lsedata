@@ -1,7 +1,7 @@
 <top name = "aes"  library = "work"  arch = ""  entry = "Verilog">
 
 <clocks>
-    <clockitem name = "clk"  type = "net" />
+    <clockitem name = "clk"  type = "port" />
     <clockitem name = "sck"  type = "port" />
 </clocks>
 

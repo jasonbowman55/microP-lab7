@@ -1,6 +1,6 @@
 -w
 -gui
--msgset "C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/promote.xml"
+-msgset "C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/promote.xml"
 -n 1
 -t 1
 -s 1

@@ -7,18 +7,17 @@ Device:  iCE40UP5K
 Package: SG48
 Performance Grade:  High-Performance_1.2V
 
-Mapper:    version Radiant Software (64-bit) 2024.1.1.259.1
-Mapped on: Mon Nov  4 22:47:46 2024
+Mapper:    version Radiant Software (64-bit) 2024.1.0.34.2
+Mapped on: Tue Nov  5 16:16:22 2024
 
 Design Information
 ------------------
 
-Command line:   map -pdc C:/Users/spenc/OneDrive/Documents/Desktop/HMC/microPs/m
-     icroP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/source/impl_1/impl_1.p
-     dc -i radiant_lab7_jb_impl_1_syn.udb -o radiant_lab7_jb_impl_1_map.udb -mp
-     radiant_lab7_jb_impl_1.mrp -hierrpt -gui -msgset C:/Users/spenc/OneDrive/Do
-     cuments/Desktop/HMC/microPs/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_l
-     ab7_jb/promote.xml
+Command line:   map -pdc C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/
+     lab7_jb/radiant_lab7_jb/source/impl_1/impl_1.pdc -i
+     radiant_lab7_jb_impl_1_syn.udb -o radiant_lab7_jb_impl_1_map.udb -mp
+     radiant_lab7_jb_impl_1.mrp -hierrpt -gui -msgset C:/Users/jbowman/Desktop/m
+     icroP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/promote.xml
 
 Design Summary
 --------------
@@ -28,15 +27,15 @@ Design Summary
    Number of LUT4s:             1 out of  5280 (<1%)
       Number of logic LUT4s:               1
       Number of ripple logic:              0 (0 LUT4s)
-   Number of IO sites used:   5 out of 39 (13%)
-      Number of IO sites used for general PIO: 5
+   Number of IO sites used:   6 out of 39 (15%)
+      Number of IO sites used for general PIO: 6
       Number of IO sites used for I3C: 0 out of 2 (0%)
       (note: If I3C is not used, its site can be used as general PIO)
-      Number of IO sites used for PIO+I3C: 5 out of 36 (14%)
+      Number of IO sites used for PIO+I3C: 6 out of 36 (17%)
       Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
       (note: If RGB LED drivers are not used, sites can be used as OD outputs,
        see TN1288 iCE40 LED Driver Usage Guide)
-      Number of IO sites used for PIO+I3C+OD+RGB: 5 out of 39 (13%)
+      Number of IO sites used for PIO+I3C+OD+RGB: 6 out of 39 (15%)
    Number of DSPs:             0 out of 8 (0%)
    Number of I2Cs:             0 out of 2 (0%)
    Number of High Speed OSCs:  0 out of 1 (0%)
@@ -62,8 +61,8 @@ Design Summary
    Number of criticals: 0
    Number of errors:    0
 
-                                    Page 1
 
+                                    Page 1
 
 
 
@@ -87,6 +86,8 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sck                 | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
+| clk                 | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 | done                | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | sdo                 | OUTPUT    |           |       |       |           |
@@ -108,9 +109,8 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 63 MB
-Checksum -- map: 720c830190ce4ee7843eff25eea3e58b06ae315
-
+   Peak Memory Usage: 64 MB
+Checksum -- map: a0ad83fbb13bc06a8df316d0b0251c5a804f7df2
 
 
 

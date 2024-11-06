@@ -60,7 +60,7 @@ module testbench_aes_spi();
         #1; sck = 1; #5; sck = 0;
         i = i + 1;
       end else if (done && delay) begin
-        #100000; // Delay to make sure that the answer is held correctly on the cyphertext before shifting out
+        #100; // Delay to make sure that the answer is held correctly on the cyphertext before shifting out
         delay = 0;
       end else if (done && i < 384) begin
         #1; sck = 1; 
