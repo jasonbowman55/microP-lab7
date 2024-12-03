@@ -29,6 +29,13 @@ module testbench_aes_spi();
 //      plaintext <= 128'h00112233445566778899AABBCCDDEEFF;
 //      expected  <= 128'h69C4E0D86A7B0430D8CDB78070B4C55A;
     end
+
+ // Create dumpfile
+ initial
+   begin
+     $dumpfile("testbench_aes_spi.vcd");
+     $dumpvars(0, testbench_aes_spi);
+   end
     
     // generate clock and load signals
 		always begin
@@ -53,7 +60,7 @@ module testbench_aes_spi();
         #1; sck = 1; #5; sck = 0;
         i = i + 1;
       end else if (done && delay) begin
-        #100; // Delay to make sure that the answer is held correctly on the cyphertext before shifting out
+        #100000; // Delay to make sure that the answer is held correctly on the cyphertext before shifting out
         delay = 0;
       end else if (done && i < 384) begin
         #1; sck = 1; 

@@ -1,0 +1,317 @@
+# 0 compiles, 4 failed with no errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_spi
+# vsim -gui work.testbench_aes_spi 
+# Start time: 14:46:11 on Nov 05,2024
+# //  ModelSim DE-64 2022.3 Jul 18 2022
+# //
+# //  Copyright 1991-2022 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim DE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# ** Error: (vsim-3033) Instantiation of 'LSOSC' failed. The design unit was not found.
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_spi/dut File: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 16
+#         Searched libraries:
+#             C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/work
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Error loading design
+# End time: 14:46:22 on Nov 05,2024, Elapsed time: 0:00:11
+# Errors: 1, Warnings: 7
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_spi
+# vsim -gui work.testbench_aes_spi 
+# Start time: 14:46:45 on Nov 05,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# ** Error: (vsim-3033) Instantiation of 'LSOSC' failed. The design unit was not found.
+#    Time: 0 ns  Iteration: 0  Instance: /testbench_aes_spi/dut File: C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_starter.sv Line: 16
+#         Searched libraries:
+#             C:/Users/jbowman/Desktop/microP-lab7/FPGA/sim/work
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Error loading design
+# End time: 14:46:49 on Nov 05,2024, Elapsed time: 0:00:04
+# Errors: 1, Warnings: 2
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_aes_spi
+# vsim -gui work.testbench_aes_spi 
+# Start time: 14:47:24 on Nov 05,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_spi/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlftjsvv90".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftjsvv90
+run 1000000
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46750 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+add wave -position end sim:/testbench_aes_spi/dut/core/*
+add wave -position end sim:/testbench_aes_spi/dut/core/CTR1/*
+restart -f
+# Closing VCD file "testbench_aes_spi.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run 100000
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46750 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 2 errors.
+# 4 compiles, 1 failed with 2 errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv failed with 1 errors.
+# 4 compiles, 1 failed with 1 error.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "testbench_aes_spi.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+run 100000
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+restart =f
+# Warning: Invalid arguments '=f' to restart ignored.
+# Closing VCD file "testbench_aes_spi.vcd"
+run 10000000
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+quit -sim
+# End time: 14:55:50 on Nov 05,2024, Elapsed time: 0:08:26
+# Errors: 0, Warnings: 1
+vsim -gui work.testbench_aes_core
+# vsim -gui work.testbench_aes_core 
+# Start time: 14:55:58 on Nov 05,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_core
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_core/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft808dc1".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft808dc1
+run
+# Testbench ran successfully
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv(48)
+#    Time: 7550 ns  Iteration: 1  Instance: /testbench_aes_core
+# Break in Module testbench_aes_core at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_core_tb.sv line 48
+quit -sim
+# End time: 15:57:48 on Nov 05,2024, Elapsed time: 1:01:50
+# Errors: 0, Warnings: 3
+vsim -gui work.testbench_aes_spi
+# vsim -gui work.testbench_aes_spi 
+# Start time: 15:57:54 on Nov 05,2024
+# Loading sv_std.std
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+add wave -position end sim:/testbench_aes_spi/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jbowman  Hostname: 5CJZ0R3  ProcessID: 16812
+#           Attempting to use alternate WLF file "./wlft069vcm".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft069vcm
+run 100000
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+add wave -position insertpoint  \
+sim:/testbench_aes_spi/clk \
+sim:/testbench_aes_spi/load \
+sim:/testbench_aes_spi/done \
+sim:/testbench_aes_spi/sck \
+sim:/testbench_aes_spi/sdi \
+sim:/testbench_aes_spi/sdo \
+sim:/testbench_aes_spi/key \
+sim:/testbench_aes_spi/plaintext \
+sim:/testbench_aes_spi/cyphertext \
+sim:/testbench_aes_spi/expected \
+sim:/testbench_aes_spi/comb \
+sim:/testbench_aes_spi/i \
+sim:/testbench_aes_spi/delay
+restart -f; run 100000
+# Closing VCD file "testbench_aes_spi.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+add wave -position end sim:/testbench_aes_spi/dut/core/*
+restart -f; run 100000
+# Closing VCD file "testbench_aes_spi.vcd"
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+add wave -position insertpoint  \
+sim:/testbench_aes_spi/dut/spi/sck \
+sim:/testbench_aes_spi/dut/spi/sdi \
+sim:/testbench_aes_spi/dut/spi/sdo \
+sim:/testbench_aes_spi/dut/spi/done \
+sim:/testbench_aes_spi/dut/spi/key \
+sim:/testbench_aes_spi/dut/spi/plaintext \
+sim:/testbench_aes_spi/dut/spi/cyphertext \
+sim:/testbench_aes_spi/dut/spi/sdodelayed \
+sim:/testbench_aes_spi/dut/spi/wasdone \
+sim:/testbench_aes_spi/dut/spi/cyphertextcaptured
+restart -f; run 100000
+# Closing VCD file "testbench_aes_spi.vcd"
+# Error: cyphertext = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX, expected 3925841d02dc09fbdc118597196a0b32
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+# Compile of aes_core_tb.sv was successful.
+# Compile of aes_sbox_tb.sv was successful.
+# Compile of aes_spi_tb.sv was successful.
+# Compile of aes_starter.sv was successful.
+# 4 compiles, 0 failed with no errors.
+restart -f; run 100000
+# Closing VCD file "testbench_aes_spi.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_aes_spi
+# Loading work.aes
+# Loading work.aes_spi
+# Loading work.aes_core
+# Loading work.controller
+# Loading work.rot_word
+# Loading work.sub_word
+# Loading work.sbox_sync
+# Loading work.rcon
+# Loading work.fill_round_key
+# Loading work.add_round_key
+# Loading work.sub_cyph
+# Loading work.shift_rows
+# Loading work.mix_cols
+# Loading work.mixcolumn
+# Loading work.galoismult
+# Testbench ran successfully
+# ** Note: $stop    : C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv(75)
+#    Time: 46850 ns  Iteration: 1  Instance: /testbench_aes_spi
+# Break in Module testbench_aes_spi at C:/Users/jbowman/Desktop/microP-lab7/FPGA/radiant_proj/lab7_jb/radiant_lab7_jb/aes_spi_tb.sv line 75
+# End time: 16:35:17 on Nov 05,2024, Elapsed time: 0:37:23
+# Errors: 0, Warnings: 1

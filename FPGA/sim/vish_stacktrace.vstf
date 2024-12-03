@@ -1,0 +1,69 @@
+# Current time Sat Nov 02 21:09:16 2024
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 7921d1b9. Traceback:
+# 0    0x7921d1b9: 'TkpTesttextCmd + 0xa559'
+# 1    0x7921d753: 'TkpTesttextCmd + 0xaaf3'
+# 2    0x79220beb: 'TkBTreeNumLines + 0xd4b'
+# 3    0x79217bc6: 'TkpTesttextCmd + 0x4f66'
+# 4    0x7921b18e: 'TkpTesttextCmd + 0x852e'
+# 5    0x794239f1: 'TclNREvalObjv + 0x3e1'
+StackWalk failed 299
+# End of Stack Trace
+
+# Current time Sat Nov 02 21:09:16 2024
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 7949e4ec. Traceback:
+# 0    0x7949e4ec: 'Tcl_Read + 0xc'
+# 1    0x794a08ea: 'Tcl_NotifyChannel + 0x13a'
+# 2    0x795146d4: 'Tcl_OpenTcpServer + 0xba4'
+# 3    0x794bacb5: 'Tcl_ServiceEvent + 0xc5'
+# 4    0x794bb072: 'Tcl_DoOneEvent + 0x162'
+StackWalk failed 0
+# End of Stack Trace
+
+# Current time Sat Nov 02 21:09:16 2024
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 7949e4ec. Traceback:
+# 0    0x7949e4ec: 'Tcl_Read + 0xc'
+# 1    0x794a08ea: 'Tcl_NotifyChannel + 0x13a'
+# 2    0x795146d4: 'Tcl_OpenTcpServer + 0xba4'
+# 3    0x794bacb5: 'Tcl_ServiceEvent + 0xc5'
+# 4    0x794bb072: 'Tcl_DoOneEvent + 0x162'
+StackWalk failed 0
+# End of Stack Trace
+
+# Current time Sat Nov 02 21:09:16 2024
+# ModelSim - Intel FPGA Edition Stack Trace
+# Program = vish
+# Id = "2020.1"
+# Version = "2020.02"
+# Date = "Feb 28 2020"
+# Platform = win32pe
+
+Exception c0000005 has occurred at address 7949e4ec. Traceback:
+# 0    0x7949e4ec: 'Tcl_Read + 0xc'
+# 1    0x794a08ea: 'Tcl_NotifyChannel + 0x13a'
+# 2    0x795146d4: 'Tcl_OpenTcpServer + 0xba4'
+# 3    0x794bacb5: 'Tcl_ServiceEvent + 0xc5'
+# 4    0x794bb072: 'Tcl_DoOneEvent + 0x162'
+StackWalk failed 0
+# End of Stack Trace
+

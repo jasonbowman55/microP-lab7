@@ -1,0 +1,5 @@
+ldc_set_location -site {26} [get_ports load]
+ldc_set_location -site {27} [get_ports done]
+ldc_set_location -site {21} [get_ports sck]
+ldc_set_location -site {12} [get_ports sdo]
+ldc_set_location -site {10} [get_ports sdi]
